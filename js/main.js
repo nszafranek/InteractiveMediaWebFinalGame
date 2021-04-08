@@ -19,16 +19,16 @@ function setup() {
 }
 function preload() {
  swimmingAnimation = loadAnimation(
-   '/img/mermove1.png',
-   '/img/mermove2.png',
+   'img/mermove1.png',
+   'img/mermove2.png',
  );
  blockAnimation = loadAnimation(
-   '/img/merblock1.png',
-   '/img/merblock2.png',
+   'img/merblock1.png',
+   'img/merblock2.png',
  )
  attackAnimation - loadAnimation(
-   '/img/merattack1.png',
-   '/img/merattack2.png',
+   'img/merattack1.png',
+   'img/merattack2.png',
  )
 }
 
