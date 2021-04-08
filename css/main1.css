@@ -1,0 +1,194 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: black;
+  color: white
+}
+
+#wrapper{
+    position: relative;
+    width: 00px;
+    height: 2000px;
+}
+//background
+.background {
+  height: 900px;
+  width: 1800px;
+  background-image: url('../img/background.svg');
+  background-position: 0%;
+  position: absolute;
+  background-repeat: repeat-x;
+  background-size:cover;
+  animation: slideBG 5s linear infinite;
+  -moz-animation: slideBG 2s linear infinite;
+  -webkit-animation: slideBG 2s linear infinite;
+  -ms-animation: slideBG 2s linear infinite;
+  -o-animation: slideBG 2s linear infinite;
+  padding: 1%;
+  border-radius: 10px;
+}
+
+//moving background based on http://jsfiddle.net/verber/6rAGT/5/
+@keyframes slideBG {
+  0% {background-position: 0 0;}
+  100% {background-position: -300px 0;}
+  }
+}
+@-moz-keyframes slideBG {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+}
+@-webkit-keyframes slideBG {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+}
+@-ms-keyframes slideBG {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+}
+@-o-keyframes slideBG {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+}
+
+.content {
+  position: relative;
+}
+
+//player
+.hero {
+  width: 250px;
+  height: 90px;
+  margin-top: -25px;
+  margin-left: 1%;
+  background-repeat: no-repeat;
+  animation-name: heroSWIM, heroSPRITE;
+  animation-duration: 5s, 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1, infinite;
+}
+
+// character animation
+
+@keyframes heroSWIM {
+  to { left: auto; }
+}
+
+@-moz-keyframes heroSWIM {
+  to { left: auto; }
+}
+
+@-webkit-keyframes heroSWIM {
+  to { left: auto; }
+}
+
+@-ms-keyframes heroSWIM {
+  to { left: auto; }
+}
+
+@-o-keyframes heroSWIM {
+  to { left: auto; }
+}
+
+@keyframes heroSPRITE {
+  from { background-image: url('../img/mermove1.svg');}
+  to { background-image: url('../img/mermove2.svg');}
+}
+
+@-moz-keyframes heroSPRITE {
+  from { background-image: url('../img/mermove1.svg');}
+  to { background-image: url('../img/mermove2.svg');}
+}
+
+@-webkit-keyframes heroSPRITE {
+  from { background-image: url('../img/mermove1.svg');}
+  to { background-image: url('../img/mermove2.svg');}
+}
+
+@-ms-keyframes
+heroSPRITE {
+  from { background-image: url('../img/mermove1.svg');}
+  to { background-image: url('../img/mermove2.svg');}
+}
+
+@-o-keyframes heroSPRITE {
+  from { background-image: url('../img/mermove1.svg');}
+  to { background-image: url('../img/mermove2.svg');}
+}
+
+.shark {
+  width: 300px;
+  height: 100px;
+  margin-top: -50px;
+  left: 100%;
+  top: 0;
+  background-image: url('../img/sharkagro.svg');
+  background-repeat: no-repeat;
+}
+
+#enemies {
+
+}
+#object {
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  position: fixed;
+  margin-top: -50px;
+  left: 100%;
+  top: 0;
+}
+
+.hpFull {
+  width: 200px;
+  height: 50px;
+  margin-top: 2%;
+  margin-right: 2%;
+  position: absolute;
+  background-repeat: no-repeat;
+  top: 0px;
+  right: 0px;
+  background-image: url('../img/4health.svg');
+}
+.hp1 {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  margin-top: 2%;
+  margin-right: .4%;
+  background-repeat: no-repeat;
+  top: 0px;
+  right: 0px;
+  background-image: url('../img/1health.svg');
+}
+.hp2 {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  margin-top: 2%;
+  margin-right: .4%;
+  background-repeat: no-repeat;
+  top: 0px;
+  right: 0px
+  background-image: url('../img/2health.svg');
+}
+.hp3 {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  background-repeat: no-repeat;
+  top: 0px;
+  right: 0px;
+  background-image: url('../img/3health.svg');
+}
+.scoreOutput {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  margin-top: 2%;
+  margin-left: 2%;
+  padding: 2%;
+}
