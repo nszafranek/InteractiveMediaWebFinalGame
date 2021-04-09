@@ -43,8 +43,7 @@ setInterval(function () {
 
 function scoreSeconds() {
   //1 pt per second
-  score += 1,
-  scoreOutput.innertext = "SCORE :" + (score)
+  score += 1
 }
 
 function hpLoss() {
