@@ -4,7 +4,6 @@ let blockAnimation;
 let attackAnimation;
 let gameBackground;
 let gameFont;
-let hpBar;
 let coin;
 let shark;
 let heart;
@@ -21,25 +20,43 @@ let gemInterval = 300;
 let nextCoin = 200;
 let coinMinWait = 200;
 let coinInterval = 200;
+let gemCount = 0;
+let coinCount = 0;
 let hero;
 let sharkGroup;
 let gemGroup;
 let coinGroup;
 let heartGroup;
+let x1 = 0;
+let x2;
+let scrollSpeed = 2;
+let hpBar;
+let hpBarFull;
+let hpBar3;
+let hpBar2;
+let hpBar1;
 
 function setup() {
   createCanvas(1750, 900);
   background(200, 200, 200);
+  x2 = width;
   sharkGroup = new Group;
   gemGroup = new Group;
   coinGroup = new Group;
   heartGroup = new Group;
-  hero = createSprite(0, height/2, 280, 93);
+  bgTiles = new Group;
+  currentBGPos = new Group;
+  hero = createSprite(140, height/2, 280, 93);
   hero.depth = 4;
   hero.setDefaultCollider();
   hero.addAnimation('swim', swimmingAnimation);
   hero.addAnimation('attack', attackAnimation);
   hero.addAnimation('block', blockAnimation);
+  hpBar = createSprite((width - 200), (height - 638), 638, 158);
+  hpBar.addAnimation('full', hpbarFull);
+  hpBar.addAnimation('3health', hpBar3);
+  hpBar.addAnimation('2health', hpBar2);
+  hpBar.addAnimation('1health', hpBar1);
 }
 
 function preload() {
@@ -60,11 +77,16 @@ function preload() {
  coinIcon = loadImage('https://nszafranek.github.io/project/img/coin.png')
  heartIcon = loadImage('https://nszafranek.github.io/project/img/heart.png')
  gemIcon = loadImage('https://nszafranek.github.io/project/img/gem.png')
+ hpbarFull = loadAnimation('https://nszafranek.github.io/project/img/4health.png')
+ hpbar3 = loadAnimation('https://nszafranek.github.io/project/img/3health.png')
+ hpbar2 = loadAnimation('https://nszafranek.github.io/project/img/2health.png')
+ hpbar1 = loadAnimation('https://nszafranek.github.io/project/img/1health.png')
 }
 
 function draw() {
   if (!gameOver) {
     background(200);
+    bgTiling();
     hero.collide(sharkGroup, hpLoss);
     hero.collide(gemGroup, gemGet);
     hero.collide(coinGroup, coinGet);
@@ -78,6 +100,21 @@ function draw() {
   }
 }
 
+// scrolling background from https://editor.p5js.org/chjno/sketches/ByZlypKWM
+function bgTiling() {
+  image(gameBackground, x1, 0, width, height);
+  image(gameBackground, x2, 0, width, height);
+  x1 -= scrollSpeed;
+  x2 -= scrollSpeed;
+  if (x1 < -width){
+    x1 = (width - 2);
+  }
+  if (x2 < -width){
+   x2 = (width - 2);
+  }
+}
+
+//seconds added to score
 function scoreSeconds() {
   //1 pt per second
   score += 1
@@ -88,21 +125,15 @@ function hpLoss() {
     hitPoints = hitPoints - 1;
     // If the Hero was at full health
     if (hitPoints == 3) {
-      let hpChange = document.getElementById('hp');
-      element.classList.remove("hpFull");
-      element.classList.add("hp3")
+
     }
     //If hero had 3 health
     else if (hitPoints == 2) {
-      let hpChange = document.getElementById('hp');
-      element.classList.remove("hp3");
-      element.classList.add("hp2")
+
     }
     //If hero had 2 health
     else if (hitPoints == 1) {
-      let hpChange = document.getElementById('hp');
-      element.classList.remove("hp2");
-      element.classList.add("hp1")
+
     }
     //If hero had one health
     else {
@@ -134,10 +165,10 @@ function timing() {
 
 function heroMove() {
   if (keyWentDown(UP_ARROW)) {
-    hero.velocity.y = -0.5;
+    hero.velocity.y = -1;
   }
   else if (keyWentDown(DOWN_ARROW)) {
-    hero.velocity.y = 0.5;
+    hero.velocity.y = 1;
   }
 }
 
@@ -175,7 +206,7 @@ function createNewGem() {
 function removeOldGem() {
   //despawn gem that has left the canvas
  for(var i = 0; i<gemGroup; i++){
-   if ((gemGroup[i].position.x) < hero.position.x-width) {
+   if ((gemGroup[i].position.x) < 0) {
      gemGroup[i].remove();
    }
  }
@@ -195,7 +226,7 @@ function createNewCoin() {
 function removeOldCoin() {
   //despawn coin that has left the canvas
  for(var i = 0; i<coinGroup; i++){
-   if ((coinGroup[i].position.x) < hero.position.x-width) {
+   if ((coinGroup[i].position.x) < 0) {
      coinGroup[i].remove();
    }
  }
@@ -215,7 +246,7 @@ function createNewHeart() {
 function removeOldHeart() {
   //despawn heart that has left the canvas
  for(var i = 0; i<heartGroup; i++){
-   if ((heartGroup[i].position.x) < hero.position.x-width) {
+   if ((heartGroup[i].position.x) < 0) {
      heartGroup[i].remove();
    }
  }
