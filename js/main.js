@@ -46,13 +46,13 @@ function setup() {
   heartGroup = new Group;
   bgTiles = new Group;
   currentBGPos = new Group;
-  hero = createSprite(140, height/2, 280, 93);
+  hero = createSprite(150, height/2, 280, 93);
   hero.depth = 4;
   hero.setDefaultCollider();
   hero.addAnimation('swim', swimmingAnimation);
   hero.addAnimation('attack', attackAnimation);
   hero.addAnimation('block', blockAnimation);
-  hpBar = createSprite((width - 200), (height - 638), 638, 158);
+  hpBar = createSprite((width - 150), (height - 850), 638, 158);
   hpBar.addAnimation('full', hpbarFull);
   hpBar.addAnimation('3health', hpBar3);
   hpBar.addAnimation('2health', hpBar2);
@@ -87,10 +87,10 @@ function draw() {
   if (!gameOver) {
     background(200);
     bgTiling();
+    hero.overlap(gemGroup, gemGet);
+    hero.overlap(coinGroup, coinGet);
+    hero.overlap(heartGroup, heartGet);
     hero.collide(sharkGroup, hpLoss);
-    hero.collide(gemGroup, gemGet);
-    hero.collide(coinGroup, coinGet);
-    hero.collide(heartGroup, heartGet);
     heroMove();
     timing();
     drawSprites();
@@ -125,15 +125,15 @@ function hpLoss() {
     hitPoints = hitPoints - 1;
     // If the Hero was at full health
     if (hitPoints == 3) {
-
+      hpBar.changeAnimation("3health")
     }
     //If hero had 3 health
     else if (hitPoints == 2) {
-
+      hpBar.changeAnimation("2health")
     }
     //If hero had 2 health
     else if (hitPoints == 1) {
-
+      hpBar.changeAnimation("1health")
     }
     //If hero had one health
     else {
@@ -170,6 +170,12 @@ function heroMove() {
   else if (keyWentDown(DOWN_ARROW)) {
     hero.velocity.y = 1;
   }
+  else if (keyWentDown(LEFT_ARROW)) {
+    hero.velocity.x = -1;
+  }
+  else if (keyWentDown(RIGHT_ARROW)) {
+    hero.velocity.x = 1;
+  }
 }
 
 function createNewShark() {
@@ -185,7 +191,7 @@ function createNewShark() {
 
 function removeOldShark() {
     //despawn shark that has left the canvas
- for(var i = 0; i<sharkGroup; i++){
+ for(let i = 0; i<sharkGroup; i++){
    if ((sharkGroup[i].position.x) < hero.position.x-width) {
      sharkGroup[i].remove();
    }
@@ -205,7 +211,7 @@ function createNewGem() {
 
 function removeOldGem() {
   //despawn gem that has left the canvas
- for(var i = 0; i<gemGroup; i++){
+ for(let i = 0; i<gemGroup; i++){
    if ((gemGroup[i].position.x) < 0) {
      gemGroup[i].remove();
    }
@@ -225,7 +231,7 @@ function createNewCoin() {
 
 function removeOldCoin() {
   //despawn coin that has left the canvas
- for(var i = 0; i<coinGroup; i++){
+ for(let i = 0; i<coinGroup; i++){
    if ((coinGroup[i].position.x) < 0) {
      coinGroup[i].remove();
    }
@@ -245,7 +251,7 @@ function createNewHeart() {
 
 function removeOldHeart() {
   //despawn heart that has left the canvas
- for(var i = 0; i<heartGroup; i++){
+ for(let i = 0; i<heartGroup; i++){
    if ((heartGroup[i].position.x) < 0) {
      heartGroup[i].remove();
    }
@@ -258,6 +264,7 @@ function gemGet() {
   score = score + 50;
   //add 1 gem to count
   gemCount = gemCount + 1;
+  gemGroup.remove();
 }
 
 function coinGet() {
@@ -266,6 +273,7 @@ function coinGet() {
   score = score + 10;
   //add 1 coin to count
   coinCount = coinCount + 1;
+  coinGroup.remove();
 }
 
 
@@ -273,6 +281,7 @@ function heartGet() {
   //Heart procured
   //Gain HP
   lifeGain();
+  heartGroup.remove();
 }
 
 function lifeGain() {
@@ -282,13 +291,13 @@ function lifeGain() {
   else if (hitPoints <= 3) {
     hitPoints += 1
     if (hitPoints == 4) {
-
+      hpBar.changeAnimation("full")
     }
     else if (hitPoints == 3) {
-
+      hpBar.changeAnimation("3health")
     }
     else if (hitPoints == 2) {
-
+      hpBar.changeAnimation("2health")
     }
   }
 
