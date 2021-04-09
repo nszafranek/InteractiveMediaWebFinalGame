@@ -35,6 +35,7 @@ let hpBarFull;
 let hpBar3;
 let hpBar2;
 let hpBar1;
+let fameFont;
 
 function setup() {
   createCanvas(1750, 900);
@@ -73,14 +74,15 @@ function preload() {
    'https://nszafranek.github.io/project/img/merattack2.png',
  );
  gameBackground = loadImage('https://nszafranek.github.io/project/img/background.png');
- sharkSprite = loadImage('https://nszafranek.github.io/project/img/sharkreg.png')
- coinIcon = loadImage('https://nszafranek.github.io/project/img/coin.png')
- heartIcon = loadImage('https://nszafranek.github.io/project/img/heart.png')
- gemIcon = loadImage('https://nszafranek.github.io/project/img/gem.png')
- hpbarFull = loadAnimation('https://nszafranek.github.io/project/img/4health.png')
- hpbar3 = loadAnimation('https://nszafranek.github.io/project/img/3health.png')
- hpbar2 = loadAnimation('https://nszafranek.github.io/project/img/2health.png')
- hpbar1 = loadAnimation('https://nszafranek.github.io/project/img/1health.png')
+ sharkSprite = loadImage('https://nszafranek.github.io/project/img/sharkreg.png');
+ coinIcon = loadImage('https://nszafranek.github.io/project/img/coin.png');
+ heartIcon = loadImage('https://nszafranek.github.io/project/img/heart.png');
+ gemIcon = loadImage('https://nszafranek.github.io/project/img/gem.png');
+ hpbarFull = loadAnimation('https://nszafranek.github.io/project/img/4health.png');
+ hpbar3 = loadAnimation('https://nszafranek.github.io/project/img/3health.png');
+ hpbar2 = loadAnimation('https://nszafranek.github.io/project/img/2health.png');
+ hpbar1 = loadAnimation('https://nszafranek.github.io/project/img/1health.png');
+ gameFont = loadFont('/img/SourceSansPro-Bold.ttf');
 }
 
 function draw() {
@@ -96,7 +98,8 @@ function draw() {
     drawSprites();
   }
   if(gameOver) {
-
+    gameOverText();
+    updateSprites(false);
   }
 }
 
@@ -301,4 +304,18 @@ function lifeGain() {
     }
   }
 
+}
+
+function gameOverText() {
+  background(0,0,0,10);
+  fill('white');
+  stroke('black')
+  textAlign(CENTER);
+  textFont(gameFont);
+  strokeWeight(2);
+  textSize(90);
+  strokeWeight(10);
+  text("GAME OVER", camera.position.x, camera.position.y);
+  textSize(15);
+  text("press any key to try again",camera.position.x,camera.position.y+100);
 }
