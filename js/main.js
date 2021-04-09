@@ -82,17 +82,37 @@ function preload() {
  hpbar3 = loadAnimation('https://nszafranek.github.io/project/img/3health.png');
  hpbar2 = loadAnimation('https://nszafranek.github.io/project/img/2health.png');
  hpbar1 = loadAnimation('https://nszafranek.github.io/project/img/1health.png');
- gameFont = loadFont('/img/SourceSansPro-Bold.ttf');
+ gameFont = loadFont('https://nszafranek.github.io/project/img/SourceSansPro-Bold.ttf');
 }
 
 function draw() {
   if (!gameOver) {
     background(200);
     bgTiling();
-    hero.overlap(gemGroup, gemGet);
-    hero.overlap(coinGroup, coinGet);
-    hero.overlap(heartGroup, heartGet);
-    hero.collide(sharkGroup, hpLoss);
+
+    if (gemGroup.overlap(hero)) {
+      gemGet();
+    }
+    else {
+    }
+    if (coinGroup.overlap(hero)) {
+      coinGet();
+    }
+    else {
+    }
+
+    if (heartGroup.overlap(hero)) {
+      heartGet();
+    }
+    else {
+
+    }
+    if (sharkGroup.overlap(hero)) {
+      hpLoss();
+    }
+    else {
+
+    }
     heroMove();
     timing();
     drawSprites();
