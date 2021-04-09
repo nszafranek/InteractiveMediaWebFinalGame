@@ -1,7 +1,7 @@
 let time = 0;
-let swimmingAnimation;
-let blockAnimation;
-let attackAnimation;
+let swimming;
+let blocking;
+let attacking;
 let gameBackground;
 let gameFont;
 let coin;
@@ -17,6 +17,9 @@ let sharkInterval = 500;
 let nextGem = 300;
 let gemMinWait = 200;
 let gemInterval = 300;
+let nextHeart;
+let heartMinWait = 900;
+let heartInterval = 900;
 let nextCoin = 200;
 let coinMinWait = 200;
 let coinInterval = 200;
@@ -50,9 +53,9 @@ function setup() {
   hero = createSprite(150, height/2, 280, 93);
   hero.depth = 4;
   hero.setDefaultCollider();
-  hero.addAnimation('swim', swimmingAnimation);
-  hero.addAnimation('attack', attackAnimation);
-  hero.addAnimation('block', blockAnimation);
+  hero.addAnimation('swim', swimming);
+  hero.addAnimation('attack', attacking);
+  hero.addAnimation('block', blocking);
   hpBar = createSprite((width - 150), (height - 850), 638, 158);
   hpBar.addAnimation('full', hpbarFull);
   hpBar.addAnimation('3health', hpBar3);
@@ -61,18 +64,18 @@ function setup() {
 }
 
 function preload() {
- swimmingAnimation = loadAnimation(
-   'https://nszafranek.github.io/project/img/mermove1.png',
-   'https://nszafranek.github.io/project/img/mermove2.png',
- );
- blockAnimation = loadAnimation(
-   'https://nszafranek.github.io/project/img/merblock1.png',
-   'https://nszafranek.github.io/project/img/merblock2.png',
- );
- attackAnimation - loadAnimation(
-   'https://nszafranek.github.io/project/img/merblock1.png',
-   'https://nszafranek.github.io/project/img/merattack2.png',
- );
+  swimming = loadAnimation(
+    'https://nszafranek.github.io/project/img/mermove1.png',
+    'https://nszafranek.github.io/project/img/mermove2.png',
+  );
+  blocking = loadAnimation(
+    'https://nszafranek.github.io/project/img/merblock1.png',
+    'https://nszafranek.github.io/project/img/merblock2.png',
+  );
+  attacking - loadAnimation(
+    'https://nszafranek.github.io/project/img/merblock1.png',
+    'https://nszafranek.github.io/project/img/merattack2.png',
+  );
  gameBackground = loadImage('https://nszafranek.github.io/project/img/background.png');
  sharkSprite = loadImage('https://nszafranek.github.io/project/img/sharkreg.png');
  coinIcon = loadImage('https://nszafranek.github.io/project/img/coin.png');
@@ -89,29 +92,25 @@ function draw() {
   if (!gameOver) {
     background(200);
     bgTiling();
-
-    if (gemGroup.overlap(hero)) {
+    if (gemGroup.bounce(hero)) {
       gemGet();
     }
     else {
     }
-    if (coinGroup.overlap(hero)) {
+    if (coinGroup.bounce(hero)) {
       coinGet();
     }
     else {
     }
-
-    if (heartGroup.overlap(hero)) {
+    if (heartGroup.bounce(hero)) {
       heartGet();
     }
     else {
-
     }
-    if (sharkGroup.overlap(hero)) {
+    if (sharkGroup.bounce(hero)) {
       hpLoss();
     }
     else {
-
     }
     heroMove();
     timing();
@@ -143,27 +142,6 @@ function scoreSeconds() {
   score += 1
 }
 
-function hpLoss() {
-    //lose 1 hp per hit
-    hitPoints = hitPoints - 1;
-    // If the Hero was at full health
-    if (hitPoints == 3) {
-      hpBar.changeAnimation("3health")
-    }
-    //If hero had 3 health
-    else if (hitPoints == 2) {
-      hpBar.changeAnimation("2health")
-    }
-    //If hero had 2 health
-    else if (hitPoints == 1) {
-      hpBar.changeAnimation("1health")
-    }
-    //If hero had one health
-    else {
-      gameOver = true;
-    }
-}
-
 function timing() {
   //Counter for item spawn
   //When next Shark will spawn
@@ -180,6 +158,11 @@ function timing() {
   if (time == nextCoin) {
     createNewCoin();
     nextGem = Math.ceil(Math.random() * coinInterval + coinMinWait) + nextCoin;
+  }
+
+  if (time == nextHeart) {
+    createNewHeart();
+    nextHeart = Math.ceil(Math.random() * heartInterval + heartMinWait) + nextGem;
   }
 
   time++;
@@ -326,6 +309,30 @@ function lifeGain() {
 
 }
 
+function hpLoss() {
+    //lose 1 hp per hit
+    hitPoints = hitPoints - 1;
+    // If the Hero was at full health
+    if (hitPoints == 3) {
+      hpBar.changeAnimation("3health")
+      sharkGroup.remove();
+    }
+    //If hero had 3 health
+    else if (hitPoints == 2) {
+      hpBar.changeAnimation("2health")
+      sharkGroup.remove();
+    }
+    //If hero had 2 health
+    else if (hitPoints == 1) {
+      hpBar.changeAnimation("1health")
+      sharkGroup.remove();
+    }
+    //If hero had one health
+   else if (hitPoints == 0) {
+     gameOver = true;
+    }
+}
+
 function gameOverText() {
   background(0,0,0,10);
   fill('white');
@@ -335,7 +342,7 @@ function gameOverText() {
   strokeWeight(2);
   textSize(90);
   strokeWeight(10);
-  text("GAME OVER", camera.position.x, camera.position.y);
+  text("GAME OVER");
   textSize(15);
-  text("press any key to try again",camera.position.x,camera.position.y+100);
+  text("press any key to try again");
 }
