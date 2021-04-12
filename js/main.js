@@ -115,6 +115,7 @@ function draw() {
     collisionChecks();
     containHero();
     gameEnd();
+    lifeBar();
     drawSprites();
     /*if (!hpBar4) {
       console.log('hp bar 4 not loaded');
