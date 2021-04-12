@@ -54,10 +54,10 @@ let penCoin;
 let currentHeart;
 let lastHeart;
 let penHeart;
-let pg;
+let currentBar = 4;
 
 function setup() {
-  createCanvas(1500, 700);
+  createCanvas(1200, 520);
   background(200, 200, 200);
   x2 = width;
   scoreOutput();
@@ -73,11 +73,6 @@ function setup() {
   hero.addAnimation('swim', swimming);
   hero.addAnimation('attack', attacking);
   hero.addAnimation('block', blocking);
-  hpBar = createSprite((width - 150), (height - 650), 638, 158);
-  hpBar.addAnimation('full', hpbarFull);
-  hpBar.addAnimation('3health', hpBar3);
-  hpBar.addAnimation('2health', hpBar2);
-  hpBar.addAnimation('1health', hpBar1);
 }
 
 function preload() {
@@ -98,10 +93,10 @@ function preload() {
  coinIcon = loadAnimation('https://nszafranek.github.io/project/img/coin.png');
  heartIcon = loadAnimation('https://nszafranek.github.io/project/img/heart.png');
  gemIcon = loadAnimation('https://nszafranek.github.io/project/img/gem.png');
- hpbarFull = loadAnimation('https://nszafranek.github.io/project/img/4health.png');
- hpbar3 = loadAnimation('https://nszafranek.github.io/project/img/3health.png');
- hpbar2 = loadAnimation('https://nszafranek.github.io/project/img/2health.png');
- hpbar1 = loadAnimation('https://nszafranek.github.io/project/img/1health.png');
+ hpbarFull = loadImage('https://nszafranek.github.io/project/img/4health.png');
+ hpbar3 = loadImage('https://nszafranek.github.io/project/img/3health.png');
+ hpbar2 = loadImage('https://nszafranek.github.io/project/img/2health.png');
+ hpbar1 = loadImage('https://nszafranek.github.io/project/img/1health.png');
  gameFont = loadFont('https://nszafranek.github.io/project/img/SourceSansPro-Bold.ttf');
 }
 
@@ -115,9 +110,11 @@ function draw() {
     hero.overlap(gemGroup);
     hero.overlap(coinGroup);
     hero.overlap(heartGroup);
-    scoreUpdate();
+    //scoreUpdate();
+    scoreOutput();
     collisionChecks();
     containHero();
+    lifeBar();
     gameEnd();
     drawSprites();
   }
@@ -144,18 +141,94 @@ function bgTiling() {
 //seconds added to score
 
 function scoreOutput() {
+  fill('white');
+  stroke('DodgerBlue')
+  textAlign(CENTER);
+  textFont(gameFont);
+  strokeWeight(1);
+  textSize(25);
+  strokeWeight(10);
+  text("Score: " + score, width - 1130, 40)
+}
+
+function lifeBar() {
+  if (hitPoints == 4) {
+    if (currentBar == 3) {
+      hpBar3.remove();
+      currentBar = 4;
+    }
+    else if (currentBar == 2) {
+      hpBar2.remove();
+      currentBar = 4;
+    }
+    else if (currentBar == 1) {
+      hpBar1.remove();
+      currentBar = 4;
+    }
+    hpBarFull = createSprite((width - 150), (height - 470), 255, 63);
+  }
+  else if (hitPoints == 3) {
+    if (currentBar == 4) {
+      hpBarFull.remove();
+      currentBar = 3;
+    }
+    else if (currentBar == 2) {
+      hpBar2.remove();
+      currentBar = 3;
+    }
+    else if (currentBar == 1) {
+      hpBar1.remove();
+      currentBar = 3;
+    }
+    hpBar3 = createSprite((width - 150), (height - 470), 255, 63);
+  }
+  else if (hitPoints == 2) {
+    if (currentBar == 4) {
+      hpBarFull.remove();
+      currentBar = 2;
+    }
+    else if (currentBar == 3) {
+      hpBar3.remove();
+      currentBar = 2;
+    }
+    else if (currentBar == 1) {
+      hpBar1.remove();
+      currentBar = 2;
+    }
+    hpBar2 = createSprite((width - 150), (height - 470), 255, 63);
+  }
+  else if (hitPoints == 1) {
+    if (currentBar == 4) {
+      hpBarFull.remove();
+      currentBar = 1;
+    }
+    else if (currentBar == 3) {
+      hpBar3.remove();
+      currentBar = 1;
+    }
+    if (currentBar == 2) {
+      hpBar2.remove();
+      currentBar = 1;
+    }
+    hpBar1 = createSprite((width - 150), (height - 470), 255, 63);
+  }
+
+}
+
+
+/*function scoreOutput() {
   //default score
   scoreElem = createDiv('SCORE = 0');
   scoreElem.position(20, 20);
   scoreElem.id = 'score';
   scoreElem.style('color', 'white');
   scoreUpdate();
-}
+}*/
 
-function scoreUpdate() {
+/*function scoreUpdate() {
   //update score
   scoreElem.html('SCORE : ' + score);
-}
+}*/
 
 function timing() {
   //Counter for item spawn
@@ -223,11 +296,10 @@ function containHero() {
 function createNewShark() {
   //Check if currentShark is defined. If so, define lastShark/PenShark and add 1 to currentShark
   if (lastShark) {
-    penShark = lastShark;
+    penShark = sharkGroup.length - 4;
   }
   if (currentShark) {
-    lastShark = currentShark;
-    currentShark++;
+    lastShark = sharkGroup.length - 3;
   }
   // spawn a new shark
   shark = createSprite(width, random(0, height), 280, 93);
@@ -238,9 +310,7 @@ function createNewShark() {
   shark.setDefaultCollider;
   sharkGroup.add(shark);
   //Define currentShark if undefined
-  if (!currentShark) {
-    currentShark = sharkGroup.length - 1;
-  }
+  currentShark = sharkGroup.length - 1;
   console.log('Shark' + currentShark);
 }
 
@@ -256,10 +326,10 @@ function removeOldShark() {
 function createNewGem() {
   //check if currentGem is defined. If so define lastGem/penGem and add 1 currentGem.
   if (lastGem) {
-    penGem = lastGem;
+    penGem = gemGroup.length - 4;
   }
   if (currentGem) {
-    lastGem = currentGem;
+    lastGem = gemGroup.length -3;
     currentGem++;
   }
   // spawn a new gem
@@ -271,10 +341,8 @@ function createNewGem() {
   gem.setDefaultCollider;
   gemGroup.add(gem);
   //if currentGem is still undefined define
-  if (!currentGem) {
-    currentGem = gemGroup.length - 1;
-  }
-    console.log('Gem' + currentGem);
+  currentGem = gemGroup.length - 1;
+  console.log('Gem' + currentGem);
 }
 
 function removeOldGem() {
@@ -289,11 +357,10 @@ function removeOldGem() {
 function createNewCoin() {
   //Check if  currentCoin is defined. If so define lastCoin/penCoin and add 1 to currentCoin
   if (lastCoin) {
-    penCoin = lastCoin;
+    penCoin = coinGroup.length - 4;
   }
   if (currentCoin) {
-    lastCoin = currentCoin;
-    currentCoin++;
+    lastCoin = coinGroup.length - 3;
   }
   // spawn a new coin
   coin = createSprite(width, random(0, height), 68, 69);
@@ -321,11 +388,10 @@ function removeOldCoin() {
 function createNewHeart() {
   //Check if currentHeart is defined. If so define lastHeart/penHeart
   if (lastHeart) {
-    penHeart = lastHeart;
+    penHeart = heartGroup.length - 4;
   }
   if (currentHeart) {
-    lastHeart = currentHeart;
-    currentHeart++;
+    lastHeart = heartGroup.length - 3;
   }
   //spawn new heart
   heart = createSprite(width, random(0, height), 40, 40);
@@ -335,9 +401,7 @@ function createNewHeart() {
   heart.depth = 1;
   heart.setDefaultCollider;
   heartGroup.add(heart);
-  if (!currentHeart) {
-    currentHeart = heartGroup.length - 1;
-  }
+  currentHeart = heartGroup.length - 1;
   //Define currentCoin, if still undefined
   console.log('Heart' + currentHeart);
 }
@@ -365,7 +429,7 @@ function gemGet() {
     gemGroup[penGem].remove();
   }
   //Update score
-  scoreUpdate();
+  //scoreUpdate();
 }
 
 function coinGet() {
@@ -383,7 +447,7 @@ function coinGet() {
     coinGroup[penCoin].remove();
   }
   //Update Score
-  scoreUpdate();
+  //scoreUpdate();
 }
 
 
@@ -404,39 +468,42 @@ function lifeGain() {
   if (hitPoints == 4) {
   }
   else {
-    if (hitPoints == 3) {
+    //if (hitPoints == 3) {
       hitPoints += 1;
-      hpBar.changeAnimation('full');
+    /*hpBar.changeAnimation('full');
     }
-    else if (hitPoints == 2) {
+    //else if (hitPoints == 2) {
       hitPoints += 1;
-      hpBar.changeAnimation('3health');
+      //hpBar.changeAnimation('3health');
     }
     else if (hitPoints == 1) {
       hitPoints += 1;
-      hpBar.changeAnimation('2health');
-    }
+      //hpBar.changeAnimation('2health');
+    }*/
   }
 }
 
 function hpLoss() {
-    //lose 1 hp per hit
-    hitPoints -= 1;
-    // If the Hero was at full health
-    if (hitPoints == 3) {
-      hpBar.changeAnimation('3health');
-    }
-    //If hero had 3 health
-    else if (hitPoints == 2) {
-      hpBar.changeAnimation('2health');
-    }
-    //If hero had 2 health
-    else if (hitPoints == 1) {
+  //lose 1 hp per hit
+  hitPoints -= 1;
+  /*If the Hero was at full health
+  if (hitPoints == 3) {
+    hpBar.changeAnimation('3health');
+  }
+  //If hero had 3 health
+  else if (hitPoints == 2) {
+    hpBar.changeAnimation('2health');
+  }
+  //If hero had 2 health
+  else if (hitPoints == 1) {
       hpBar.changeAnimation('1health');
-    }
-    //If hero had one health
-   else if (hitPoints == 0) {
-     gameOver = true;
+  }
+  //If hero had one health
+  else if (hitPoints == 0) {
+   gameOver = true;
+  }*/
+  if (hitPoints == 0) {
+    gameOver = true;
   }
   //despawn sprites
   sharkGroup[currentShark].remove();
