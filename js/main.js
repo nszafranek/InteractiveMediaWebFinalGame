@@ -93,10 +93,10 @@ function preload() {
  coinIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/coin.png');
  heartIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/heart.png');
  gemIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/gem.png');
- hpBar4 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health4.png');
- hpBar3 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health3.png');
- hpBar2 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health2.png');
- hpBar1 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health1.png');
+ //hpBar4 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health4.png');
+ //hpBar3 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health3.png');
+ //hpBar2 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health2.png');
+ //hpBar1 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health1.png');
  gameFont = loadFont('https://raw.githubusercontent.com/nszafranek/project/main/img/SourceSansPro-Bold.ttf');
 }
 
