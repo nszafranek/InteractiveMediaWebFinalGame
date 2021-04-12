@@ -163,7 +163,7 @@ function scoreOutput() {
   text("Score: " + score, width - 1130, 40)
 }
 
-function lifeBar() {
+/*function lifeBar() {
   if (hitPoints == 4) {
     if (currentBar == 3) {
       hpBar3.remove();
@@ -228,7 +228,42 @@ function lifeBar() {
     else {}
     hpBar1 = createSprite((width - 150), (height - 470), 255, 63);
   }
-
+}*/
+function lifeBar() {
+  if(hitPoints == 4) {
+    if(circle) {
+      clear(circle);
+    }
+    fill('green');
+    circle((width - 150), (height - 470), 60);
+    circle((width - 220), (height - 470), 60);
+    circle((width - 290), (height - 470), 60);
+    circle((width - 360),, (height - 470), 60);
+  }
+  if(hitPoints == 3) {
+    if(circle) {
+      clear(circle);
+    }
+    fill('yellow');
+    circle((width - 150), (height - 470), 60);
+    circle((width - 220), (height - 470), 60);
+    circle((width - 290), (height - 470), 60);
+  }
+  if(hitPoints == 2) {
+    if(circle) {
+      clear(circle);
+    }
+    fill('orange');
+    circle((width - 150), (height - 470), 60);
+    circle((width - 220), (height - 470), 60);
+  }
+  if(hitPoints == 1) {
+    if(circle) {
+      clear(circle);
+    }
+    fill('red');
+    circle((width - 150), (height - 470), 60);
+    }
 }
 
 function timing() {
