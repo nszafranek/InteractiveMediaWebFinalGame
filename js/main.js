@@ -92,10 +92,10 @@ function preload() {
  coinIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/coin.png');
  heartIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/heart.png');
  gemIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/gem.png');
- //hpBar4 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health4.png');
- //hpBar3 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health3.png');
- //hpBar2 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health2.png');
- //hpBar1 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health1.png');
+ hpBar4 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health4.png');
+ hpBar3 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health3.png');
+ hpBar2 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health2.png');
+ hpBar1 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health1.png');
  gameFont = loadFont('https://raw.githubusercontent.com/nszafranek/project/main/img/SourceSansPro-Bold.ttf');
 }
 
@@ -163,7 +163,7 @@ function scoreOutput() {
   text("Score: " + score, width - 1130, 40)
 }
 
-/*function lifeBar() {
+function lifeBar() {
   if (hitPoints == 4) {
     if (currentBar == 3) {
       hpBar3.remove();
@@ -228,9 +228,9 @@ function scoreOutput() {
     else {}
     hpBar1 = createSprite((width - 150), (height - 470), 255, 63);
   }
-}*/
+}
 
-function lifeBar() {
+/*function lifeBar() {
   if(hitPoints == 4) {
     if(circle) {
       clear(circle);
@@ -260,7 +260,7 @@ function lifeBar() {
     strokeWeight(0);
     circle((width - 50), (height - 470), 60);
     }
-}
+}*/
 
 function timing() {
   //Counter for item spawn
