@@ -58,7 +58,6 @@ let currentBar = 4;
 
 function setup() {
   createCanvas(1200, 520);
-  bgTiling();
   x2 = width;
   scoreOutput();
   sharkGroup = new Group;
@@ -115,7 +114,6 @@ function draw() {
     scoreOutput();
     collisionChecks();
     containHero();
-    lifeBar();
     gameEnd();
     drawSprites();
     /*if (!hpBar4) {
@@ -149,6 +147,7 @@ function bgTiling() {
   if (x2 < -width){
    x2 = (width - 2);
   }
+  lifeBar();
 }
 
 //seconds added to score
