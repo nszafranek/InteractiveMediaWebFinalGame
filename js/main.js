@@ -229,6 +229,7 @@ function scoreOutput() {
     hpBar1 = createSprite((width - 150), (height - 470), 255, 63);
   }
 }*/
+
 function lifeBar() {
   if(hitPoints == 4) {
     if(circle) {
@@ -238,7 +239,7 @@ function lifeBar() {
     circle((width - 150), (height - 470), 60);
     circle((width - 220), (height - 470), 60);
     circle((width - 290), (height - 470), 60);
-    circle((width - 360),, (height - 470), 60);
+    circle((width - 360), (height - 470), 60);
   }
   if(hitPoints == 3) {
     if(circle) {
