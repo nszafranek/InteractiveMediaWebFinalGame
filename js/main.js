@@ -111,11 +111,11 @@ function draw() {
     hero.overlap(coinGroup);
     hero.overlap(heartGroup);
     //scoreUpdate();
+    bgTiling();
     scoreOutput();
     collisionChecks();
     containHero();
     lifeBar();
-    bgTiling();
     gameEnd();
     drawSprites();
     /*if (!hpBar4) {
