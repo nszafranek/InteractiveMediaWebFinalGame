@@ -103,7 +103,7 @@ function preload() {
 function draw() {
   if (!gameOver) {
     background(200);
-    bgTiling();
+
     heroMove();
     timing();
     hero.overlap(sharkGroup);
@@ -115,6 +115,7 @@ function draw() {
     collisionChecks();
     containHero();
     lifeBar();
+    bgTiling();
     gameEnd();
     drawSprites();
     /*if (!hpBar4) {
@@ -236,7 +237,7 @@ function lifeBar() {
       clear(circle);
     }
     fill('green');
-    stroke(0);
+    strokeWeight(0);
     circle((width - 150), (height - 470), 60);
     circle((width - 220), (height - 470), 60);
     circle((width - 290), (height - 470), 60);
@@ -244,20 +245,20 @@ function lifeBar() {
   }
   if(hitPoints == 3) {
     fill('yellow');
-    stroke(0);
+    strokeWeight(0);
     circle((width - 150), (height - 470), 60);
     circle((width - 220), (height - 470), 60);
     circle((width - 290), (height - 470), 60);
   }
   if(hitPoints == 2) {
     fill('orange');
-    stroke(0);
+    strokeWeight(0);
     circle((width - 150), (height - 470), 60);
     circle((width - 220), (height - 470), 60);
   }
   if(hitPoints == 1) {
     fill('red');
-    stroke(0);
+    strokeWeight(0);
     circle((width - 150), (height - 470), 60);
     }
 }
