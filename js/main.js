@@ -147,7 +147,6 @@ function bgTiling() {
   if (x2 < -width){
    x2 = (width - 2);
   }
-  lifeBar();
 }
 
 //seconds added to score
