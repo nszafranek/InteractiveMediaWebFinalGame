@@ -57,7 +57,7 @@ let penHeart;
 let currentBar = 4;
 
 function setup() {
-  createCanvas(1200, 520);
+  createCanvas(1000, 500);
   x2 = width;
   scoreOutput();
   sharkGroup = new Group;
