@@ -88,16 +88,16 @@ function preload() {
     'https://nszafranek.github.io/project/img/merblock1.png',
     'https://nszafranek.github.io/project/img/merattack2.png',
   );
- gameBackground = loadImage('./img/background.png');
- sharkSprite = loadAnimation('./img/sharkreg.png');
- coinIcon = loadAnimation('./img/coin.png');
- heartIcon = loadAnimation('./img/heart.png');
- gemIcon = loadAnimation('./img/gem.png');
- hpBar4 = loadImage('./img/health4.png');
- hpBar3 = loadImage('./img/health3.png');
- hpBar2 = loadImage('./img/health2.png');
- hpBar1 = loadImage('./img/health1.png');
- gameFont = loadFont('https://nszafranek.github.io/project/img/SourceSansPro-Bold.ttf');
+ gameBackground = loadImage('/img/background.png');
+ sharkSprite = loadAnimation('/img/sharkreg.png');
+ coinIcon = loadAnimation('/img/coin.png');
+ heartIcon = loadAnimation('/img/heart.png');
+ gemIcon = loadAnimation('/img/gem.png');
+ hpBar4 = loadImage('/img/health4.png');
+ hpBar3 = loadImage('/img/health3.png');
+ hpBar2 = loadImage('/img/health2.png');
+ hpBar1 = loadImage('/img/health1.png');
+ gameFont = loadFont('/img/SourceSansPro-Bold.ttf');
 }
 
 function draw() {
