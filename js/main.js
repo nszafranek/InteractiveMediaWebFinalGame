@@ -93,10 +93,10 @@ function preload() {
  coinIcon = loadAnimation('./img/coin.png');
  heartIcon = loadAnimation('./img/heart.png');
  gemIcon = loadAnimation('./img/gem.png');
- hpBarFull = loadImage('./img/4health.png');
- hpBar3 = loadImage('./img/3health.png');
- hpBar2 = loadImage('./img/2health.png');
- hpBar1 = loadImage('./img/1health.png');
+ hpBar4 = loadImage('./img/health4.png');
+ hpBar3 = loadImage('./img/health3.png');
+ hpBar2 = loadImage('./img/health2.png');
+ hpBar1 = loadImage('./img/health1.png');
  gameFont = loadFont('https://nszafranek.github.io/project/img/SourceSansPro-Bold.ttf');
 }
 
@@ -165,11 +165,12 @@ function lifeBar() {
       hpBar1.remove();
       currentBar = 4;
     }
-    hpBarFull = createSprite((width - 150), (height - 470), 255, 63);
+    else {}
+    hpBar4 = createSprite((width - 150), (height - 470), 255, 63);
   }
   else if (hitPoints == 3) {
     if (currentBar == 4) {
-      hpBarFull.remove();
+      hpBar4.remove();
       currentBar = 3;
     }
     else if (currentBar == 2) {
@@ -180,11 +181,12 @@ function lifeBar() {
       hpBar1.remove();
       currentBar = 3;
     }
+    else {}
     hpBar3 = createSprite((width - 150), (height - 470), 255, 63);
   }
   else if (hitPoints == 2) {
     if (currentBar == 4) {
-      hpBarFull.remove();
+      hpBar4.remove();
       currentBar = 2;
     }
     else if (currentBar == 3) {
@@ -195,21 +197,23 @@ function lifeBar() {
       hpBar1.remove();
       currentBar = 2;
     }
+    else {}
     hpBar2 = createSprite((width - 150), (height - 470), 255, 63);
   }
   else if (hitPoints == 1) {
     if (currentBar == 4) {
-      hpBarFull.remove();
+      hpBar4.remove();
       currentBar = 1;
     }
     else if (currentBar == 3) {
       hpBar3.remove();
       currentBar = 1;
     }
-    if (currentBar == 2) {
+    else if (currentBar == 2) {
       hpBar2.remove();
       currentBar = 1;
     }
+    else {}
     hpBar1 = createSprite((width - 150), (height - 470), 255, 63);
   }
 
