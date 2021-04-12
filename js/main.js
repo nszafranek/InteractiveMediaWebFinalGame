@@ -263,14 +263,14 @@ function scoreOutput() {
 }*/
 
 function lifeBar() {
-  fill('white');
+  fill('red');
   stroke('red')
   textAlign(CENTER);
   textFont(gameFont);
   strokeWeight(1);
   textSize(25);
   strokeWeight(10);
-  text("♡ : " + hitPoints, width - 60, 40)
+  text("HP : " + hitPoints, width - 60, 40)
 }
 
 function timing() {
