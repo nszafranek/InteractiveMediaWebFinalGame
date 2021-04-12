@@ -231,21 +231,6 @@ function lifeBar() {
 
 }
 
-
-/*function scoreOutput() {
-  //default score
-  scoreElem = createDiv('SCORE = 0');
-  scoreElem.position(20, 20);
-  scoreElem.id = 'score';
-  scoreElem.style('color', 'white');
-  scoreUpdate();
-}*/
-
-/*function scoreUpdate() {
-  //update score
-  scoreElem.html('SCORE : ' + score);
-}*/
-
 function timing() {
   //Counter for item spawn
   //When next Shark will spawn
@@ -486,16 +471,6 @@ function lifeGain() {
   else {
     //if (hitPoints == 3) {
       hitPoints += 1;
-    /*hpBar.changeAnimation('full');
-    }
-    //else if (hitPoints == 2) {
-      hitPoints += 1;
-      //hpBar.changeAnimation('3health');
-    }
-    else if (hitPoints == 1) {
-      hitPoints += 1;
-      //hpBar.changeAnimation('2health');
-    }*/
   }
 }
 
