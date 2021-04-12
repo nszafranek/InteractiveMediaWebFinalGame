@@ -212,7 +212,7 @@ function createNewShark() {
   shark.depth = 1;
   shark.setDefaultCollider;
   sharkGroup.add(shark);
-  for (currentShark = 0; i < sharkGroup.length; currentShark++) {
+  for (currentShark = 0; currentShark < sharkGroup.length; currentShark++) {
     console.log(currentShark);
   }
 }
@@ -242,7 +242,7 @@ function createNewGem() {
   gem.depth = 1;
   gem.setDefaultCollider;
   gemGroup.add(gem);
-  for (currentGem = 0; i < gemGroup.length; currentGem++) {
+  for (currentGem = 0; currentGem < gemGroup.length; currentGem++) {
     console.log(currentGem);
   }
 }
@@ -272,7 +272,7 @@ function createNewCoin() {
   coin.depth =1;
   coin.setDefaultCollider;
   coinGroup.add(coin);
-  for (currentCoin = 0; i < coinGroup.length; currentCoin++) {
+  for (currentCoin = 0; currentCoin < coinGroup.length; currentCoin++) {
     console.log(currentCoin);
   }
 }
@@ -301,7 +301,7 @@ function createNewHeart() {
   heart.depth = 1;
   heart.setDefaultCollider;
   heartGroup.add(heart);
-  for (currentHeart = 0; i < hearGroup.length; currentHeart++) {
+  for (currentHeart = 0; currentHeart < heartGroup.length; currentHeart++) {
     console.log(currentHeart);
   }
 }
