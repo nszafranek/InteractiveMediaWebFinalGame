@@ -122,7 +122,6 @@ function draw() {
     hero.overlap(gemGroup);
     hero.overlap(coinGroup);
     hero.overlap(heartGroup);
-    //scoreUpdate();
     lifeBar();
     scoreOutput();
     collisionChecks();
