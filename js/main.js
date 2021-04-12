@@ -61,6 +61,7 @@ function setup() {
   background(200, 200, 200);
   x2 = width;
   scoreOutput();
+  bgTiling();
   sharkGroup = new Group;
   gemGroup = new Group;
   coinGroup = new Group;
@@ -111,7 +112,6 @@ function draw() {
     hero.overlap(coinGroup);
     hero.overlap(heartGroup);
     //scoreUpdate();
-    bgTiling();
     scoreOutput();
     collisionChecks();
     containHero();
