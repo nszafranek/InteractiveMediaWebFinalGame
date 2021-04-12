@@ -9,7 +9,8 @@ html, body {
 
 @media only screen and (max-width: 768px) {
   body {
-    orientation: landscape;
+    height: 100vw;
+    transform: rotate(90deg);
   }
 }
 
