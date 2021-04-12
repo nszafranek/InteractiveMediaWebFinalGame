@@ -93,11 +93,11 @@ function preload() {
  coinIcon = loadAnimation('./img/coin.png');
  heartIcon = loadAnimation('./img/heart.png');
  gemIcon = loadAnimation('./img/gem.png');
- hpbarFull = loadImage('./img/4health.png');
- hpbar3 = loadImage('./img/3health.png');
- hpbar2 = loadImage('./img/2health.png');
- hpbar1 = loadImage('./img/1health.png');
- gameFont = loadFont('./img/SourceSansPro-Bold.ttf');
+ hpBarFull = loadImage('./img/4health.png');
+ hpBar3 = loadImage('./img/3health.png');
+ hpBar2 = loadImage('./img/2health.png');
+ hpBar1 = loadImage('./img/1health.png');
+ gameFont = loadFont('https://nszafranek.github.io/project/img/SourceSansPro-Bold.ttf');
 }
 
 function draw() {
