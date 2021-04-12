@@ -77,27 +77,27 @@ function setup() {
 
 function preload() {
   swimming = loadAnimation(
-    '../img/mermove1.png',
-    '../img/mermove2.png',
+    'https://raw.githubusercontent.com/nszafranek/project/main/img/mermove1.png',
+    'https://raw.githubusercontent.com/nszafranek/project/main/img/mermove2.png',
   );
   blocking = loadAnimation(
-    '../img/merblock1.png',
-    '../img/merblock2.png',
+    'https://raw.githubusercontent.com/nszafranek/project/main/img/merblock1.png',
+    'https://raw.githubusercontent.com/nszafranek/project/main/img/merblock2.png',
   );
   attacking - loadAnimation(
-    '../img/merblock1.png',
-    '../img/merattack2.png',
+    'https://raw.githubusercontent.com/nszafranek/project/main/img/merblock1.png',
+    'https://raw.githubusercontent.com/nszafranek/project/main/img/merattack2.png',
   );
- gameBackground = loadImage('../img/background.png');
- sharkSprite = loadAnimation('../img/sharkreg.png');
- coinIcon = loadAnimation('../img/coin.png');
- heartIcon = loadAnimation('../img/heart.png');
- gemIcon = loadAnimation('./img/gem.png');
- hpBar4 = loadImage('../img/health4.png');
- hpBar3 = loadImage('../img/health3.png');
- hpBar2 = loadImage('../img/health2.png');
- hpBar1 = loadImage('../img/health1.png');
- gameFont = loadFont('../img/SourceSansPro-Bold.ttf');
+ gameBackground = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/background.png');
+ sharkSprite = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/sharkreg.png');
+ coinIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/coin.png');
+ heartIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/heart.png');
+ gemIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/gem.png');
+ hpBar4 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health4.png');
+ hpBar3 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health3.png');
+ hpBar2 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health2.png');
+ hpBar1 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health1.png');
+ gameFont = loadFont('https://raw.githubusercontent.com/nszafranek/project/main/img/SourceSansPro-Bold.ttf');
 }
 
 function draw() {
