@@ -91,7 +91,7 @@ function preload() {
  gameBackground = loadImage('../img/background.png');
  sharkSprite = loadAnimation('../img/sharkreg.png');
  coinIcon = loadAnimation('../img/coin.png');
- heartIcon = loadAnimation('img/heart.png');
+ heartIcon = loadAnimation('../img/heart.png');
  gemIcon = loadAnimation('./img/gem.png');
  hpBar4 = loadImage('../img/health4.png');
  hpBar3 = loadImage('../img/health3.png');
