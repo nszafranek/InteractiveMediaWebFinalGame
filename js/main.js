@@ -77,16 +77,16 @@ function setup() {
 
 function preload() {
   swimming = loadAnimation(
-    'https://nszafranek.github.io/project/img/mermove1.png',
-    'https://nszafranek.github.io/project/img/mermove2.png',
+    '/img/mermove1.png',
+    '/img/mermove2.png',
   );
   blocking = loadAnimation(
-    'https://nszafranek.github.io/project/img/merblock1.png',
-    'https://nszafranek.github.io/project/img/merblock2.png',
+    '/img/merblock1.png',
+    '/img/merblock2.png',
   );
   attacking - loadAnimation(
-    'https://nszafranek.github.io/project/img/merblock1.png',
-    'https://nszafranek.github.io/project/img/merattack2.png',
+    '/img/merblock1.png',
+    '/img/merattack2.png',
   );
  gameBackground = loadImage('/img/background.png');
  sharkSprite = loadAnimation('/img/sharkreg.png');
