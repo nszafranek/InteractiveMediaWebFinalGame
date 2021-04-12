@@ -117,7 +117,7 @@ function draw() {
     lifeBar();
     gameEnd();
     drawSprites();
-    if (!hpBar4) {
+    /*if (!hpBar4) {
       console.log('hp bar 4 not loaded');
     }
     if (!hpBar3) {
@@ -128,7 +128,7 @@ function draw() {
     }
     if (!hpBar1) {
       console.log('hp bar 1 not loaded');
-    }
+    }*/
   }
   if (gameOver) {
     gameOverText();
@@ -236,6 +236,7 @@ function lifeBar() {
       clear(circle);
     }
     fill('green');
+    stroke(0);
     circle((width - 150), (height - 470), 60);
     circle((width - 220), (height - 470), 60);
     circle((width - 290), (height - 470), 60);
@@ -243,17 +244,20 @@ function lifeBar() {
   }
   if(hitPoints == 3) {
     fill('yellow');
+    stroke(0);
     circle((width - 150), (height - 470), 60);
     circle((width - 220), (height - 470), 60);
     circle((width - 290), (height - 470), 60);
   }
   if(hitPoints == 2) {
     fill('orange');
+    stroke(0);
     circle((width - 150), (height - 470), 60);
     circle((width - 220), (height - 470), 60);
   }
   if(hitPoints == 1) {
     fill('red');
+    stroke(0);
     circle((width - 150), (height - 470), 60);
     }
 }
