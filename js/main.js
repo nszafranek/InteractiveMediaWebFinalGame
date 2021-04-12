@@ -246,20 +246,20 @@ function lifeBar() {
   if(hitPoints == 3) {
     fill('yellow');
     strokeWeight(0);
-    circle((width - 150), (height - 470), 60);
-    circle((width - 220), (height - 470), 60);
-    circle((width - 290), (height - 470), 60);
+    circle((width - 50), (height - 470), 60);
+    circle((width - 120), (height - 470), 60);
+    circle((width - 190), (height - 470), 60);
   }
   if(hitPoints == 2) {
     fill('orange');
     strokeWeight(0);
-    circle((width - 150), (height - 470), 60);
-    circle((width - 220), (height - 470), 60);
+    circle((width - 50), (height - 470), 60);
+    circle((width - 120), (height - 470), 60);
   }
   if(hitPoints == 1) {
     fill('red');
     strokeWeight(0);
-    circle((width - 150), (height - 470), 60);
+    circle((width - 50), (height - 470), 60);
     }
 }
 
