@@ -97,6 +97,18 @@ function preload() {
  heartIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/heart.png');
  gemIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/gem.png');
  gameFont = loadFont('https://raw.githubusercontent.com/nszafranek/project/main/img/SourceSansPro-Bold.ttf');
+ if (!hpBar4) {
+   console.log('hp bar 4 not loaded');
+ }
+ if (!hpBar3) {
+   console.log('hp bar 3 not loaded');
+ }
+ if (!hpBar2) {
+   console.log('hp bar 2 not loaded');
+ }
+ if (!hpBar1) {
+   console.log('hp bar 1 not loaded');
+ }
 }
 
 function draw() {
@@ -117,18 +129,6 @@ function draw() {
     containHero();
     gameEnd();
     drawSprites();
-    /*if (!hpBar4) {
-      console.log('hp bar 4 not loaded');
-    }
-    if (!hpBar3) {
-      console.log('hp bar 3 not loaded');
-    }
-    if (!hpBar2) {
-      console.log('hp bar 2 not loaded');
-    }
-    if (!hpBar1) {
-      console.log('hp bar 1 not loaded');
-    }*/
   }
   if (gameOver) {
     gameOverText();
