@@ -198,7 +198,7 @@ function heroMove() {
 
 function createNewShark() {
   // spawn a new shark
-  if (currentShark && lastShark) {
+  if ((currentShark) && (lastShark)) {
     penShark = lastShark;
     lastShark = currentShark;
   }
@@ -227,14 +227,15 @@ function removeOldShark() {
 }
 
 function createNewGem() {
-  // spawn a new gem
-  if (currentGem && lastGem) {
+  //check if currentGem and lastGem are defined
+  if ((currentGem) && (lastGem)) {
     penGem = lastGem;
     lastGem = currentGem;
   }
   else if (currentGem) {
     lastGem = currentGem;
   }
+  // spawn a new gem
   gem = createSprite(width, random(0, height), 119, 109);
   gem.velocity.y = 0;
   gem.velocity.x = -3;
@@ -257,11 +258,14 @@ function removeOldGem() {
 }
 
 function createNewCoin() {
-  if (currentCoin && lastCoin) {
+  //Check if  currentCoin and lastCoin are defined
+  if ((currentCoin) && (lastCoin)) {
+    //if defined, save lastCoin as penCoin
     penCoin = lastCoin;
     lastCoin = currentCoin;
   }
   else if (currentCoin) {
+    //save currentCoin as lastCoin
     lastCoin = currentCoin;
   }
   // spawn a new coin
@@ -272,13 +276,14 @@ function createNewCoin() {
   coin.depth =1;
   coin.setDefaultCollider;
   coinGroup.add(coin);
+  //(re)define currentCoin
   for (currentCoin = 0; currentCoin < coinGroup.length; currentCoin++) {
     console.log(currentCoin);
   }
 }
 function removeOldCoin() {
   //despawn coin that has left the canvas
- for (let i = 0; i<coinGroup; i++) {
+ for (let i = 0; i < coinGroup; i++) {
    if ((coinGroup[i].position.x) < 0) {
      coinGroup[i].remove();
    }
@@ -286,7 +291,7 @@ function removeOldCoin() {
 }
 
 function createNewHeart() {
-  if (currentHeart && lastHeart) {
+  if ((currentHeart) && (lastHeart)) {
     penHeart = lastHeart;
     lastHeart = currentHeart;
   }
@@ -301,6 +306,7 @@ function createNewHeart() {
   heart.depth = 1;
   heart.setDefaultCollider;
   heartGroup.add(heart);
+  //(re)define currentCoin
   for (currentHeart = 0; currentHeart < heartGroup.length; currentHeart++) {
     console.log(currentHeart);
   }
@@ -322,15 +328,17 @@ function gemGet() {
   //add 1 gem to count
   gemCount = gemCount + 1;
   let i = gemGroup.length;
-  if (hero.overlap(gemGroup[currentGem])) {
-    gemGroup[currentGem].remove();
+  if (hero.overlap(gemGroup)) {
+    gemGroup.remove();
   }
+  /*
   else if (hero.overlap(gemGroup[lastGem])) {
     gemGroup[lastGem].remove();
   }
   else if (hero.overlap(gemGet[penGem])) {
     gemGroup[penGem].remove();
   }
+  */
   scoreUpdate();
 }
 
@@ -341,15 +349,17 @@ function coinGet() {
   //add 1 coin to count
   coinCount = coinCount + 1;
   let i = coinGroup.length;
-  if (hero.overlap(coinGroup[currentCoin])) {
+  if (hero.overlap(coinGroup)) {
     coinGroup[currentGem].remove();
   }
+  /*
   else if (hero.overlap(coinGroup[lastCoin])) {
     coinGroup[lastGem].remove();
   }
   else if (hero.overlap(coinGroup[penCoin])) {
     coinGroup[penCoin].remove();
   }
+  */
   scoreUpdate();
 }
 
@@ -359,15 +369,17 @@ function heartGet() {
   //Gain HP
   lifeGain();
   let i = heartGroup.length;
-    if (hero.overlap(heartGroup[currentHeart])) {
-      heartGroup[currentHeart].remove();
+    if (hero.overlap(heartGroup)) {
+      heartGroup.remove();
     }
+    /*
     else if (hero.overlap(heartGroup[lastHeart])) {
       heartGroup[lastHeart].remove();
     }
     else if (hero.overlap(hearGroup[penHeart])) {
       heartGroup[penHeart].remove();
     }
+    */
 }
 
 function lifeGain() {
@@ -377,14 +389,17 @@ function lifeGain() {
     if (hitPoints == 3) {
       hitPoints += 1
       hpBar.changeAnimation("full")
+      heartGroup.remove();
     }
     else if (hitPoints == 2) {
       hitPoints += 1
       hpBar.changeAnimation("3health")
+      heartGroup.remove();
     }
     else if (hitPoints == 1) {
       hitPoints += 1
       hpBar.changeAnimation("2health")
+      heartGroup.remove();
     }
   }
 }
@@ -393,40 +408,43 @@ function hpLoss() {
     //lose 1 hp per hit
     hitPoints -= 1;
     // If the Hero was at full health
-    let i = sharkGroup.length
     if (hitPoints == 3) {
       hpBar.changeAnimation("3health")
-      if (hero.overlap(sharkGroup[i])) {
-        sharkGroup[i].remove();
+      if (hero.overlap(sharkGroup)) {
+        sharkGroup.remove();
       }
+      /*
       else if (hero.overlap(sharkGroup[i-1])) {
         sharkGroup[i].remove();
       }
       else {}
+      */
     }
     //If hero had 3 health
     else if (hitPoints == 2) {
       hpBar.changeAnimation("2health")
-      if (hero.overlap.sharkGroup[currentShark]) {
-        sharkGroup[currentShark].remove();
+      if (hero.overlap.sharkGroup) {
+        sharkGroup.remove();
       }
-      else if (hero.overlap.sharkGroup[lastShark]) {
+      /*else if (hero.overlap.sharkGroup[lastShark]) {
         sharkGroup[lastShark].remove();
       }
       else if (hero.overlap.sharkGroup[penShark]) {
         sharkGroup[penShark].remove();
-      }
+      }*/
     }
     //If hero had 2 health
     else if (hitPoints == 1) {
       hpBar.changeAnimation("1health")
-      if (hero.overlap(sharkGroup[i])) {
-        sharkGroup[i].remove();
+      if (hero.overlap(sharkGroup)) {
+        sharkGroup.remove();
       }
+      /*
       else if (hero.overlap(sharkGroup[i-1])) {
         sharkGroup[i].remove();
       }
       else {}
+      */
     }
     //If hero had one health
    else if (hitPoints == 0) {
