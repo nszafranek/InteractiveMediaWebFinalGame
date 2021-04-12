@@ -159,7 +159,7 @@ function scoreOutput() {
   strokeWeight(1);
   textSize(25);
   strokeWeight(10);
-  text("Score: " + score, width - 1130, 40)
+  text("Score: " + score, width - 900, 40)
 }
 
 /*function lifeBar() {
