@@ -238,10 +238,10 @@ function lifeBar() {
     }
     fill('green');
     strokeWeight(0);
-    circle((width - 150), (height - 470), 60);
-    circle((width - 220), (height - 470), 60);
-    circle((width - 290), (height - 470), 60);
-    circle((width - 360), (height - 470), 60);
+    circle((width - 50), (height - 470), 60);
+    circle((width - 120), (height - 470), 60);
+    circle((width - 190), (height - 470), 60);
+    circle((width - 260), (height - 470), 60);
   }
   if(hitPoints == 3) {
     fill('yellow');
