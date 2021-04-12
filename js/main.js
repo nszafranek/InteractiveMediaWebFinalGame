@@ -264,7 +264,7 @@ function scoreOutput() {
 
 function lifeBar() {
   fill('red');
-  stroke('red')
+  stroke('black')
   textAlign(CENTER);
   textFont(gameFont);
   strokeWeight(1);
