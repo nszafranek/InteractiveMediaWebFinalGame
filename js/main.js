@@ -163,7 +163,7 @@ function scoreOutput() {
   text("Score: " + score, width - 1130, 40)
 }
 
-function lifeBar() {
+/*function lifeBar() {
   if (hitPoints == 4) {
     if (currentBar == 3) {
       hpBar3.remove();
@@ -228,7 +228,7 @@ function lifeBar() {
     else {}
     hpBar1 = createSprite((width - 150), (height - 470), 255, 63);
   }
-}
+}*/
 
 /*function lifeBar() {
   if(hitPoints == 4) {
@@ -261,6 +261,17 @@ function lifeBar() {
     circle((width - 50), (height - 470), 60);
     }
 }*/
+
+function lifeBar() {
+  fill('white');
+  stroke('red')
+  textAlign(CENTER);
+  textFont(gameFont);
+  strokeWeight(1);
+  textSize(25);
+  strokeWeight(10);
+  text("♡ : " + hitPoints, width - 60, 40)
+}
 
 function timing() {
   //Counter for item spawn
