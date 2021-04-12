@@ -37,7 +37,7 @@ let x1 = 0;
 let x2;
 let scrollSpeed = 2;
 let hpBar;
-let hpBarFull;
+let hpBar4;
 let hpBar3;
 let hpBar2;
 let hpBar1;
@@ -97,7 +97,7 @@ function preload() {
  heartIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/heart.png');
  gemIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/gem.png');
  gameFont = loadFont('https://raw.githubusercontent.com/nszafranek/project/main/img/SourceSansPro-Bold.ttf');
- if (!hpBar4) {
+ /*if (!hpBar4) {
    console.log('hp bar 4 not loaded');
  }
  if (!hpBar3) {
@@ -108,7 +108,7 @@ function preload() {
  }
  if (!hpBar1) {
    console.log('hp bar 1 not loaded');
- }
+ }*/
 }
 
 function draw() {
