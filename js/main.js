@@ -242,26 +242,17 @@ function lifeBar() {
     circle((width - 360), (height - 470), 60);
   }
   if(hitPoints == 3) {
-    if(circle) {
-      clear(circle);
-    }
     fill('yellow');
     circle((width - 150), (height - 470), 60);
     circle((width - 220), (height - 470), 60);
     circle((width - 290), (height - 470), 60);
   }
   if(hitPoints == 2) {
-    if(circle) {
-      clear(circle);
-    }
     fill('orange');
     circle((width - 150), (height - 470), 60);
     circle((width - 220), (height - 470), 60);
   }
   if(hitPoints == 1) {
-    if(circle) {
-      clear(circle);
-    }
     fill('red');
     circle((width - 150), (height - 470), 60);
     }
