@@ -58,10 +58,9 @@ let currentBar = 4;
 
 function setup() {
   createCanvas(1200, 520);
-  background(200, 200, 200);
+  bgTiling();
   x2 = width;
   scoreOutput();
-  bgTiling();
   sharkGroup = new Group;
   gemGroup = new Group;
   coinGroup = new Group;
@@ -107,6 +106,7 @@ function draw() {
 
     heroMove();
     timing();
+    bgTiling();
     hero.overlap(sharkGroup);
     hero.overlap(gemGroup);
     hero.overlap(coinGroup);
