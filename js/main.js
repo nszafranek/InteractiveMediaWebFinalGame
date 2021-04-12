@@ -76,10 +76,10 @@ function setup() {
 
 function preload() {
   gameBackground = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/background.png');
-  hpBar4 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health4.png');
+  /*hpBar4 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health4.png');
   hpBar3 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health3.png');
   hpBar2 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health2.png');
-  hpBar1 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health1.png');
+  hpBar1 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health1.png');*/
   swimming = loadAnimation(
     'https://raw.githubusercontent.com/nszafranek/project/main/img/mermove1.png',
     'https://raw.githubusercontent.com/nszafranek/project/main/img/mermove2.png',
