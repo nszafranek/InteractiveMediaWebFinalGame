@@ -123,8 +123,8 @@ function draw() {
     hero.overlap(coinGroup);
     hero.overlap(heartGroup);
     //scoreUpdate();
-    scoreOutput();
     lifeBar();
+    scoreOutput();
     collisionChecks();
     containHero();
     gameEnd();
