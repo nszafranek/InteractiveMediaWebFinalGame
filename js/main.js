@@ -439,34 +439,38 @@ function timing() {
 
 function heroMove() {
   // Hero movement
-  if (keyWentDown(UP_ARROW)) {
-    hero.velocity.y = -1;
+  if (screen.width >= 768) {
+    document.addEventListener('swiped-left', function(e) {
+      hero.velocity.x = -1;
+      console.log(e.target); // the element that was swiped
+    });
+    document.addEventListener('swiped-right', function(e) {
+      console.log(e.target); // the element that was swiped
+      hero.velocity.x = 1;
+    });
+    document.addEventListener('swiped-up', function(e) {
+      console.log(e.target); // the element that was swiped
+      hero.velocity.y = -1;
+    });
+    document.addEventListener('swiped-down', function(e) {
+      console.log(e.target); // the element that was swiped
+      hero.velocity.y = 1;
+    });
   }
-  else if (keyWentDown(DOWN_ARROW)) {
-    hero.velocity.y = 1;
+  else {
+    if (keyWentDown(UP_ARROW)) {
+      hero.velocity.y = -1;
+    }
+    else if (keyWentDown(DOWN_ARROW)) {
+      hero.velocity.y = 1;
+    }
+    else if (keyWentDown(LEFT_ARROW)) {
+      hero.velocity.x = -1;
+    }
+    else if (keyWentDown(RIGHT_ARROW)) {
+      hero.velocity.x = 1;
+    }
   }
-  else if (keyWentDown(LEFT_ARROW)) {
-    hero.velocity.x = -1;
-  }
-  else if (keyWentDown(RIGHT_ARROW)) {
-    hero.velocity.x = 1;
-  }
-  document.addEventListener('swiped-left', function(e) {
-    hero.velocity.x = -1;
-    console.log(e.target); // the element that was swiped
-  });
-  document.addEventListener('swiped-right', function(e) {
-    console.log(e.target); // the element that was swiped
-    hero.velocity.x = 1;
-  });
-  document.addEventListener('swiped-up', function(e) {
-    console.log(e.target); // the element that was swiped
-    hero.velocity.y = -1;
-  });
-  document.addEventListener('swiped-down', function(e) {
-    console.log(e.target); // the element that was swiped
-    hero.velocity.y = 1;
-  });
 }
 
 // End Game by pressing Esc key
