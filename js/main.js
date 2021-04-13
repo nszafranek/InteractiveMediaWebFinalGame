@@ -70,7 +70,7 @@ What's broken
 */
 
 function setup() {
-  createCanvas(1000, 500);
+  createCanvas(700, 450);
   x2 = width;
   scoreOutput();
   sharkGroup = new Group;
