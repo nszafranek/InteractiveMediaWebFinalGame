@@ -57,9 +57,8 @@ let penHeart;
 let currentBar = 4;
 let can = getElementByTagName('canvas');
 let ctx = can.getContext("2d");
-
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
 /*
 Created using p5.js and p5 play
