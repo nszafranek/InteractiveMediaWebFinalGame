@@ -155,13 +155,13 @@ function draw() {
     containHero();
     gameEnd();
     drawSprites();
+    if (screen.width <= 768) {
+      ctx.rotate(90);
+    }
   }
   if (gameOver) {
     gameOverText();
     updateSprites(false);
-  }
-  if (screen.width <= 768) {
-    ctx.rotate(90);
   }
 }
 
