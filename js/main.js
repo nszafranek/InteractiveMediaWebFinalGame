@@ -73,7 +73,7 @@ What's broken
 
 function setup() {
   if (vw <= 768) {
-  createCanvas(650, 450);
+  createCanvas(450, 650);
   }
   else {
     createCanvas(1000, 500);
@@ -112,11 +112,11 @@ function preload() {
     'https://raw.githubusercontent.com/nszafranek/project/main/img/merblock1.png',
     'https://raw.githubusercontent.com/nszafranek/project/main/img/merattack2.png',
   );
- sharkSprite = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/sharkreg.png');
- coinIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/coin.png');
- heartIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/heart.png');
- gemIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/gem.png');
- gameFont = loadFont('https://raw.githubusercontent.com/nszafranek/project/main/img/SourceSansPro-Bold.ttf');
+  sharkSprite = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/sharkreg.png');
+  coinIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/coin.png');
+  heartIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/heart.png');
+  gemIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/gem.png');
+  gameFont = loadFont('https://raw.githubusercontent.com/nszafranek/project/main/img/SourceSansPro-Bold.ttf');
  /*if (!hpBar4) {
    console.log('hp bar 4 not loaded');
  }
