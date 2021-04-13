@@ -75,7 +75,7 @@ What's broken
 
 function setup() {
   if (screen.width <= 768) {
-    cnv = createCanvas(650, 450);
+    cnv = createCanvas(650, 400);
     cnv.id('gameCanvas')
   }
   else {
