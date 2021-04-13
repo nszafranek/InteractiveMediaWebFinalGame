@@ -79,10 +79,10 @@ function setup() {
     cnv = createCanvas(570, 320);
     cnv.id('gameCanvas')
   }
-  else if ((screen.height <= 768) && (screen.orientation === 'landscape-primary')) {
+  /*else if ((screen.height <= 768) && (screen.orientation === 'landscape-primary')) {
     cnv = createCanvas(320, 570);
     cnv.id('gameCanvas');
-  }
+  }*/
   //otherwise
   else {
     cnv = createCanvas(1000, 500);
