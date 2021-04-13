@@ -582,7 +582,7 @@ function gemGet() {
   // Deswpan sprites
   // If current Gem is undefined
   if (!currentGem) {
-    currentGem = 0;
+    currentGem = gemGroup.length - 1;
     gemGroup[currentGem].remove();
   }
   if (currentGem) {
