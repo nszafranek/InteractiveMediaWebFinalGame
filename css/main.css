@@ -20,11 +20,11 @@ media only screen and (max-with: 768px) {
       -ms-box-sizing: border-box;
       box-sizing: border-box;
       border-radius: 10px;
-      -webkit-transform: translate(-40%, -50%);
-      -moz-transform: translate(-40%, -50%);
-      -o-transform: translate(-40%, -50%);
-      -ms-transform: translate(-40%, -50%);
-      transform: translate(-40%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       /*-webkit-transform: rotate(90deg);
       -moz-transform: rotate(90deg);
       -o-transform: rotate(90deg);
