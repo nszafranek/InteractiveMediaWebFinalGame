@@ -203,9 +203,9 @@ function draw() {
     if (screen.width <= 768) {
       disableScroll();
     }
-    if ((screen.width <= 768) && (screen.orientation === 'portrait-secondary')) {
+    /*if ((screen.width <= 768) && (screen.orientation === 'portrait-secondary')) {
       ctx.rotate(90);
-    }
+    }*/
   }
   //game over
   if (gameOver) {
