@@ -151,7 +151,7 @@ function draw() {
     containHero();
     gameEnd();
     drawSprites();
-    if (vw <= 768) {
+    if (screen.width <= 768) {
       ctx.rotate(90);
     }
   }
