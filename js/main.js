@@ -76,11 +76,11 @@ What's broken
 function setup() {
   //if mobile
   if ((screen.width <= 768) && (screen.orientation === 'portrait-primary')) {
-    cnv = createCanvas(650, 360);
+    cnv = createCanvas(600, 340);
     cnv.id('gameCanvas')
   }
   else if ((screen.height <= 768) && (screen.orientation === 'landscape-primary')) {
-    cnv = createCanvas(360, 650);
+    cnv = createCanvas(340, 600);
   }
   //otherwise
   else {
