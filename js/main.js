@@ -526,7 +526,7 @@ function createNewCoin() {
   coin.setDefaultCollider;
   coinGroup.add(coin);
   // Define current coin position in coinGroup
-    currentCoin = coinGroup.length - 1;
+    currentCoin = coinGroup.length;// - 1;
   // Debug call
     console.log('Coin' + currentCoin);
 }
