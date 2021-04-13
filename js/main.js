@@ -187,9 +187,16 @@ function scoreOutput() {
   textAlign(CENTER);
   textFont(gameFont);
   strokeWeight(1);
-  textSize(25);
-  strokeWeight(10);
-  text("Score: " + score, 70, 40)
+  if (screen.size <= 768){
+    textSize(20);
+    strokeWeight(5);
+    text("Score: " + score, 60, 20)
+  }
+  else {
+    textSize(25);
+    strokeWeight(10);
+    text("Score: " + score, 70, 40)
+  }
 }
 
 /*function lifeBar() {
@@ -297,9 +304,16 @@ function lifeBar() {
   textAlign(CENTER);
   textFont(gameFont);
   strokeWeight(1);
-  textSize(25);
-  strokeWeight(10);
-  text("HP : " + hitPoints, width - 60, 40);
+  if (screen.size <= 768){
+    textSize(20);
+    strokeWeight(10);
+    text("HP : " + hitPoints, width - 60, 40);
+  }
+  else {
+    textSize(25);
+    strokeWeight(10);
+    text("HP : " + hitPoints, width - 10, 40);
+  }
 }
 
 function timing() {
