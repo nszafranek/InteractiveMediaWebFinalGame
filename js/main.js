@@ -307,12 +307,12 @@ function lifeBar() {
   if (screen.size <= 768){
     textSize(20);
     strokeWeight(10);
-    text("HP : " + hitPoints, width - 60, 40);
+    text("HP : " + hitPoints, width - 10, 30);
   }
   else {
     textSize(25);
     strokeWeight(10);
-    text("HP : " + hitPoints, width - 10, 40);
+    text("HP : " + hitPoints, width - 60, 40);
   }
 }
 
