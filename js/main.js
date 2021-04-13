@@ -76,7 +76,7 @@ What's broken
 function setup() {
   //if mobile
   if (screen.width <= 768) {
-    cnv = createCanvas(500, 330);
+    cnv = createCanvas(400, 330);
     cnv.id('gameCanvas')
   }
   //otherwise
