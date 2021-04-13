@@ -73,8 +73,8 @@ What's broken
 */
 
 function setup() {
-  let vw = screen.width;
-  if (vw <= 768) {
+  //let vw = screen.width;
+  if (screen.width <= 768) {
     createCanvas(650, 450);
   }
   else {
