@@ -432,9 +432,12 @@ function containHero() {
 
 function createNewShark() {
   // Define penultimate and last shark position in sharkGroup
-  penShark = sharkGroup.length - 4;
-  lastShark = sharkGroup.length - 3;
-
+  if (lastShark) {
+   penShark = lastShark;
+  }
+  if (currentShark) {
+  lastShark = currentShark;
+  }
   // Spawn a new shark
   // If mobile
   if (screen.size <= 768) {
@@ -451,7 +454,7 @@ function createNewShark() {
   shark.setDefaultCollider;
   sharkGroup.add(shark);
   // Define currentShark position in sharkGroup
-  currentShark = sharkGroup.length - 1;
+  currentShark = sharkGroup.length;// - 1;
   // Debug call
   console.log('Shark' + currentShark);
 }
@@ -467,8 +470,12 @@ function removeOldShark() {
 
 function createNewGem() {
   // Define penultimate and last gem position in gemGroup
-    penGem = gemGroup.length - 4;
-    lastGem = gemGroup.length -3;
+  if (lastGem) {
+    penGem = lastGem;
+  }
+  if (currentGem) {
+    lastGem = currentGem;
+  }
   // Spawn a new gem
   if (screen.size <= 768) {
     gem = createSprite(width, random(0, height), 60, 55);
@@ -483,7 +490,7 @@ function createNewGem() {
   gem.setDefaultCollider;
   gemGroup.add(gem);
   // Define current Gem position in gemGroup
-  currentGem = gemGroup.length - 1;
+  currentGem = gemGroup.length;// - 1;
   // Debug call
   console.log('Gem' + currentGem);
 }
@@ -498,9 +505,13 @@ function removeOldGem() {
 }
 
 function createNewCoin() {
-  // Define penultimate and last coin position in coinGroup
-    penCoin = coinGroup.length - 4;
-    lastCoin = coinGroup.length - 3;
+  // Define penultimate and last coin position if the previous exists
+  if (lastCoin) {
+    penCoin = lastCoin;
+  }
+  if (currentCoin) {
+    lastCoin = currentCoin;
+  }
   // Spawn a new coin
   if (screen.size <= 768) {
     coin = createSprite(width, random(0, height), 34, 35);
@@ -530,8 +541,12 @@ function removeOldCoin() {
 
 function createNewHeart() {
   // Define penultimate and last heart position in heartGroup
-    penHeart = heartGroup.length - 4;
-    lastHeart = heartGroup.length - 3;
+  if (lastHeart) {
+     penHeart = lastHeart;
+   }
+  if (currentHeart) {
+    lastHeart = currentHeart;
+  }
   //spawn new heart
   if (screen.size <= 768) {
     heart = createSprite(width, random(0, height), 20, 20);
@@ -546,7 +561,7 @@ function createNewHeart() {
   heart.setDefaultCollider;
   heartGroup.add(heart);
   // Define current heart position in heartGroup
-  currentHeart = heartGroup.length - 1;
+  currentHeart = heartGroup.length;// - 1;
   console.log('Heart' + currentHeart);
 }
 
