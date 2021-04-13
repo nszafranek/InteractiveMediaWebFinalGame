@@ -190,7 +190,7 @@ function scoreOutput() {
   if (screen.size <= 768){
     textSize(20);
     strokeWeight(5);
-    text("Score: " + score, 60, 20)
+    text("Score: " + score, 50, 20)
   }
   else {
     textSize(25);
