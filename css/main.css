@@ -11,7 +11,7 @@
       border: 1px solid black;
       z-index: 1;
       width: 600px;
-      height: hsl(360, 100%, 100%);px;
+      height: 360;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
