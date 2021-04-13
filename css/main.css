@@ -10,6 +10,7 @@ html, body {
 @media only screen and (orientation:portrait) {
   body {
     height: 100vw;
+    width: 100vw;
     transform: rotate(90deg);
     height: 1000;
     width: 500;
