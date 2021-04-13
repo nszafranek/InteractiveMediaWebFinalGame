@@ -78,6 +78,7 @@ function setup() {
   else {
     createCanvas(1000, 500);
   }
+  angleMode(degrees);
   x2 = width;
   scoreOutput();
   sharkGroup = new Group;
@@ -148,12 +149,13 @@ function draw() {
     containHero();
     gameEnd();
     drawSprites();
-    rotate(90);
+    if (vw <= 768) {
+      rotate(90)
+    }
   }
   if (gameOver) {
     gameOverText();
     updateSprites(false);
-    rotate(90);
   }
 }
 
