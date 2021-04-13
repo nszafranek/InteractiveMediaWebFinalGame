@@ -55,8 +55,8 @@ let currentHeart;
 let lastHeart;
 let penHeart;
 let currentBar = 4;
-let c = document.getElementsByTagName('canvas');
-let ctx = c.getContext('2d');
+let canvas = document.getElementsByTagName('canvas');
+let ctx = canvas.getContext('2d');
 let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
