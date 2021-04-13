@@ -57,8 +57,8 @@ let penHeart;
 let currentBar = 4;
 let c = document.getElementsByTagName('canvas');
 let ctx = c.getContext('2d');
-let vw;
-let vh;
+let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
 /*
 Created using p5.js and p5 play
@@ -137,8 +137,6 @@ function preload() {
 
 function draw() {
   if (!gameOver) {
-    vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
     background(200);
     heroMove();
     timing();
