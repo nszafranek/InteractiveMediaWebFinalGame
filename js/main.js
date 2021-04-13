@@ -580,7 +580,12 @@ function gemGet() {
   // Add 1 gem to count
   gemCount = gemCount + 1;
   // Deswpan sprites
- gemGroup[currentGem].remove();
+  if (!currentGem) {
+    currentGem = gemGroup.length;
+  }
+  if (gemGroup) {
+  gemGroup[currentGem].remove();
+  }
   if (lastGem) {
     gemGroup[lastGem].remove();
   }
@@ -598,7 +603,12 @@ function coinGet() {
   // Add 1 coin to count
   coinCount = coinCount + 1;
   // Despawn sprites
+  if (!currentCoin) {
+    currentCoin = coinGroup.length;
+  }
+  if (currentCoin) {
   coinGroup[currentCoin].remove();
+  }
   if (lastCoin) {
     coinGroup[lastCoin].remove();
   }
@@ -612,7 +622,12 @@ function heartGet() {
   // Heart procured
   // Gain HP
   lifeGain();
+  if (!currentHeart) {
+  currentHeart = heartGroup.length);
+  }
+  if (currentHeart) {
   heartGroup[currentHeart].remove();
+  }
   if (lastHeart) {
     heartGroup[lastHeart].remove();
   }
@@ -656,7 +671,12 @@ function hpLoss() {
     gameOver = true;
   }
   //despawn sprites
+  if (!currentShark) {
+    currentShark = sharkGroup.length;
+  }
+  if (currentShark) {
   sharkGroup[currentShark].remove();
+  }
   if (lastShark) {
     sharkGroup[lastShark].remove();
   }
