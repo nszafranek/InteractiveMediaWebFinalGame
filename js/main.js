@@ -56,8 +56,6 @@ let lastHeart;
 let penHeart;
 let currentBar = 4;
 let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d');
-let vw;
 
 /*
 Created using p5.js and p5 play
@@ -137,6 +135,7 @@ function preload() {
 
 function draw() {
   if (!gameOver) {
+    let ctx = canvas.getContext('2d');
     background(200);
     heroMove();
     timing();
