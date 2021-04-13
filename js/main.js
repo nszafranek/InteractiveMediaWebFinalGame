@@ -73,7 +73,6 @@ function setup() {
   //let vw = screen.width;
   if (screen.width <= 768) {
     createCanvas(650, 450);
-    rotateCanvas(90);
   }
   else {
     createCanvas(1000, 500);
@@ -152,7 +151,7 @@ function draw() {
     gameEnd();
     drawSprites();
     if (screen.width <= 768) {
-      //ctx.rotate(90);
+      ctx.rotate(90);
     }
   }
   if (gameOver) {
