@@ -150,7 +150,7 @@ function draw() {
     gameEnd();
     drawSprites();
     if (vw <= 768) {
-      rotate(90)
+      rotate(90);
     }
   }
   if (gameOver) {
