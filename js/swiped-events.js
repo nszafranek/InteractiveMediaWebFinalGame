@@ -152,3 +152,5 @@
 
         return defaultValue;
     }
+
+}(window, document))
