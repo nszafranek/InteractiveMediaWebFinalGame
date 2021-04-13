@@ -73,7 +73,7 @@ What's broken
 
 function setup() {
   if (vw <= 768) {
-  createCanvas(450, 650);
+  createCanvas(650, 450);
   }
   else {
     createCanvas(1000, 500);
@@ -179,7 +179,7 @@ function scoreOutput() {
   strokeWeight(1);
   textSize(25);
   strokeWeight(10);
-  text("Score: " + score, 80, 40)
+  text("Score: " + score, 70, 40)
 }
 
 /*function lifeBar() {
