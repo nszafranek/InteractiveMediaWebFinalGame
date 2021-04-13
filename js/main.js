@@ -59,6 +59,11 @@ let gameCanvas;
 let ctx;
 let cnv;
 
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
+
+let xDown = null;
+let yDown = null;
 
 /*
 Created using p5.js and p5 play
@@ -406,6 +411,47 @@ function heroMove() {
     hero.velocity.x = 1;
   }
 }
+
+// Touch handler from https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+};
+
+//Swipe Movement handler from https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            /* left swipe */
+            hero.velocity.x = -1;
+        } else {
+            /* right swipe */
+            hero.velocity.x = 1;
+        }
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */
+            hero.velocity.y = -1;
+        } else {
+            /* down swipe */
+            hero.velocity.x = 1;
+        }
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;
+};
 
 // End Game by pressing Esc key
 function gameEnd() {
