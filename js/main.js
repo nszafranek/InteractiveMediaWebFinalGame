@@ -57,6 +57,7 @@ let penHeart;
 let currentBar = 4;
 let canvas;
 let ctx;
+let cnv;
 
 
 /*
@@ -73,13 +74,13 @@ What's broken
 */
 
 function setup() {
-  canvas = document.querySelector('canvas');
-  ctx = canvas.getContext('2d');
   if (screen.width <= 768) {
-    createCanvas(650, 450);
+    cnv = createCanvas(650, 450);
+    cnv.id('gameCanvas')
   }
   else {
-    createCanvas(1000, 500);
+    cnv = createCanvas(1000, 500);
+    cnv.id('gameCanvas')
   }
   angleMode(degrees);
   x2 = width;
@@ -97,9 +98,6 @@ function setup() {
   hero.addAnimation('attack', attacking);
   hero.addAnimation('block', blocking);
   text.depth = 5;
-  if (screen.width <= 768) {
-    ctx.rotate(90);
-  }
 }
 
 function preload() {
@@ -141,6 +139,8 @@ function preload() {
 
 function draw() {
   if (!gameOver) {
+    canvas = document.getElementById('gameCanvas');
+    ctx = canvas.getContext('2d');
     background(200);
     heroMove();
     timing();
@@ -159,6 +159,9 @@ function draw() {
   if (gameOver) {
     gameOverText();
     updateSprites(false);
+  }
+  if (screen.width <= 768) {
+    ctx.rotate(90);
   }
 }
 
