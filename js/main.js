@@ -97,7 +97,7 @@ function setup() {
   hero.addAnimation('swim', swimming);
   hero.addAnimation('attack', attacking);
   hero.addAnimation('block', blocking);
-  text.depth = 1;
+  text.depth = 10;
 }
 
 function preload() {
