@@ -454,7 +454,7 @@ function createNewShark() {
   shark.setDefaultCollider;
   sharkGroup.add(shark);
   // Define currentShark position in sharkGroup
-  currentShark = sharkGroup.length;// - 1;
+  currentShark = sharkGroup.length - 1;
   // Debug call
   console.log('Shark' + currentShark);
 }
@@ -490,7 +490,7 @@ function createNewGem() {
   gem.setDefaultCollider;
   gemGroup.add(gem);
   // Define current Gem position in gemGroup
-  currentGem = gemGroup.length;// - 1;
+  currentGem = gemGroup.length - 1;
   // Debug call
   console.log('Gem' + currentGem);
 }
@@ -526,7 +526,7 @@ function createNewCoin() {
   coin.setDefaultCollider;
   coinGroup.add(coin);
   // Define current coin position in coinGroup
-    currentCoin = coinGroup.length;// - 1;
+    currentCoin = coinGroup.length - 1;
   // Debug call
     console.log('Coin' + currentCoin);
 }
@@ -581,7 +581,8 @@ function gemGet() {
   gemCount = gemCount + 1;
   // Deswpan sprites
   if (!currentGem) {
-    currentGem = gemGroup.length;
+    currentGem = gemGroup.length - 1;
+    gemGroup[currentGem].remove();
   }
   if (gemGroup) {
   gemGroup[currentGem].remove();
@@ -604,7 +605,8 @@ function coinGet() {
   coinCount = coinCount + 1;
   // Despawn sprites
   if (!currentCoin) {
-    currentCoin = coinGroup.length;
+    currentCoin = coinGroup.length - 1;
+    coinGroup[currentCoin].remove();
   }
   if (currentCoin) {
   coinGroup[currentCoin].remove();
@@ -623,7 +625,8 @@ function heartGet() {
   // Gain HP
   lifeGain();
   if (!currentHeart) {
-  currentHeart = heartGroup.length);
+  currentHeart = heartGroup.length - 1;
+    heartGroup[currentHeart].remove();
   }
   if (currentHeart) {
   heartGroup[currentHeart].remove();
@@ -672,7 +675,8 @@ function hpLoss() {
   }
   //despawn sprites
   if (!currentShark) {
-    currentShark = sharkGroup.length;
+    currentShark = sharkGroup.length - 1;
+    sharkGroup[currentShark].remove();
   }
   if (currentShark) {
   sharkGroup[currentShark].remove();
