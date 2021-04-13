@@ -55,7 +55,7 @@ let currentHeart;
 let lastHeart;
 let penHeart;
 let currentBar = 4;
-let canvas;
+let gameCanvas;
 let ctx;
 let cnv;
 
@@ -139,8 +139,8 @@ function preload() {
 
 function draw() {
   if (!gameOver) {
-    canvas = document.getElementById('gameCanvas');
-    ctx = canvas.getContext('2d');
+    gameCanvas = document.getElementById('gameCanvas');
+    ctx = gameCanvas.getContext('2d');
     background(200);
     heroMove();
     timing();
