@@ -831,7 +831,7 @@ function gameOverText() {
   if (keyWentDown(13)) {
     location.reload();
   }
-  if (touchStarted()) {
+  if (touchStarted(event)) {
     location.reload();
   }
 }
