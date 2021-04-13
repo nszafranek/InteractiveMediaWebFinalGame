@@ -1,8 +1,13 @@
 media only screen and (max-with: 768px) {
-/*@media only screen and (orientation:portrait) {*/
+ @media only screen and (orientation:portrait) {*/
+    body {
+      height: 100vw;
+      width: 100vh;
+    }
+  }
     canvas {
       position: absolute;
-      top: 40%;
+      top: 60%;
       left: 50%;
       border: 1px solid black;
       z-index: 1;
@@ -26,7 +31,6 @@ media only screen and (max-with: 768px) {
       transform: rotate(90deg);*/
   }
   }
-/*}*/
 
 @media only screen and (min-width: 768px) {
 
