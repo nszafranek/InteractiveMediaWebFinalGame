@@ -74,7 +74,6 @@ What's broken
 function setup() {
   if (vw <= 768) {
     createCanvas(650, 450);
-    rotate(90);
   }
   else {
     createCanvas(1000, 500);
@@ -136,7 +135,6 @@ function preload() {
 function draw() {
   if (!gameOver) {
     background(200);
-
     heroMove();
     timing();
     bgTiling();
@@ -150,10 +148,12 @@ function draw() {
     containHero();
     gameEnd();
     drawSprites();
+    rotate(90);
   }
   if (gameOver) {
     gameOverText();
     updateSprites(false);
+    rotate(90);
   }
 }
 
