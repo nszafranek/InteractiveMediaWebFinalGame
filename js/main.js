@@ -55,7 +55,7 @@ let currentHeart;
 let lastHeart;
 let penHeart;
 let currentBar = 4;
-let c = getElementByTagName('canvas');
+let c = document.getElementByTagName('canvas');
 let ctx = c.getContext("2d");
 let vw;
 let vh;
