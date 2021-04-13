@@ -580,11 +580,12 @@ function gemGet() {
   // Add 1 gem to count
   gemCount = gemCount + 1;
   // Deswpan sprites
+  // If current Gem is undefined
   if (!currentGem) {
     currentGem = 0;
     gemGroup[currentGem].remove();
   }
-  if (gemGroup) {
+  if (currentGem) {
   gemGroup[currentGem].remove();
   }
   if (lastGem) {
@@ -593,8 +594,6 @@ function gemGet() {
   if (penGem) {
     gemGroup[penGem].remove();
   }
-  // Update score
-  // scoreUpdate();
 }
 
 function coinGet() {
