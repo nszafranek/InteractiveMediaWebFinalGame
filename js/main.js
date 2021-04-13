@@ -624,6 +624,16 @@ function heartGet() {
   // Heart procured
   // Gain HP
   lifeGain();
+}
+
+function lifeGain() {
+  // If HP is full
+  if (hitPoints == 4) {
+  }
+  // Otherwise
+  else {
+    hitPoints += 1;
+  }
   if (!currentHeart) {
   currentHeart = heartGroup.length - 1;
     heartGroup[currentHeart].remove();
@@ -636,16 +646,6 @@ function heartGet() {
   }
   if (penHeart) {
     heartGroup[penHeart].remove();
-  }
-}
-
-function lifeGain() {
-  // If HP is full
-  if (hitPoints == 4) {
-  }
-  // Otherwise
-  else {
-    hitPoints += 1;
   }
 }
 
