@@ -581,6 +581,9 @@ function gemGet() {
   gemCount = gemCount + 1;
   // Deswpan sprites
   if (!currentGem) {
+    if (!gemGroup.length) {
+      console.log(no length)
+    }
     currentGem = gemGroup.length - 1;
     gemGroup[currentGem].remove();
   }
