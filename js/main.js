@@ -439,7 +439,7 @@ function timing() {
 
 function heroMove() {
   // Hero movement
-  if (screen.width >= 768) {
+  if (screen.width <= 768) {
     document.addEventListener('swiped-left', function(e) {
       hero.velocity.x = -1;
       console.log(e.target); // the element that was swiped
