@@ -99,8 +99,6 @@ function setup() {
 }
 
 function preload() {
-  vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-  vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
   gameBackground = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/background.png');
   /*hpBar4 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health4.png');
   hpBar3 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health3.png');
@@ -139,6 +137,8 @@ function preload() {
 
 function draw() {
   if (!gameOver) {
+    vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
     background(200);
     heroMove();
     timing();
