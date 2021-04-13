@@ -55,10 +55,10 @@ let currentHeart;
 let lastHeart;
 let penHeart;
 let currentBar = 4;
-let can = getElementByTagName('canvas');
-let ctx = can.getContext("2d");
-const vw;
-const vh;
+let c = getElementByTagName('canvas');
+let ctx = c.getContext("2d");
+let vw;
+let vh;
 
 /*
 Created using p5.js and p5 play
