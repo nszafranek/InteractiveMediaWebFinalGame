@@ -55,6 +55,8 @@ let currentHeart;
 let lastHeart;
 let penHeart;
 let currentBar = 4;
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 
 /*
 Created using p5.js and p5 play
@@ -70,7 +72,12 @@ What's broken
 */
 
 function setup() {
-  createCanvas(700, 450);
+  if (vw <= 768) {
+  createCanvas(650, 450);
+  }
+  else {
+    createCanvas(1000, 500);
+  }
   x2 = width;
   scoreOutput();
   sharkGroup = new Group;
