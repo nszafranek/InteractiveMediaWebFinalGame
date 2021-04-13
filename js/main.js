@@ -465,6 +465,15 @@ function removeOldShark() {
    if ((sharkGroup[i].position.x) < 0) {
      sharkGroup[i].remove();
    }
+   if (currentShark) {
+     currentShark -= 1;
+   }
+   if (lastShark) {
+     lastShark -= 1;
+   }
+   if (penShark) {
+     penShark -= 1;
+   }
  }
 }
 
@@ -501,6 +510,15 @@ function removeOldGem() {
    if ((gemGroup[i].position.x) < 0) {
      gemGroup[i].remove();
    }
+   if (currentGem) {
+     currentGem -= 1;
+   }
+   if (lastGem) {
+     lastGem -= 1;
+   }
+   if (penGem) {
+     penGem -= 1;
+   }
  }
 }
 
@@ -535,6 +553,15 @@ function removeOldCoin() {
  for (let i = 0; i < coinGroup; i++) {
    if ((coinGroup[i].position.x) < 0) {
      coinGroup[i].remove();
+   }
+   if (currentCoin) {
+     currentCoin -= 1;
+   }
+   if (lastCoin) {
+     lastCoin -= 1;
+   }
+   if (penCoin) {
+     penCoin -= 1;
    }
  }
 }
@@ -571,6 +598,15 @@ function removeOldHeart() {
    if ((heartGroup[i].position.x) < 0) {
      heartGroup[i].remove();
    }
+ }
+ if (currentHeart) {
+   currentHeart -= 1;
+ }
+ if (lastHeart) {
+   lastHeart -= 1;
+ }
+ if (penHeart) {
+   penHeart -= 1;
  }
 }
 function gemGet() {
