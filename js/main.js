@@ -76,7 +76,7 @@ What's broken
 function setup() {
   //if mobile
   if ((screen.width <= 768) /*&& (screen.orientation === 'portrait-primary')*/) {
-    cnv = createCanvas(450, 400);
+    cnv = createCanvas(425, 500);
     cnv.id('gameCanvas')
   }
   /*else if ((screen.height <= 768) && (screen.orientation === 'landscape-primary')) {
