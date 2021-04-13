@@ -56,6 +56,19 @@ let lastHeart;
 let penHeart;
 let currentBar = 4;
 
+/*
+Created using p5.js and p5 play
+Created using the following reference materials/tutorials:
+  https://creative-coding.decontextualize.com/making-games-with-p5-play/
+  https://la-wit.github.io/build-an-infinite-runner/build/docs/it-girls-instructional-booklet.pdf
+  https://molleindustria.github.io/p5.play/docs/
+  https://p5js.org/reference/
+
+What's broken
+  using numerical hp as hpbars did not work
+  collisions stop being checked after you miss a few objects
+*/
+
 function setup() {
   createCanvas(1000, 500);
   x2 = width;
