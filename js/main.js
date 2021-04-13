@@ -73,7 +73,8 @@ What's broken
 
 function setup() {
   if (vw <= 768) {
-  createCanvas(650, 450);
+    createCanvas(650, 450);
+    rotate(90);
   }
   else {
     createCanvas(1000, 500);
