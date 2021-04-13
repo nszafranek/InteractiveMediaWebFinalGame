@@ -72,6 +72,7 @@ Created using the following reference materials/tutorials:
   https://la-wit.github.io/build-an-infinite-runner/build/docs/it-girls-instructional-booklet.pdf
   https://molleindustria.github.io/p5.play/docs/
   https://p5js.org/reference/
+  https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
 
 What's broken
   using numerical hp as hpbars did not work
@@ -81,7 +82,7 @@ What's broken
 function setup() {
   //if mobile
   if (screen.width <= 768) {
-    cnv = createCanvas(650, 360);
+    cnv = createCanvas(750, 360);
     cnv.id('gameCanvas')
   }
   //otherwise
