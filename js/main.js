@@ -57,7 +57,7 @@ let penHeart;
 let currentBar = 4;
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
-let vw = screen.width;
+let vw;
 
 /*
 Created using p5.js and p5 play
@@ -73,6 +73,7 @@ What's broken
 */
 
 function setup() {
+  let vw = screen.width;
   if (vw <= 768) {
     createCanvas(650, 450);
   }
