@@ -73,7 +73,8 @@ What's broken
 */
 
 function setup() {
-  //let vw = screen.width;
+  canvas = document.querySelector('canvas');
+  ctx = canvas.getContext('2d');
   if (screen.width <= 768) {
     createCanvas(650, 450);
   }
@@ -96,6 +97,9 @@ function setup() {
   hero.addAnimation('attack', attacking);
   hero.addAnimation('block', blocking);
   text.depth = 5;
+  if (screen.width <= 768) {
+    ctx.rotate(90);
+  }
 }
 
 function preload() {
@@ -137,8 +141,6 @@ function preload() {
 
 function draw() {
   if (!gameOver) {
-    canvas = document.querySelector('canvas');
-    ctx = canvas.getContext('2d');
     background(200);
     heroMove();
     timing();
@@ -153,9 +155,6 @@ function draw() {
     containHero();
     gameEnd();
     drawSprites();
-    if (screen.width <= 768) {
-      ctx.rotate(90);
-    }
   }
   if (gameOver) {
     gameOverText();
@@ -297,7 +296,7 @@ function lifeBar() {
   strokeWeight(1);
   textSize(25);
   strokeWeight(10);
-  text("HP : " + hitPoints, width - 60, 40)
+  text("HP : " + hitPoints, width - 60, 40);
 }
 
 function timing() {
