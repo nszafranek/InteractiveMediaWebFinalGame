@@ -106,6 +106,25 @@ function preload() {
   hpBar3 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health3.png');
   hpBar2 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health2.png');
   hpBar1 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health1.png');*/
+  if (screen.width <= 768) {
+    swimming = loadAnimation(
+      'https://raw.githubusercontent.com/nszafranek/project/main/img/mermove1m.png',
+      'https://raw.githubusercontent.com/nszafranek/project/main/img/mermove2m.png',
+    );
+    blocking = loadAnimation(
+      'https://raw.githubusercontent.com/nszafranek/project/main/img/merblock1m.png',
+      'https://raw.githubusercontent.com/nszafranek/project/main/img/merblock2m.png',
+    );
+    attacking - loadAnimation(
+      'https://raw.githubusercontent.com/nszafranek/project/main/img/merblock1m.png',
+      'https://raw.githubusercontent.com/nszafranek/project/main/img/merattack2m.png',
+    );
+    sharkSprite = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/sharkregm.png');
+    coinIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/coinm.png');
+    heartIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/heartm.png');
+    gemIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/gemm.png');
+  }
+  else {
   swimming = loadAnimation(
     'https://raw.githubusercontent.com/nszafranek/project/main/img/mermove1.png',
     'https://raw.githubusercontent.com/nszafranek/project/main/img/mermove2.png',
@@ -122,6 +141,7 @@ function preload() {
   coinIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/coin.png');
   heartIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/heart.png');
   gemIcon = loadAnimation('https://raw.githubusercontent.com/nszafranek/project/main/img/gem.png');
+  }
   gameFont = loadFont('https://raw.githubusercontent.com/nszafranek/project/main/img/SourceSansPro-Bold.ttf');
  /*if (!hpBar4) {
    console.log('hp bar 4 not loaded');
@@ -388,7 +408,12 @@ function createNewShark() {
     lastShark = sharkGroup.length - 3;
   }
   // spawn a new shark
-  shark = createSprite(width, random(0, height), 280, 93);
+  if (screen.size <= 768) {
+    shark = createSprite(width, random(0, height), 140, 47);
+  }
+  else {
+    shark = createSprite(width, random(0, height), 280, 93);
+  }
   shark.velocity.y = 0;
   shark.velocity.x = -3;
   shark.addAnimation('default', sharkSprite);
@@ -419,7 +444,12 @@ function createNewGem() {
     currentGem++;
   }
   // spawn a new gem
+  if (screen.size <= 768) {
+    gem = createSprite(width, random(0, height), 60, 55);
+  }
+   else {
   gem = createSprite(width, random(0, height), 119, 109);
+  }
   gem.velocity.y = 0;
   gem.velocity.x = -3;
   gem.addAnimation('default', gemIcon);
@@ -449,7 +479,12 @@ function createNewCoin() {
     lastCoin = coinGroup.length - 3;
   }
   // spawn a new coin
-  coin = createSprite(width, random(0, height), 68, 69);
+  if (screen.size <= 768) {
+    coin = createSprite(width, random(0, height), 34, 35);
+  }
+  else {
+    coin = createSprite(width, random(0, height), 68, 69);
+  }
   coin.velocity.y = 0;
   coin.velocity.x = -3;
   coin.addAnimation('default', coinIcon);
@@ -480,7 +515,12 @@ function createNewHeart() {
     lastHeart = heartGroup.length - 3;
   }
   //spawn new heart
-  heart = createSprite(width, random(0, height), 40, 40);
+  if (screen.size <= 768) {
+    heart = createSprite(width, random(0, height), 20, 20);
+  }
+  else {
+    heart = createSprite(width, random(0, height), 40, 40);
+  }
   heart.velocity.y = 0;
   heart.velocity.x = -3;
   heart.addAnimation('default', heartIcon);
