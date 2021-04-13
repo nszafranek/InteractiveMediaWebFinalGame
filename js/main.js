@@ -155,7 +155,7 @@ function draw() {
     containHero();
     gameEnd();
     drawSprites();
-    if (screen.width <= 768) {
+    if ((screen.width <= 768) && (screen.orientation === 'portrait-secondary')) {
       ctx.rotate(90);
     }
   }
