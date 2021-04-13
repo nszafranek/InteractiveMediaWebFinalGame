@@ -1,12 +1,8 @@
 media only screen and (max-with: 768px) {
 /*@media only screen and (orientation:portrait) {*/
-    body {
-      height: 100vw;
-      width: 100vh;
-    }
     canvas {
       position: absolute;
-      top: 60%;
+      top: 40%;
       left: 50%;
       border: 1px solid black;
       z-index: 1;
