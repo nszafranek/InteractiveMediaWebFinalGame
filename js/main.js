@@ -55,6 +55,9 @@ let currentHeart;
 let lastHeart;
 let penHeart;
 let currentBar = 4;
+let can = getElementByTagName('canvas');
+let ctx = can.getContext("2d");
+
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 
@@ -150,7 +153,7 @@ function draw() {
     gameEnd();
     drawSprites();
     if (vw <= 768) {
-      rotate(90);
+      ctx.rotate(90);
     }
   }
   if (gameOver) {
