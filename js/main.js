@@ -57,8 +57,8 @@ let penHeart;
 let currentBar = 4;
 let can = getElementByTagName('canvas');
 let ctx = can.getContext("2d");
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+const vw;
+const vh;
 
 /*
 Created using p5.js and p5 play
@@ -99,6 +99,8 @@ function setup() {
 }
 
 function preload() {
+  vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
   gameBackground = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/background.png');
   /*hpBar4 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health4.png');
   hpBar3 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health3.png');
