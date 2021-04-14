@@ -208,27 +208,9 @@ function draw() {
     textSize(17);
     strokeWeight(10);
     text("Press Enter to start!", width / 2, (height / 2) + 140);
-    if (screen.width <= 800) {
-      document.addEventListener('swiped-left', function(e) {
-        clear();
-        startGame = true;
-        console.log(e.target); // the element that was swiped
-      });
-      document.addEventListener('swiped-right', function(e) {
-        console.log(e.target); // the element that was swiped
-        clear();
-        startGame = true;
-      });
-      document.addEventListener('swiped-up', function(e) {
-        console.log(e.target); // the element that was swiped
-        clear();
-        startGame = true;
-      });
-      document.addEventListener('swiped-down', function(e) {
-        console.log(e.target); // the element that was swiped
-        clear();
-        startGame = true;
-      });
+    if (startTouch) {
+      clear();
+      startGame = true;      
     }
     if (keyWentDown(13)) {
       clear();
@@ -492,7 +474,7 @@ function timing() {
   time++;
 
 };
-function touchControls() {
+/*function touchControls() {
   // patch CustomEvent to allow constructor creation (IE/Chrome)
   if (typeof window.CustomEvent !== 'function') {
 
@@ -524,7 +506,7 @@ function touchControls() {
    * @param {object} e - browser event object
    * @returns {void}
    */
-  function handleTouchEnd(e) {
+  /*function handleTouchEnd(e) {
 
       // if the user released on a different target, cancel!
       if (startEl !== e.target) return;
@@ -583,7 +565,7 @@ function touchControls() {
    * @returns {void}
    */
 
-  function handleTouchStart(e) {
+  /*function handleTouchStart(e) {
 
       // if the element has data-swipe-ignore="true" we stop listening for swipe events
       if (e.target.getAttribute('data-swipe-ignore') === 'true') return;
@@ -603,7 +585,7 @@ function touchControls() {
    * @returns {void}
    */
 
-  function handleTouchMove(e) {
+  /*function handleTouchMove(e) {
 
       if (!xDown || !yDown) return;
 
@@ -621,7 +603,7 @@ function touchControls() {
    * @param {any} defaultValue - default value to return if no match found
    * @returns {any} attribute value or defaultValue
    */
-  function getNearestAttribute(el, attributeName, defaultValue) {
+  /*function getNearestAttribute(el, attributeName, defaultValue) {
 
       // walk up the dom tree looking for data-action and data-trigger
       while (el && el !== document.documentElement) {
@@ -637,11 +619,64 @@ function touchControls() {
 
       return defaultValue;
   }
+}*/
+
+function touchControls() {
+
+  document.addEventListener('touchstart', handleTouchStart, false);
+  document.addEventListener('touchmove', handleTouchMove, false);
+
+  var xDown = null;
+  var yDown = null;
+
+  function getTouches(evt) {
+    return evt.touches ||             // browser API
+  //         evt.originalEvent.touches; // jQuery
+  }
+
+  function handleTouchStart(evt) {
+      const firstTouch = getTouches(evt)[0];
+      xDown = firstTouch.clientX;
+      yDown = firstTouch.clientY;
+  };
+
+  function handleTouchMove(evt) {
+      if ( ! xDown || ! yDown ) {
+          return;
+      }
+
+      var xUp = evt.touches[0].clientX;
+      var yUp = evt.touches[0].clientY;
+
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+      if (heroMove()) {
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+                hero.velocity.x = -1;
+            } else {
+                /* right swipe */
+                hero.velocity.x = 1;
+            }
+        } else {
+            if ( yDiff > 0 ) {
+                /* up swipe */
+                hero.velocity.y = -1;
+            } else {
+                /* down swipe */
+                  hero.velocity.y = 1;
+            }
+        }
+      }
+      /* reset values */
+      xDown = null;
+      yDown = null;
+    };
 }
 
 function heroMove() {
   // Hero movement
-  if (screen.width <= 800) {
     document.addEventListener('swiped-left', function(e) {
       hero.velocity.x = -1;
       console.log(e.target); // the element that was swiped
@@ -658,20 +693,6 @@ function heroMove() {
       console.log(e.target); // the element that was swiped
       hero.velocity.y = 1;
     });
-  }
-  else {
-    if (keyWentDown(UP_ARROW)) {
-      hero.velocity.y = -1;
-    }
-    else if (keyWentDown(DOWN_ARROW)) {
-      hero.velocity.y = 1;
-    }
-    else if (keyWentDown(LEFT_ARROW)) {
-      hero.velocity.x = -1;
-    }
-    else if (keyWentDown(RIGHT_ARROW)) {
-      hero.velocity.x = 1;
-    }
   }
 }
 
