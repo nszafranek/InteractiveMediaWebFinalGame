@@ -189,6 +189,7 @@ function preload() {
 function draw() {
   //regular gameplay
   if ((!gameOver) && (!startGame)) {
+    touchControls();
     background('DodgerBlue');
     bgTiling();
     fill('white');
@@ -207,6 +208,28 @@ function draw() {
     textSize(17);
     strokeWeight(10);
     text("Press Enter to start!", width / 2, (height / 2) + 140);
+    if (screen.width <= 800) {
+      document.addEventListener('swiped-left', function(e) {
+        clear();
+        startGame = true;
+        console.log(e.target); // the element that was swiped
+      });
+      document.addEventListener('swiped-right', function(e) {
+        console.log(e.target); // the element that was swiped
+        clear();
+        startGame = true;
+      });
+      document.addEventListener('swiped-up', function(e) {
+        console.log(e.target); // the element that was swiped
+        clear();
+        startGame = true;
+      });
+      document.addEventListener('swiped-down', function(e) {
+        console.log(e.target); // the element that was swiped
+        clear();
+        startGame = true;
+      });
+    }
     if (keyWentDown(13)) {
       clear();
       startGame = true;
@@ -264,7 +287,7 @@ function bgTiling() {
 // Disable Scrolling
 // left: 37, up: 38, right: 39, down: 40,
 // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-let keys = {37: 1, 38: 1, 39: 1, 40: 1};
+//let keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
 /*function preventDefault(e) {
   e.preventDefault();
@@ -469,149 +492,151 @@ function timing() {
   time++;
 
 };
-// patch CustomEvent to allow constructor creation (IE/Chrome)
-if (typeof window.CustomEvent !== 'function') {
+function touchControls {
+  // patch CustomEvent to allow constructor creation (IE/Chrome)
+  if (typeof window.CustomEvent !== 'function') {
 
-    window.CustomEvent = function (event, params) {
+      window.CustomEvent = function (event, params) {
 
-        params = params || { bubbles: false, cancelable: false, detail: undefined };
+          params = params || { bubbles: false, cancelable: false, detail: undefined };
 
-        var evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-        return evt;
-    };
+          var evt = document.createEvent('CustomEvent');
+          evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+          return evt;
+      };
 
-    window.CustomEvent.prototype = window.Event.prototype;
-}
+      window.CustomEvent.prototype = window.Event.prototype;
+  }
 
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
-document.addEventListener('touchend', handleTouchEnd, false);
+  document.addEventListener('touchstart', handleTouchStart, false);
+  document.addEventListener('touchmove', handleTouchMove, false);
+  document.addEventListener('touchend', handleTouchEnd, false);
 
-var xDown = null;
-var yDown = null;
-var xDiff = null;
-var yDiff = null;
-var timeDown = null;
-var startEl = null;
+  var xDown = null;
+  var yDown = null;
+  var xDiff = null;
+  var yDiff = null;
+  var timeDown = null;
+  var startEl = null;
 
-/**
- * Fires swiped event if swipe detected on touchend
- * @param {object} e - browser event object
- * @returns {void}
- */
-function handleTouchEnd(e) {
+  /**
+   * Fires swiped event if swipe detected on touchend
+   * @param {object} e - browser event object
+   * @returns {void}
+   */
+  function handleTouchEnd(e) {
 
-    // if the user released on a different target, cancel!
-    if (startEl !== e.target) return;
+      // if the user released on a different target, cancel!
+      if (startEl !== e.target) return;
 
-    var swipeThreshold = parseInt(getNearestAttribute(startEl, 'data-swipe-threshold', '20'), 10); // default 20px
-    var swipeTimeout = parseInt(getNearestAttribute(startEl, 'data-swipe-timeout', '500'), 10);    // default 500ms
-    var timeDiff = Date.now() - timeDown;
-    var eventType = '';
-    var changedTouches = e.changedTouches || e.touches || [];
+      var swipeThreshold = parseInt(getNearestAttribute(startEl, 'data-swipe-threshold', '20'), 10); // default 20px
+      var swipeTimeout = parseInt(getNearestAttribute(startEl, 'data-swipe-timeout', '500'), 10);    // default 500ms
+      var timeDiff = Date.now() - timeDown;
+      var eventType = '';
+      var changedTouches = e.changedTouches || e.touches || [];
 
-    if (Math.abs(xDiff) > Math.abs(yDiff)) { // most significant
-        if (Math.abs(xDiff) > swipeThreshold && timeDiff < swipeTimeout) {
-            if (xDiff > 0) {
-                eventType = 'swiped-left';
-            }
-            else {
-                eventType = 'swiped-right';
-            }
-        }
-    }
-    else if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
-        if (yDiff > 0) {
-            eventType = 'swiped-up';
-        }
-        else {
-            eventType = 'swiped-down';
-        }
-    }
+      if (Math.abs(xDiff) > Math.abs(yDiff)) { // most significant
+          if (Math.abs(xDiff) > swipeThreshold && timeDiff < swipeTimeout) {
+              if (xDiff > 0) {
+                  eventType = 'swiped-left';
+              }
+              else {
+                  eventType = 'swiped-right';
+              }
+          }
+      }
+      else if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
+          if (yDiff > 0) {
+              eventType = 'swiped-up';
+          }
+          else {
+              eventType = 'swiped-down';
+          }
+      }
 
-    if (eventType !== '') {
+      if (eventType !== '') {
 
-        var eventData = {
-            dir: eventType.replace(/swiped-/, ''),
-            xStart: parseInt(xDown, 10),
-            xEnd: parseInt((changedTouches[0] || {}).clientX || -1, 10),
-            yStart: parseInt(yDown, 10),
-            yEnd: parseInt((changedTouches[0] || {}).clientY || -1, 10)
-        };
+          var eventData = {
+              dir: eventType.replace(/swiped-/, ''),
+              xStart: parseInt(xDown, 10),
+              xEnd: parseInt((changedTouches[0] || {}).clientX || -1, 10),
+              yStart: parseInt(yDown, 10),
+              yEnd: parseInt((changedTouches[0] || {}).clientY || -1, 10)
+          };
 
-        // fire `swiped` event event on the element that started the swipe
-        startEl.dispatchEvent(new CustomEvent('swiped', { bubbles: true, cancelable: true, detail: eventData }));
+          // fire `swiped` event event on the element that started the swipe
+          startEl.dispatchEvent(new CustomEvent('swiped', { bubbles: true, cancelable: true, detail: eventData }));
 
-        // fire `swiped-dir` event on the element that started the swipe
-        startEl.dispatchEvent(new CustomEvent(eventType, { bubbles: true, cancelable: true, detail: eventData }));
-    }
+          // fire `swiped-dir` event on the element that started the swipe
+          startEl.dispatchEvent(new CustomEvent(eventType, { bubbles: true, cancelable: true, detail: eventData }));
+      }
 
-    // reset values
-    xDown = null;
-    yDown = null;
-    timeDown = null;
-}
+      // reset values
+      xDown = null;
+      yDown = null;
+      timeDown = null;
+  }
 
-/**
- * Records current location on touchstart event
- * @param {object} e - browser event object
- * @returns {void}
- */
- 
-function handleTouchStart(e) {
+  /**
+   * Records current location on touchstart event
+   * @param {object} e - browser event object
+   * @returns {void}
+   */
 
-    // if the element has data-swipe-ignore="true" we stop listening for swipe events
-    if (e.target.getAttribute('data-swipe-ignore') === 'true') return;
+  function handleTouchStart(e) {
 
-    startEl = e.target;
+      // if the element has data-swipe-ignore="true" we stop listening for swipe events
+      if (e.target.getAttribute('data-swipe-ignore') === 'true') return;
 
-    timeDown = Date.now();
-    xDown = e.touches[0].clientX;
-    yDown = e.touches[0].clientY;
-    xDiff = 0;
-    yDiff = 0;
-}
+      startEl = e.target;
 
-/**
- * Records location diff in px on touchmove event
- * @param {object} e - browser event object
- * @returns {void}
- */
+      timeDown = Date.now();
+      xDown = e.touches[0].clientX;
+      yDown = e.touches[0].clientY;
+      xDiff = 0;
+      yDiff = 0;
+  }
 
-function handleTouchMove(e) {
+  /**
+   * Records location diff in px on touchmove event
+   * @param {object} e - browser event object
+   * @returns {void}
+   */
 
-    if (!xDown || !yDown) return;
+  function handleTouchMove(e) {
 
-    var xUp = e.touches[0].clientX;
-    var yUp = e.touches[0].clientY;
+      if (!xDown || !yDown) return;
 
-    xDiff = xDown - xUp;
-    yDiff = yDown - yUp;
-}
+      var xUp = e.touches[0].clientX;
+      var yUp = e.touches[0].clientY;
 
-/**
- * Gets attribute off HTML element or nearest parent
- * @param {object} el - HTML element to retrieve attribute from
- * @param {string} attributeName - name of the attribute
- * @param {any} defaultValue - default value to return if no match found
- * @returns {any} attribute value or defaultValue
- */
-function getNearestAttribute(el, attributeName, defaultValue) {
+      xDiff = xDown - xUp;
+      yDiff = yDown - yUp;
+  }
 
-    // walk up the dom tree looking for data-action and data-trigger
-    while (el && el !== document.documentElement) {
+  /**
+   * Gets attribute off HTML element or nearest parent
+   * @param {object} el - HTML element to retrieve attribute from
+   * @param {string} attributeName - name of the attribute
+   * @param {any} defaultValue - default value to return if no match found
+   * @returns {any} attribute value or defaultValue
+   */
+  function getNearestAttribute(el, attributeName, defaultValue) {
 
-        var attributeValue = el.getAttribute(attributeName);
+      // walk up the dom tree looking for data-action and data-trigger
+      while (el && el !== document.documentElement) {
 
-        if (attributeValue) {
-            return attributeValue;
-        }
+          var attributeValue = el.getAttribute(attributeName);
 
-        el = el.parentNode;
-    }
+          if (attributeValue) {
+              return attributeValue;
+          }
 
-    return defaultValue;
+          el = el.parentNode;
+      }
+
+      return defaultValue;
+  }
 }
 
 function heroMove() {
