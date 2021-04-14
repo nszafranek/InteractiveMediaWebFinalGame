@@ -114,12 +114,12 @@ function setup() {
   if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
     cnv = createCanvas(400, 175);
     cnv.id('gameCanvas')
-    cnv.parent('cnv');
+    //gameContainer.parent('cnv');
   }
   else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
     cnv = createCanvas(450, 200);
     cnv.id('gameCanvas');
-    cnv.parent('cnv');
+    //gameContainer.parent('cnv');
   }
   //otherwise
   else {
