@@ -59,9 +59,8 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let activeRegion;
-let childElement;
-
+//let activeRegion;
+//let childElement;
 let mc;
 
 
