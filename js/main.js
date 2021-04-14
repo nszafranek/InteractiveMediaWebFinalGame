@@ -1,4 +1,4 @@
-//import ZingTouch from './ZingTouch/ZingTouch.js';
+import ZingTouch from './ZingTouch/ZingTouch.js';
 import Region from './ZingTouch/core/classes/Region.js';
 import Gesture from './ZingTouch/gestures/Gesture.js';
 import Pan from './ZingTouch/gestures/Pan.js';
@@ -6,7 +6,7 @@ import Distance from './ZingTouch/gestures/Distance.js';
 import Rotate from './ZingTouch/gestures/Rotate.js';
 import Swipe from './ZingTouch/gestures/Swipe.js';
 import Tap from './ZingTouch/gestures/Tap.js';
-let ZingTouch;
+//let ZingTouch;
 let time = 0;
 let swimming;
 let blocking;
@@ -97,7 +97,7 @@ What's broken
 */
 
 function setup() {
-    ZingTouch = {
+    /*ZingTouch = {
       _regions: [],
 
       // Constructors
@@ -113,7 +113,7 @@ function setup() {
         ZingTouch._regions.push(region);
         return region;
       },
-    };
+    };*/
   if (ZingTouch) {
   activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
   childElement = cnv;
