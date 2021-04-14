@@ -285,7 +285,7 @@ function draw() {
       clear();
       startGame = true;
     }
-    gameContainer.bind(cnv, 'singleTap', function(e) {
+    region.bind(cnv, 'singleTap', function(e) {
       if ((!gameOver) && (!startGame)) {
         gameStart();
       }
@@ -755,17 +755,17 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  gameContainer.bind(cnv, 'moveUp', function(e) {
+  gameContainer1.bind(cnv, 'moveUp', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.y = -1;
     }
   });
-  gameContainer.bind(cnv, 'moveDown', function(e) {
+  gameContainer1.bind(cnv, 'moveDown', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.y = 1;
     }
   });
-  gameContainer.bind(cnv, 'moveLeft', function(e) {
+  gameContainer1.bind(cnv, 'moveLeft', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.x = -1;
     }
