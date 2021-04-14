@@ -59,6 +59,13 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
+let tch = null;
+
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
+
+let xDown = null;
+let yDown = null;
 
 /*
 Created using p5.js and p5 play
@@ -208,9 +215,9 @@ function draw() {
     textSize(17);
     strokeWeight(10);
     text("Press Enter to start!", width / 2, (height / 2) + 140);
-    if (startTouch) {
+    function touchStarted()) {
       clear();
-      startGame = true;      
+      startGame = true;
     }
     if (keyWentDown(13)) {
       clear();
@@ -622,12 +629,6 @@ function timing() {
 }*/
 
 function touchControls() {
-
-  document.addEventListener('touchstart', handleTouchStart, false);
-  document.addEventListener('touchmove', handleTouchMove, false);
-
-  var xDown = null;
-  var yDown = null;
 
   function getTouches(evt) {
     return evt.touches ||             // browser API
