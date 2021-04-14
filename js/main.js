@@ -59,8 +59,7 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let gameContainer1 = document.getElementById('gameContainer');
-let activeRegion = ZingTouch.Region(gameContainer1);
+let activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
 let childElement = cnv;
 
 let moveUp = new ZingTouch.Swipe({
@@ -755,22 +754,22 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  cnv.bind(cnv, 'moveUp', function(e) {
+  activeRegion.bind(cnv, 'moveUp', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.y = -1;
     }
   });
-  cnv.bind(cnv, 'moveDown', function(e) {
+  activeRegion.bind(cnv, 'moveDown', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.y = 1;
     }
   });
-  cnv.bind(cnv, 'moveLeft', function(e) {
+  activeRegion.bind(cnv, 'moveLeft', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.x = -1;
     }
   });
-  gameContainer.bind(cnv, 'moveRight', function(e) {
+  activeRegion.bind(cnv, 'moveRight', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.x = 1;
     }
@@ -795,7 +794,7 @@ function gameEnd() {
   if (keyWentDown(27) && (startGame)) {
     gameOver = true;
   }
-  gameContainer.bind(cnv, 'doubleTap', function(e) {
+  activeRegion.bind(cnv, 'doubleTap', function(e) {
     if ((!gameOver) && (startGame)) {
       gameOver = true;
     }
