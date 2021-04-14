@@ -88,6 +88,7 @@ What's broken
 */
 
 function setup() {
+  if (ZingTouch) {
   activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
   childElement = cnv;
 
@@ -110,7 +111,8 @@ function setup() {
   let singleTap = new ZingTouch.Tap({
     numInputs: 1,
     maxDelay: 300
-  })
+  });
+  }
   //if mobile
   if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
     cnv = createCanvas(400, 175);
@@ -286,12 +288,14 @@ function draw() {
       clear();
       startGame = true;
     }
-    if (activeRegion) {
-      activeRegion.bind(cnv, 'singleTap', function(e) {
-        if ((!gameOver) && (!startGame)) {
-          gameStart();
-        }
-      });
+    if (ZingTouch) {
+      if (activeRegion) {
+        activeRegion.bind(cnv, 'singleTap', function(e) {
+          if ((!gameOver) && (!startGame)) {
+            gameStart();
+          }
+        });
+      }
     }
   }
   //game over
@@ -758,27 +762,29 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  if (activeRegion) {
-    activeRegion.bind(cnv, 'moveUp', function(e) {
-      if ((!gameOver) && (startGame)) {
-        hero.velocity.y = -1;
-      }
-    });
-    activeRegion.bind(cnv, 'moveDown', function(e) {
-      if ((!gameOver) && (startGame)) {
-        hero.velocity.y = 1;
-      }
-    });
-    activeRegion.bind(cnv, 'moveLeft', function(e) {
-      if ((!gameOver) && (startGame)) {
-        hero.velocity.x = -1;
-      }
-    });
-    activeRegion.bind(cnv, 'moveRight', function(e) {
-      if ((!gameOver) && (startGame)) {
-        hero.velocity.x = 1;
-      }
-    });
+  if (ZingTouch) {
+    if (activeRegion) {
+      activeRegion.bind(cnv, 'moveUp', function(e) {
+        if ((!gameOver) && (startGame)) {
+          hero.velocity.y = -1;
+        }
+      });
+      activeRegion.bind(cnv, 'moveDown', function(e) {
+        if ((!gameOver) && (startGame)) {
+          hero.velocity.y = 1;
+        }
+      });
+      activeRegion.bind(cnv, 'moveLeft', function(e) {
+        if ((!gameOver) && (startGame)) {
+          hero.velocity.x = -1;
+        }
+      });
+      activeRegion.bind(cnv, 'moveRight', function(e) {
+        if ((!gameOver) && (startGame)) {
+          hero.velocity.x = 1;
+        }
+      });
+    }
   }
   //hammer.js touch controls
   /*mc.on("swipeUp", function(ev) {
@@ -800,12 +806,14 @@ function gameEnd() {
   if (keyWentDown(27) && (startGame)) {
     gameOver = true;
   }
-  if (activeRegion) {
-  activeRegion.bind(cnv, 'doubleTap', function(e) {
-    if ((!gameOver) && (startGame)) {
-      gameOver = true;
+  if (ZingTouch) {
+    if (activeRegion) {
+    activeRegion.bind(cnv, 'doubleTap', function(e) {
+      if ((!gameOver) && (startGame)) {
+        gameOver = true;
+      }
+    });
     }
-  });
   }
 }
 
