@@ -188,7 +188,7 @@ function preload() {
 
 function draw() {
   //regular gameplay
-  if ((!gameOver) && (!startGame)){
+  if ((!gameOver) && (!startGame)) {
     background('DodgerBlue');
     bgTiling()
     fill('white');
@@ -205,6 +205,7 @@ function draw() {
     textsize(17);
     text("Press Enter to start!", width / 2, (height / 2) + 110);
     if (keyWentDown(13)) {
+      text.remove();
       startGame = true;
     }
   }
