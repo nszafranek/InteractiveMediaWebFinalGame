@@ -722,19 +722,18 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  mc.on("swipeup" function(e) {
+  mc.on("swipeUp", function(ev) {
     hero.velocity.y = -1;
   });
-  mc.on("swipedown" function(e) {
+  mc.on("swipeDown", function(ev) {
     hero.velocity.y = 1;
   });
-  mc.on("swipeleft" function(e) {
+  mc.on("swipeLeft", function(ev) {
     hero.velocity.x = -1;
   });
-  mc.on("swiperight") {
+  mc.on("swipeRight", function(ev) {
     hero.velocity.x = 1;
-  }
-  }
+  });
 }
 
 // End Game by pressing Esc key
