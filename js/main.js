@@ -215,7 +215,7 @@ function draw() {
     textSize(17);
     strokeWeight(10);
     text("Press Enter to start!", width / 2, (height / 2) + 140);
-    function touchStarted()) {
+    function touchStarted() {
       clear();
       startGame = true;
     }
