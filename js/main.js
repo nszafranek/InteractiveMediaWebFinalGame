@@ -681,23 +681,31 @@ function timing() {
 */
 
 function heroMove() {
-  // Hero movement
-    document.addEventListener('swiped-left', function(e) {
-      hero.velocity.x = -1;
-      console.log(e.target); // the element that was swiped
-    });
-    document.addEventListener('swiped-right', function(e) {
-      console.log(e.target); // the element that was swiped
-      hero.velocity.x = 1;
-    });
-    document.addEventListener('swiped-up', function(e) {
-      console.log(e.target); // the element that was swiped
-      hero.velocity.y = -1;
-    });
-    document.addEventListener('swiped-down', function(e) {
-      console.log(e.target); // the element that was swiped
-      hero.velocity.y = 1;
-    });
+  // Hero movement touch
+  if (keyWentDown(UP)) {
+    hero.velocity.y = -1;
+  }
+  if (keyWentDown(DOWN)) {
+    hero.velocity.y = 1;
+  }
+  if (keyWentDown(LEFT)) {
+    hero.velocity.x = -1;
+  }
+  if (keyWentDown(RIGHT)) {
+    hero.velocity.x = 1;
+  }
+  mc.on("swipeup") {
+    hero.velocity.y = -1;
+  }
+  mc.on("swipedown") {
+    hero.velocity.y = 1;
+  }
+  mc.on("swipeleft") {
+    hero.velocity.x = -1;
+  }
+  mc.on("swiperight") {
+    hero.velocity.x = 1;
+  }
   }
 }
 
