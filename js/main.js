@@ -284,11 +284,13 @@ function draw() {
       clear();
       startGame = true;
     }
-    activeRegion.bind(cnv, 'singleTap', function(e) {
-      if ((!gameOver) && (!startGame)) {
-        gameStart();
-      }
-    });
+    if (activeRegion) {
+      activeRegion.bind(cnv, 'singleTap', function(e) {
+        if ((!gameOver) && (!startGame)) {
+          gameStart();
+        }
+      });
+    }
   }
   //game over
   if (gameOver) {
@@ -754,26 +756,28 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  activeRegion.bind(cnv, 'moveUp', function(e) {
-    if ((!gameOver) && (startGame)) {
-      hero.velocity.y = -1;
-    }
-  });
-  activeRegion.bind(cnv, 'moveDown', function(e) {
-    if ((!gameOver) && (startGame)) {
-      hero.velocity.y = 1;
-    }
-  });
-  activeRegion.bind(cnv, 'moveLeft', function(e) {
-    if ((!gameOver) && (startGame)) {
-      hero.velocity.x = -1;
-    }
-  });
-  activeRegion.bind(cnv, 'moveRight', function(e) {
-    if ((!gameOver) && (startGame)) {
-      hero.velocity.x = 1;
-    }
-  });
+  if (activeRegion) {
+    activeRegion.bind(cnv, 'moveUp', function(e) {
+      if ((!gameOver) && (startGame)) {
+        hero.velocity.y = -1;
+      }
+    });
+    activeRegion.bind(cnv, 'moveDown', function(e) {
+      if ((!gameOver) && (startGame)) {
+        hero.velocity.y = 1;
+      }
+    });
+    activeRegion.bind(cnv, 'moveLeft', function(e) {
+      if ((!gameOver) && (startGame)) {
+        hero.velocity.x = -1;
+      }
+    });
+    activeRegion.bind(cnv, 'moveRight', function(e) {
+      if ((!gameOver) && (startGame)) {
+        hero.velocity.x = 1;
+      }
+    });
+  }
   //hammer.js touch controls
   /*mc.on("swipeUp", function(ev) {
     hero.velocity.y = -1;
@@ -794,11 +798,13 @@ function gameEnd() {
   if (keyWentDown(27) && (startGame)) {
     gameOver = true;
   }
+  if (activeRegion) {
   activeRegion.bind(cnv, 'doubleTap', function(e) {
     if ((!gameOver) && (startGame)) {
       gameOver = true;
     }
   });
+  }
 }
 
 
