@@ -59,9 +59,9 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let gameContainer1 = document.getElementById('gameContainer');
-let activeRegion = ZingTouch.Region(gameContainer1);
-let childElement = cnv;
+//let gameContainer1 = document.getElementById('gameContainer');
+let activeRegion = ZingTouch.Region(cnv);
+//let childElement = cnv;
 
 let moveUp = new ZingTouch.Swipe({
   currentDirection : 90
@@ -114,18 +114,18 @@ function setup() {
   if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
     cnv = createCanvas(400, 175);
     cnv.id('gameCanvas')
-    cnv.parent('gameContainer1');
+    cnv.parent('cnv');
   }
   else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
     cnv = createCanvas(450, 200);
     cnv.id('gameCanvas');
-    cnv.parent('gameContainer1');
+    cnv.parent('cnv');
   }
   //otherwise
   else {
     cnv = createCanvas(1000, 500);
     cnv.id('gameCanvas');
-    cnv.parent('gameContainer1');
+    cnv.parent('cnv');
   }
   //Hammer.js code
   /*mc = new Hammer.Manager(cnv);
@@ -755,17 +755,17 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  gameContainer1.bind(cnv, 'moveUp', function(e) {
+  cnv.bind(cnv, 'moveUp', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.y = -1;
     }
   });
-  gameContainer1.bind(cnv, 'moveDown', function(e) {
+  cnv.bind(cnv, 'moveDown', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.y = 1;
     }
   });
-  gameContainer1.bind(cnv, 'moveLeft', function(e) {
+  cnv.bind(cnv, 'moveLeft', function(e) {
     if ((!gameOver) && (startGame)) {
       hero.velocity.x = -1;
     }
