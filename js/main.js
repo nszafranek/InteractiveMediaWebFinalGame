@@ -59,9 +59,9 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-//let gameContainer1 = document.getElementById('gameContainer');
+let gameContainer1 = document.getElementById('gameContainer');
 let activeRegion = ZingTouch.Region(cnv);
-//let childElement = cnv;
+let childElement = cnv;
 
 let moveUp = new ZingTouch.Swipe({
   currentDirection : 90
@@ -114,18 +114,18 @@ function setup() {
   if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
     cnv = createCanvas(400, 175);
     cnv.id('gameCanvas')
-    //gameContainer.parent('cnv');
+    cnv.parent('gameContainer');
   }
   else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
     cnv = createCanvas(450, 200);
     cnv.id('gameCanvas');
-    //gameContainer.parent('cnv');
+    cnv.parent('gameContainer');
   }
   //otherwise
   else {
     cnv = createCanvas(1000, 500);
     cnv.id('gameCanvas');
-    //cnv.parent('cnv');
+  cnv.parent('gameContainer');
   }
   //Hammer.js code
   /*mc = new Hammer.Manager(cnv);
