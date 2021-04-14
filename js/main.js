@@ -1,3 +1,4 @@
+import ZingTouch from "zingtouch.js"
 let time = 0;
 let swimming;
 let blocking;
@@ -59,7 +60,6 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-import ZingTouch from "zingtouch.js"
 let activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
 let childElement = cnv;
 
