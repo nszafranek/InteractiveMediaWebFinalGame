@@ -100,6 +100,8 @@ function setup() {
     cnv.id('gameCanvas')
   }
   mc = new Hammer.Manager(cnv);
+  if (mc) {
+
   hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 
   mc.add ( new Hammer.Swipe ({
@@ -128,6 +130,9 @@ function setup() {
 
   mc.get('doubletap').recognizeWith('singletap');
   mc.get('singletap').requireFailure('doubletap');
+
+  }
+  
   angleMode(degrees);
   x2 = width;
   scoreOutput();
