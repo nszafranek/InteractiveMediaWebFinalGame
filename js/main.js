@@ -62,7 +62,7 @@ let cnv;
 let activeRegion;
 let childElement;
 
-//let mc;
+let mc;
 
 
 //let tch = null;
@@ -105,7 +105,8 @@ function setup() {
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
-  if (ZingTouch) {
+  //ZingTouch Code
+  /*if (ZingTouch) {
     activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
     childElement = cnv;
     let moveUp = new ZingTouch.Swipe({
@@ -128,9 +129,9 @@ function setup() {
       numInputs: 1,
       maxDelay: 300
     });
-  }
+  }*/
   //Hammer.js code
-  /*mc = new Hammer.Manager(cnv);
+  mc = new Hammer.Manager(cnv);
   if (mc) {
 
   hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
@@ -162,7 +163,7 @@ function setup() {
   mc.get('doubletap').recognizeWith('singletap');
   mc.get('singletap').requireFailure('doubletap');
 
-}*/
+}
 
   //angleMode(degrees);
   x2 = width;
@@ -287,7 +288,7 @@ function draw() {
       clear();
       startGame = true;
     }
-    if (ZingTouch) {
+    /*if (ZingTouch) {
       if (activeRegion) {
         activeRegion.bind(cnv, 'singleTap', function(e) {
           if ((!gameOver) && (!startGame)) {
@@ -295,7 +296,7 @@ function draw() {
           }
         });
       }
-    }
+    }*/
   }
   //game over
   if (gameOver) {
@@ -761,7 +762,8 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  if (ZingTouch) {
+  //ZingTouch
+  /*if (ZingTouch) {
     if (activeRegion) {
       activeRegion.bind(cnv, 'moveUp', function(e) {
         if ((!gameOver) && (startGame)) {
@@ -784,9 +786,9 @@ function heroMove() {
         }
       });
     }
-  }
+  }*/
   //hammer.js touch controls
-  /*mc.on("swipeUp", function(ev) {
+  mc.on("swipeUp", function(ev) {
     hero.velocity.y = -1;
   });
   mc.on("swipeDown", function(ev) {
@@ -797,7 +799,7 @@ function heroMove() {
   });
   mc.on("swipeRight", function(ev) {
     hero.velocity.x = 1;
-  });*/
+  });
 }
 
 // End Game by pressing Esc key
@@ -805,7 +807,8 @@ function gameEnd() {
   if (keyWentDown(27) && (startGame)) {
     gameOver = true;
   }
-  if (ZingTouch) {
+  //ZingTouch
+  /*if (ZingTouch) {
     if (activeRegion) {
     activeRegion.bind(cnv, 'doubleTap', function(e) {
       if ((!gameOver) && (startGame)) {
@@ -813,7 +816,7 @@ function gameEnd() {
       }
     });
     }
-  }
+  }*/
 }
 
 
