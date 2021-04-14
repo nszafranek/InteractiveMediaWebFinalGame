@@ -59,8 +59,8 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let gameContainer = document.getElementById('gameContainer');
-let activeRegion = ZingTouch.Region(cnv);
+let gameContainer1 = document.getElementById('gameContainer');
+let activeRegion = ZingTouch.Region(gameContainer1);
 let childElement = cnv;
 
 let moveUp = new ZingTouch.Swipe({
