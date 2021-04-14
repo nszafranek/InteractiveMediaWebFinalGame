@@ -223,7 +223,7 @@ function draw() {
 function gameStart() {
   gameCanvas = document.getElementById('gameCanvas');
   ctx = gameCanvas.getContext('2d');
-  background(200);
+  background('DodgerBlue');
   bgTiling();
   heroMove();
   timing();
