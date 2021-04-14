@@ -204,7 +204,7 @@ function draw() {
     text("Press Esc to end", (width / 2), (height / 2) + 80 )
     text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 110);
     textSize(17);
-    text("Press Enter to start!", width / 2, (height / 2) + 130);
+    text("Press Enter to start!", width / 2, (height / 2) + 140);
     if (keyWentDown(13)) {
       clear();
       startGame = true;
