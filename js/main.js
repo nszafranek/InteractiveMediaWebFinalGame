@@ -59,8 +59,7 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let mc;
-import Hammer from 'hammer.js'
+//let mc;
 
 
 //let tch = null;
@@ -132,9 +131,9 @@ function setup() {
   mc.get('doubletap').recognizeWith('singletap');
   mc.get('singletap').requireFailure('doubletap');
 
-  }
+}
 
-  angleMode(degrees);
+  //angleMode(degrees);
   x2 = width;
   scoreOutput();
   sharkGroup = new Group;
@@ -729,6 +728,7 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
+  //hammer.js touch controls
   mc.on("swipeUp", function(ev) {
     hero.velocity.y = -1;
   });
