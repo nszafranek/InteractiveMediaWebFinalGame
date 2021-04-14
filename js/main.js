@@ -59,8 +59,36 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let hammertime = new Hammer(cnv);
+let mc = new Hammer.Manager(cnv);
 hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+mc.add ( new Hammer.Swipe ({
+  event: 'moveUp',
+  direction: swipeup
+}) );
+mc.add ( new Hammer.Swipe ({
+  event: 'moveDown',
+  direction: swipedown
+}) );
+mc.add ( new Hammer.Swipe ({
+  event: 'moveLeft',
+  direction: swipeleft
+}) );
+mc.add ( new Hammer.Swipe ({
+  event: 'moveRight',
+  direction: swiperight
+}) );
+mc.add( new Hammer.Tap ({
+  event: 'doubletap',
+  taps: 2
+}) );
+mc.add( new Hammer.Tap ({
+  event: 'singletap'
+}) );
+
+mc.get('doubletap').recognizeWith('singletap');
+mc.get('singletap').requireFailure('doubletap');1
+
 
 //let tch = null;
 
@@ -218,10 +246,10 @@ function draw() {
     textSize(17);
     strokeWeight(10);
     text("Press Enter to start!", width / 2, (height / 2) + 140);
-    if (hammertime.Tap) {
+    mc.on("singletap", function(ev) {
       clear();
       startGame = true;
-    }
+    });
     if (keyWentDown(13)) {
       clear();
       startGame = true;
@@ -694,15 +722,15 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  mc.on("swipeup") {
+  mc.on("swipeup" function(ev) {
     hero.velocity.y = -1;
-  }
-  mc.on("swipedown") {
+  });
+  mc.on("swipedown" function(ev) {
     hero.velocity.y = 1;
-  }
-  mc.on("swipeleft") {
+  });
+  mc.on("swipeleft" function(ev) {
     hero.velocity.x = -1;
-  }
+  });
   mc.on("swiperight") {
     hero.velocity.x = 1;
   }
