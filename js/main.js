@@ -722,13 +722,13 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  mc.on("swipeup" function(ev) {
+  mc.on("swipeup" function(e) {
     hero.velocity.y = -1;
   });
-  mc.on("swipedown" function(ev) {
+  mc.on("swipedown" function(e) {
     hero.velocity.y = 1;
   });
-  mc.on("swipeleft" function(ev) {
+  mc.on("swipeleft" function(e) {
     hero.velocity.x = -1;
   });
   mc.on("swiperight") {
