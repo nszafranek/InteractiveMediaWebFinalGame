@@ -205,7 +205,7 @@ function draw() {
     gameEnd();
     drawSprites();
     if (screen.width <= 768) {
-      disableScroll();
+      //disableScroll();
     }
     /*if ((screen.width <= 768) && (screen.orientation === 'portrait-secondary')) {
       ctx.rotate(90);
