@@ -403,12 +403,12 @@ function lifeBar() {
   textFont(gameFont);
   strokeWeight(1);
   if (screen.size <= 800){
-    textSize(20);
+    textSize(15);
     strokeWeight(2);
     text("HP : " + hitPoints, width - 10, 30);
   }
   else {
-    textSize(15);
+    textSize(20);
     strokeWeight(10);
     text("HP : " + hitPoints, width - 60, 40);
   }
