@@ -1,4 +1,21 @@
 //import ZingTouch from './ZingTouch/ZingTouch.js';
+let ZingTouch = {
+  _regions: [],
+
+  // Constructors
+  Gesture,
+  Pan,
+  Distance,
+  Rotate,
+  Swipe,
+  Tap,
+  Region: function(element, capture, preventDefault) {
+    let id = ZingTouch._regions.length;
+    let region = new Region(element, capture, preventDefault, id);
+    ZingTouch._regions.push(region);
+    return region;
+  },
+};
 let time = 0;
 let swimming;
 let blocking;
