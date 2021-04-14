@@ -237,7 +237,7 @@ function bgTiling() {
 // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
 let keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
-function preventDefault(e) {
+/*function preventDefault(e) {
   e.preventDefault();
 }
 
@@ -273,7 +273,7 @@ function enableScroll() {
   window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
   window.removeEventListener('touchmove', preventDefault, wheelOpt);
   window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-}
+}*/
 
 //Score Display
 function scoreOutput() {
