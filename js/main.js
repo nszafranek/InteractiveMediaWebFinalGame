@@ -189,6 +189,7 @@ function draw() {
   //regular gameplay
   if (!gameOver) {
     background('DodgerBlue');
+    bgTiling()
     fill('white');
     stroke('black')
     textAlign(CENTER);
