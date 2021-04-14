@@ -125,7 +125,7 @@ function setup() {
   else {
     cnv = createCanvas(1000, 500);
     cnv.id('gameCanvas');
-    cnv.parent('cnv');
+    //cnv.parent('cnv');
   }
   //Hammer.js code
   /*mc = new Hammer.Manager(cnv);
