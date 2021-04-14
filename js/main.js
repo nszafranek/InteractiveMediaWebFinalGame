@@ -60,7 +60,7 @@ let gameCanvas;
 let ctx;
 let cnv;
 let gameContainer1 = document.getElementById('gameContainer');
-let activeRegion = ZingTouch.Region(cnv);
+let activeRegion = ZingTouch.Region(gameContainer1);
 let childElement = cnv;
 
 let moveUp = new ZingTouch.Swipe({
@@ -125,7 +125,7 @@ function setup() {
   else {
     cnv = createCanvas(1000, 500);
     cnv.id('gameCanvas');
-  cnv.parent('gameContainer');
+    cnv.parent('gameContainer');
   }
   //Hammer.js code
   /*mc = new Hammer.Manager(cnv);
