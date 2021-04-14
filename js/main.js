@@ -10,6 +10,7 @@ let heart;
 let gem;
 let hitPoints = 4;
 let score = 0;
+let startGame = false;
 let gameOver = false;
 let nextShark = 0;
 let sharkMinWait = 500;
@@ -187,7 +188,7 @@ function preload() {
 
 function draw() {
   //regular gameplay
-  if (!gameOver) {
+  if ((!gameOver) && (!startGame)){
     background('DodgerBlue');
     bgTiling()
     fill('white');
@@ -203,8 +204,10 @@ function draw() {
     text("Avoid the Sharks and collect Gems and Coinds" + gemCount, width / 2, (height / 2) + 80);
     text("Press Enter to start!", width / 2, (height / 2) + 110);
     if (keyWentDown(13)) {
-      gameStart();
+      startGame = true;
     }
+  }
+  if ((!gameOver) && (startGame)) {
   }
   //game over
   if (gameOver) {
