@@ -59,8 +59,8 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let activeRegion;
-let childElement;
+let activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
+let childElement = cnv;
 
 //let mc;
 
@@ -89,8 +89,6 @@ What's broken
 
 function setup() {
   if (ZingTouch) {
-  activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
-  childElement = cnv;
 
   let moveUp = new ZingTouch.Swipe({
     currentDirection : 90
