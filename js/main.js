@@ -202,7 +202,6 @@ function draw() {
     text("Avoid the Sharks and collect Gems and Coinds" + gemCount, width / 2, (height / 2) + 80);
     text("Press Enter to start!", width / 2, (height / 2) + 110);
     if (keyWentDown(13)) {
-      clear()
       gameStart();
     }
   }
