@@ -75,11 +75,11 @@ What's broken
 
 function setup() {
   //if mobile
-  if ((screen.width <= 768) /*&& (screen.orientation === 'portrait-primary')*/) {
-    cnv = createCanvas(700, 270);
+  if ((screen.width <= 800) /*&& (screen.orientation === 'portrait-primary')*/) {
+    cnv = createCanvas(600, 180);
     cnv.id('gameCanvas')
   }
-  /*else if ((screen.height <= 768) && (screen.orientation === 'landscape-primary')) {
+  /*else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
     cnv = createCanvas(320, 570);
     cnv.id('gameCanvas');
   }*/
@@ -116,7 +116,7 @@ function preload() {
   hpBar2 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health2.png');
   hpBar1 = loadImage('https://raw.githubusercontent.com/nszafranek/project/main/img/health1.png');*/
   // If mobile
-  if (screen.width <= 768) {
+  if (screen.width <= 800) {
     // Hero Swimming Animation
     swimming = loadAnimation(
       'https://raw.githubusercontent.com/nszafranek/project/main/img/mermove1m.png',
@@ -204,10 +204,10 @@ function draw() {
     containHero();
     gameEnd();
     drawSprites();
-    if (screen.width <= 768) {
+    if (screen.width <= 800) {
       //disableScroll();
     }
-    /*if ((screen.width <= 768) && (screen.orientation === 'portrait-secondary')) {
+    /*if ((screen.width <= 800) && (screen.orientation === 'portrait-secondary')) {
       ctx.rotate(90);
     }*/
   }
@@ -282,7 +282,7 @@ function scoreOutput() {
   textAlign(CENTER);
   textFont(gameFont);
   strokeWeight(1);
-  if (screen.size <= 768){
+  if (screen.size <= 800){
     textSize(20);
     strokeWeight(5);
     text("Score: " + score, 50, 20)
@@ -402,7 +402,7 @@ function lifeBar() {
   textAlign(CENTER);
   textFont(gameFont);
   strokeWeight(1);
-  if (screen.size <= 768){
+  if (screen.size <= 800){
     textSize(20);
     strokeWeight(10);
     text("HP : " + hitPoints, width - 10, 30);
@@ -443,7 +443,7 @@ function timing() {
 
 function heroMove() {
   // Hero movement
-  if (screen.width <= 768) {
+  if (screen.width <= 800) {
     document.addEventListener('swiped-left', function(e) {
       hero.velocity.x = -1;
       console.log(e.target); // the element that was swiped
@@ -510,7 +510,7 @@ function createNewShark() {
   }
   // Spawn a new shark
   // If mobile
-  if (screen.size <= 768) {
+  if (screen.size <= 800) {
     shark = createSprite(width, random(0, height), 140, 47);
   }
   // Otherwise
@@ -556,7 +556,7 @@ function createNewGem() {
     lastGem = currentGem;
   }
   // Spawn a new gem
-  if (screen.size <= 768) {
+  if (screen.size <= 800) {
     gem = createSprite(width, random(0, height), 60, 55);
   }
    else {
@@ -601,7 +601,7 @@ function createNewCoin() {
     lastCoin = currentCoin;
   }
   // Spawn a new coin
-  if (screen.size <= 768) {
+  if (screen.size <= 800) {
     coin = createSprite(width, random(0, height), 34, 35);
   }
   else {
@@ -645,7 +645,7 @@ function createNewHeart() {
     lastHeart = currentHeart;
   }
   //spawn new heart
-  if (screen.size <= 768) {
+  if (screen.size <= 800) {
     heart = createSprite(width, random(0, height), 20, 20);
   }
   else {
