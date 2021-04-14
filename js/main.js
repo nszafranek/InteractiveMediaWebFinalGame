@@ -59,6 +59,31 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
+let gameContainer = document.getElementById('gameContainer');
+let activeRegion = ZingTouch.Region(cnv);
+let childElement = cnv;
+
+let moveUp = new ZingTouch.Swipe({
+  currentDirection : 90
+});
+let moveDown = new ZingTouch.Swipe({
+  currentDirection : 270
+});
+let moveLeft = new ZingTouch.Swipe({
+  currentDirection : 180
+})
+let moveRight = new ZingTouch.Swipe({
+  currentDirection : 0
+});
+let doubleTap = new ZingTouch.Tap({
+  numInputs: 2,
+  maxDelay: 100
+});
+let singleTap = new ZingTouch.Tap({
+  numInputs: 1,
+  maxDelay: 300
+})
+
 //let mc;
 
 
@@ -89,6 +114,7 @@ function setup() {
   if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
     cnv = createCanvas(400, 175);
     cnv.id('gameCanvas')
+    cnv.parent('gameContainer')
   }
   else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
     cnv = createCanvas(450, 200);
@@ -99,7 +125,8 @@ function setup() {
     cnv = createCanvas(1000, 500);
     cnv.id('gameCanvas')
   }
-  mc = new Hammer.Manager(cnv);
+  //Hammer.js code
+  /*mc = new Hammer.Manager(cnv);
   if (mc) {
 
   hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
@@ -131,7 +158,7 @@ function setup() {
   mc.get('doubletap').recognizeWith('singletap');
   mc.get('singletap').requireFailure('doubletap');
 
-}
+}*/
 
   //angleMode(degrees);
   x2 = width;
@@ -252,17 +279,15 @@ function draw() {
     textSize(17);
     strokeWeight(10);
     text("Press Enter to start!", width / 2, (height / 2) + 140);
-    mc.on("singletap", function(ev) {
-      clear();
-      startGame = true;
-    });
     if (keyWentDown(13)) {
       clear();
       startGame = true;
     }
-  }
-  if ((!gameOver) && (startGame)) {
-    gameStart();
+    gameContainer.bind(cnv, 'singleTap', function(e)) {
+      if ((!gameOver) && (!startGame)) {
+        gameStart();
+      }
+    });
   }
   //game over
   if (gameOver) {
@@ -729,7 +754,7 @@ function heroMove() {
     hero.velocity.x = 1;
   }
   //hammer.js touch controls
-  mc.on("swipeUp", function(ev) {
+  /*mc.on("swipeUp", function(ev) {
     hero.velocity.y = -1;
   });
   mc.on("swipeDown", function(ev) {
@@ -740,15 +765,21 @@ function heroMove() {
   });
   mc.on("swipeRight", function(ev) {
     hero.velocity.x = 1;
-  });
+  });*/
 }
 
 // End Game by pressing Esc key
 function gameEnd() {
-  if (keyWentDown(27)) {
+  if (keyWentDown(27) && (startGame)) {
     gameOver = true;
   }
+  gameContainer.bind(cnv, 'doubleTap', function(e)) {
+    if ((!gameOver) && (startGame)) {
+      gameOver = true;
+    }
+  });
 }
+
 
 // Keep hero in screen bounds
 function containHero() {
