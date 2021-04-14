@@ -188,34 +188,54 @@ function preload() {
 function draw() {
   //regular gameplay
   if (!gameOver) {
-    gameCanvas = document.getElementById('gameCanvas');
-    ctx = gameCanvas.getContext('2d');
-    background(200);
-    heroMove();
-    timing();
-    bgTiling();
-    hero.overlap(sharkGroup);
-    hero.overlap(gemGroup);
-    hero.overlap(coinGroup);
-    hero.overlap(heartGroup);
-    lifeBar();
-    scoreOutput();
-    collisionChecks();
-    containHero();
-    gameEnd();
-    drawSprites();
-    if (screen.width <= 800) {
-      //disableScroll();
+    if (keyWentDown(ENTER)) {
+      background('DodgerBlue');
+      fill('white');
+      stroke('black')
+      textAlign(CENTER);
+      textFont(gameFont);
+      strokeWeight(2);
+      textSize(90);
+      strokeWeight(10);
+      text("Infinite Swimmer", width / 2, height / 2);
+      textSize(15);
+      text("Use the Arrow Keys to move the hero", width / 2, (height / 2) + 50);
+      text("Avoid the Sharks and collect Gems and Coinds" + gemCount, width / 2, (height / 2) + 80);
+      text("Press Enter to start!", width / 2, (height / 2) + 110);
+      gameStart();
     }
-    /*if ((screen.width <= 800) && (screen.orientation === 'portrait-secondary')) {
-      ctx.rotate(90);
-    }*/
+    }
   }
   //game over
   if (gameOver) {
     gameOverText();
     updateSprites(false);
   }
+}
+
+function gameStart() {
+  gameCanvas = document.getElementById('gameCanvas');
+  ctx = gameCanvas.getContext('2d');
+  background(200);
+  heroMove();
+  timing();
+  bgTiling();
+  hero.overlap(sharkGroup);
+  hero.overlap(gemGroup);
+  hero.overlap(coinGroup);
+  hero.overlap(heartGroup);
+  lifeBar();
+  scoreOutput();
+  collisionChecks();
+  containHero();
+  gameEnd();
+  drawSprites();
+  if (screen.width <= 800) {
+    //disableScroll();
+  }
+  /*if ((screen.width <= 800) && (screen.orientation === 'portrait-secondary')) {
+    ctx.rotate(90);
+  }*/
 }
 
 // scrolling background from https://editor.p5js.org/chjno/sketches/ByZlypKWM
