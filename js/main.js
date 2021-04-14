@@ -59,8 +59,8 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
-let childElement = cnv;
+let activeRegion;
+let childElement;
 
 //let mc;
 
@@ -89,27 +89,28 @@ What's broken
 
 function setup() {
   if (ZingTouch) {
-
-  let moveUp = new ZingTouch.Swipe({
-    currentDirection : 90
-  });
-  let moveDown = new ZingTouch.Swipe({
-    currentDirection : 270
-  });
-  let moveLeft = new ZingTouch.Swipe({
-    currentDirection : 180
-  })
-  let moveRight = new ZingTouch.Swipe({
-    currentDirection : 0
-  });
-  let doubleTap = new ZingTouch.Tap({
-    numInputs: 2,
-    maxDelay: 100
-  });
-  let singleTap = new ZingTouch.Tap({
-    numInputs: 1,
-    maxDelay: 300
-  });
+    activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
+    childElement = cnv;
+    let moveUp = new ZingTouch.Swipe({
+      currentDirection : 90
+    });
+    let moveDown = new ZingTouch.Swipe({
+      currentDirection : 270
+    });
+    let moveLeft = new ZingTouch.Swipe({
+      currentDirection : 180
+    })
+    let moveRight = new ZingTouch.Swipe({
+      currentDirection : 0
+    });
+    let doubleTap = new ZingTouch.Tap({
+      numInputs: 2,
+      maxDelay: 100
+    });
+    let singleTap = new ZingTouch.Tap({
+      numInputs: 1,
+      maxDelay: 300
+    });
   }
   //if mobile
   if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
