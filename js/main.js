@@ -209,6 +209,7 @@ function draw() {
     }
   }
   if ((!gameOver) && (startGame)) {
+    gameStart();
   }
   //game over
   if (gameOver) {
