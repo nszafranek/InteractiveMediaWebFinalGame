@@ -59,13 +59,16 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let tch = null;
+let hammertime = new Hammer(cnv);
+hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
+//let tch = null;
 
-let xDown = null;
-let yDown = null;
+//document.addEventListener('touchstart', handleTouchStart, false);
+//document.addEventListener('touchmove', handleTouchMove, false);
+
+//let xDown = null;
+//let yDown = null;
 
 /*
 Created using p5.js and p5 play
@@ -196,7 +199,7 @@ function preload() {
 function draw() {
   //regular gameplay
   if ((!gameOver) && (!startGame)) {
-    touchControls();
+    //touchControls();
     background('DodgerBlue');
     bgTiling();
     fill('white');
@@ -215,7 +218,7 @@ function draw() {
     textSize(17);
     strokeWeight(10);
     text("Press Enter to start!", width / 2, (height / 2) + 140);
-    function touchStarted() {
+    if (hammertime.Tap) {
       clear();
       startGame = true;
     }
@@ -628,7 +631,7 @@ function timing() {
   }
 }*/
 
-function touchControls() {
+/*function touchControls() {
 
   function getTouches(evt) {
     return evt.touches ||             // browser API
@@ -653,28 +656,29 @@ function touchControls() {
       var yDiff = yDown - yUp;
       if (heroMove()) {
         if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-            if ( xDiff > 0 ) {
+            /*if ( xDiff > 0 ) {
                 /* left swipe */
-                hero.velocity.x = -1;
-            } else {
+              //  hero.velocity.x = -1;
+/*          } else {
                 /* right swipe */
-                hero.velocity.x = 1;
-            }
+                //hero.velocity.x = 1;
+/*           }
         } else {
             if ( yDiff > 0 ) {
                 /* up swipe */
-                hero.velocity.y = -1;
+/*                hero.velocity.y = -1;
             } else {
                 /* down swipe */
-                  hero.velocity.y = 1;
+/*                  hero.velocity.y = 1;
             }
         }
       }
       /* reset values */
-      xDown = null;
+/*      xDown = null;
       yDown = null;
     };
 }
+*/
 
 function heroMove() {
   // Hero movement
