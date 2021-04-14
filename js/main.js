@@ -206,7 +206,7 @@ function draw() {
     textSize(17);
     text("Press Enter to start!", width / 2, (height / 2) + 130);
     if (keyWentDown(13)) {
-      text.remove();
+      clear();
       startGame = true;
     }
   }
