@@ -190,7 +190,7 @@ function draw() {
   //regular gameplay
   if ((!gameOver) && (!startGame)) {
     background('DodgerBlue');
-    bgTiling()
+    bgTiling();
     fill('white');
     stroke('DodgerBlue');
     textAlign(CENTER);
@@ -224,6 +224,7 @@ function gameStart() {
   gameCanvas = document.getElementById('gameCanvas');
   ctx = gameCanvas.getContext('2d');
   background(200);
+  bgTiling();
   heroMove();
   timing();
   hero.overlap(sharkGroup);
