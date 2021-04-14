@@ -285,7 +285,7 @@ function draw() {
       clear();
       startGame = true;
     }
-    region.bind(cnv, 'singleTap', function(e) {
+    gameContainer1.bind(cnv, 'singleTap', function(e) {
       if ((!gameOver) && (!startGame)) {
         gameStart();
       }
