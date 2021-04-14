@@ -205,7 +205,6 @@ function draw() {
       clear()
       gameStart();
     }
-    }
   }
   //game over
   if (gameOver) {
