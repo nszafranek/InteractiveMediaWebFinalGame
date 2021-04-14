@@ -79,10 +79,10 @@ function setup() {
     cnv = createCanvas(400, 175);
     cnv.id('gameCanvas')
   }
-  /*else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
-    cnv = createCanvas(320, 570);
+  else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
+    cnv = createCanvas(600, 250);
     cnv.id('gameCanvas');
-  }*/
+  }
   //otherwise
   else {
     cnv = createCanvas(1000, 500);
@@ -835,11 +835,12 @@ function gameOverText() {
   textSize(15);
   text("Coins: " + coinCount, width / 2, (height / 2) + 50);
   text("Gems: " + gemCount, width / 2, (height / 2) + 80);
-  text("Press Enter or touch the screen to try again", width / 2, (height / 2) + 110);
+  text("Press Enter to try again", width / 2, (height / 2) + 110);
+  //text("Press Enter or touch the screen to try again", width / 2, (height / 2) + 110);
   if (keyWentDown(13)) {
     location.reload();
   }
-  if (touchStarted(event)) {
+  /*if (touchStarted(event)) {
     location.reload();
-  }
+  }*/
 }
