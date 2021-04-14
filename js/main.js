@@ -88,6 +88,23 @@ What's broken
 */
 
 function setup() {
+  //if mobile
+  if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
+    cnv = createCanvas(400, 175);
+    cnv.id('gameCanvas')
+    cnv.parent('gameContainer');
+  }
+  else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
+    cnv = createCanvas(450, 200);
+    cnv.id('gameCanvas');
+    cnv.parent('gameContainer');
+  }
+  //otherwise
+  else {
+    cnv = createCanvas(1000, 500);
+    cnv.id('gameCanvas');
+    cnv.parent('gameContainer');
+  }
   if (ZingTouch) {
     activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
     childElement = cnv;
@@ -111,23 +128,6 @@ function setup() {
       numInputs: 1,
       maxDelay: 300
     });
-  }
-  //if mobile
-  if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
-    cnv = createCanvas(400, 175);
-    cnv.id('gameCanvas')
-    cnv.parent('gameContainer');
-  }
-  else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
-    cnv = createCanvas(450, 200);
-    cnv.id('gameCanvas');
-    cnv.parent('gameContainer');
-  }
-  //otherwise
-  else {
-    cnv = createCanvas(1000, 500);
-    cnv.id('gameCanvas');
-    cnv.parent('gameContainer');
   }
   //Hammer.js code
   /*mc = new Hammer.Manager(cnv);
