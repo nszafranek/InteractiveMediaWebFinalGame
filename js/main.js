@@ -1,4 +1,4 @@
-import ZingTouch from "zingtouch.js"
+import ZingTouch from "zingtouch"
 let time = 0;
 let swimming;
 let blocking;
