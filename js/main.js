@@ -202,9 +202,9 @@ function draw() {
     textSize(15);
     text("Use the Arrow Keys to move the hero!", (width / 2), (height / 2) + 50);
     text("Press Esc to end", (width / 2), (height / 2) + 80 )
-    text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 100);
+    text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 110);
     textSize(17);
-    text("Press Enter to start!", width / 2, (height / 2) + 115);
+    text("Press Enter to start!", width / 2, (height / 2) + 130);
     if (keyWentDown(13)) {
       text.remove();
       startGame = true;
