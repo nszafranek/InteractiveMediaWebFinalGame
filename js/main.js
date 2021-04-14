@@ -192,7 +192,7 @@ function draw() {
     background('DodgerBlue');
     bgTiling()
     fill('white');
-    stroke('black')
+    stroke('DodgerBlue');
     textAlign(CENTER);
     textFont(gameFont);
     strokeWeight(2);
@@ -200,8 +200,9 @@ function draw() {
     strokeWeight(10);
     text("Infinite Swimmer", width / 2, height / 2);
     textSize(15);
-    text("Use the Arrow Keys to move the hero, press Esc to end", width / 2, (height / 2) + 50);
-    text("Avoid the Sharks and collect Gems and Coins", width / 2, (height / 2) + 80);
+    text("Use the Arrow Keys to move the hero, press Esc to end!", width / 2, (height / 2) + 50);
+    text("Avoid the Sharks and collect Gems and Coins!", width / 2, (height / 2) + 80);
+    textsize(17);
     text("Press Enter to start!", width / 2, (height / 2) + 110);
     if (keyWentDown(13)) {
       clear();
