@@ -1,4 +1,4 @@
-import ZingTouch from "zingtouch"
+import ZingTouch from "ZingTouch";
 let time = 0;
 let swimming;
 let blocking;
