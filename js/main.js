@@ -283,9 +283,9 @@ function scoreOutput() {
   textFont(gameFont);
   strokeWeight(1);
   if (screen.size <= 800){
-    textSize(20);
-    strokeWeight(5);
-    text("Score: " + score, 50, 20)
+    textSize(15);
+    strokeWeight(2);
+    text("Score: " + score, 40, 10)
   }
   else {
     textSize(25);
@@ -404,11 +404,11 @@ function lifeBar() {
   strokeWeight(1);
   if (screen.size <= 800){
     textSize(20);
-    strokeWeight(10);
+    strokeWeight(2);
     text("HP : " + hitPoints, width - 10, 30);
   }
   else {
-    textSize(25);
+    textSize(15);
     strokeWeight(10);
     text("HP : " + hitPoints, width - 60, 40);
   }
