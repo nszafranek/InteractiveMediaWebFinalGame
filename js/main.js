@@ -60,6 +60,7 @@ let gameCanvas;
 let ctx;
 let cnv;
 let mc;
+import Hammer from 'hammer.js'
 
 
 //let tch = null;
@@ -132,7 +133,7 @@ function setup() {
   mc.get('singletap').requireFailure('doubletap');
 
   }
-  
+
   angleMode(degrees);
   x2 = width;
   scoreOutput();
