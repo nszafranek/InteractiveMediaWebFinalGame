@@ -283,7 +283,7 @@ function draw() {
       clear();
       startGame = true;
     }
-    gameContainer.bind(cnv, 'singleTap', function(e)) {
+    gameContainer.bind(cnv, 'singleTap', function(e) {
       if ((!gameOver) && (!startGame)) {
         gameStart();
       }
@@ -753,6 +753,26 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
+  gameContainer.bind(cnv, 'moveUp', function(e) {
+    if ((!gameOver) && (startGame)) {
+      hero.velocity.y = -1;
+    }
+  });
+  gameContainer.bind(cnv, 'moveDown', function(e) {
+    if ((!gameOver) && (startGame)) {
+      hero.velocity.y = 1;
+    }
+  });
+  gameContainer.bind(cnv, 'moveLeft', function(e) {
+    if ((!gameOver) && (startGame)) {
+      hero.velocity.x = -1;
+    }
+  });
+  gameContainer.bind(cnv, 'moveRight', function(e) {
+    if ((!gameOver) && (startGame)) {
+      hero.velocity.x = 1;
+    }
+  });
   //hammer.js touch controls
   /*mc.on("swipeUp", function(ev) {
     hero.velocity.y = -1;
@@ -773,7 +793,7 @@ function gameEnd() {
   if (keyWentDown(27) && (startGame)) {
     gameOver = true;
   }
-  gameContainer.bind(cnv, 'doubleTap', function(e)) {
+  gameContainer.bind(cnv, 'doubleTap', function(e) {
     if ((!gameOver) && (startGame)) {
       gameOver = true;
     }
