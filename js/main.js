@@ -59,35 +59,7 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-let mc = new Hammer.Manager(cnv);
-hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-
-mc.add ( new Hammer.Swipe ({
-  event: 'moveUp',
-  direction: swipeup
-}) );
-mc.add ( new Hammer.Swipe ({
-  event: 'moveDown',
-  direction: swipedown
-}) );
-mc.add ( new Hammer.Swipe ({
-  event: 'moveLeft',
-  direction: swipeleft
-}) );
-mc.add ( new Hammer.Swipe ({
-  event: 'moveRight',
-  direction: swiperight
-}) );
-mc.add( new Hammer.Tap ({
-  event: 'doubletap',
-  taps: 2
-}) );
-mc.add( new Hammer.Tap ({
-  event: 'singletap'
-}) );
-
-mc.get('doubletap').recognizeWith('singletap');
-mc.get('singletap').requireFailure('doubletap');1
+let mc;
 
 
 //let tch = null;
@@ -127,6 +99,35 @@ function setup() {
     cnv = createCanvas(1000, 500);
     cnv.id('gameCanvas')
   }
+  mc = new Hammer.Manager(cnv);
+  hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+  mc.add ( new Hammer.Swipe ({
+    event: 'moveUp',
+    direction: swipeup
+  }) );
+  mc.add ( new Hammer.Swipe ({
+    event: 'moveDown',
+    direction: swipedown
+  }) );
+  mc.add ( new Hammer.Swipe ({
+    event: 'moveLeft',
+    direction: swipeleft
+  }) );
+  mc.add ( new Hammer.Swipe ({
+    event: 'moveRight',
+    direction: swiperight
+  }) );
+  mc.add( new Hammer.Tap ({
+    event: 'doubletap',
+    taps: 2
+  }) );
+  mc.add( new Hammer.Tap ({
+    event: 'singletap'
+  }) );
+
+  mc.get('doubletap').recognizeWith('singletap');
+  mc.get('singletap').requireFailure('doubletap');
   angleMode(degrees);
   x2 = width;
   scoreOutput();
