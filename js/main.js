@@ -312,7 +312,7 @@ function draw() {
   if (gameOver) {
     gameOverText();
     updateSprites(false);
-    if (touchActive === 1)) {
+    if (touchActive === 1) {
       location.reload();
     }
   }
