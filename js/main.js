@@ -789,9 +789,7 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  if ((startGame) && (touchActive === 1))
-    prevTouchX = mouseX;
-    prevTouchY = mouseY;
+  if ((startGame) && (touchActive === 1)) {
     if ((touchY) && (prevTouchY)) {
       if (touchY > prevTouchY) {
         hero.velocity.x = 1;
@@ -813,6 +811,7 @@ function heroMove() {
       else {
 
       }
+    }
   }
   //ZingTouch
   /*if (ZingTouch) {
