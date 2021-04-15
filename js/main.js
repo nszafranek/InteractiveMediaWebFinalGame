@@ -810,16 +810,19 @@ function removeOldCoin() {
   // Despawn coin that has left the canvas
  for (let i = 0; i < coinGroup; i++) {
    if ((coinGroup[i].position.x) < 0) {
-     coinGroup[i].remove();
-     if (i === currentCoin) {
+    coinGroup[i].remove();
+    if (i === currentCoin) {
       currentCoin -= 1;
-     }
-     if (i === lastCoin) {
       lastCoin -= 1;
-     }
-     if (i === penCoin) {
       penCoin -= 1;
-      }
+    }
+    if (i === lastCoin) {
+       lastCoin -= 1;
+       penCoin -= 1;
+    }
+    if (i === penCoin) {
+      penCoin -= 1;
+    }
    }
  }
 }
