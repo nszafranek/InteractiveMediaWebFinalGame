@@ -795,13 +795,19 @@ function heroMove() {
       else if ((touchY) < (prevTouchY)) {
         hero.velocity.x = -1;
       }
+      else {
+
+      }
     }
     if ((touchX) && (prevTouchX)) {
       if ((touchX) > (prevTouchX)) {
         hero.velocity.x = 1;
       }
-      if ((touchX) > (prevTouch)) {
+      else if ((touchX) > (prevTouch)) {
         hero.velocity.x =-1;
+      }
+      else {
+
       }
   }
   //ZingTouch
