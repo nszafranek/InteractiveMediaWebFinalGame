@@ -212,9 +212,9 @@ function draw() {
     }
     if (screen.width > 800) {
       strokeWeight(2);
-      textSize(110);
+      textSize(140);
       strokeWeight(10);
-      text("Infinite Swimmer", (width / 2), (height / 2) - 80);
+      text("Infinite Swimmer", (width / 2), (height / 2) - 120);
       textSize(15);
       strokeWeight(5);
       text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) + 50);
