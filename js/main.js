@@ -312,7 +312,11 @@ function draw() {
   if (gameOver) {
     gameOverText();
     updateSprites(false);
+    if (touchActive === 1)) {
+      location.reload();
+    }
   }
+
 }
 
 function gameStart() {
@@ -790,8 +794,7 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  if ((startGame) && (moveActive === 1)) {
-    //if ((touchY) && (prevTouchY)) {
+  if (moveActive === 1) {
       if (mouseY > pmouseY) {
         hero.velocity.x = 1;
       }
@@ -799,10 +802,7 @@ function heroMove() {
         hero.velocity.x = -1;
       }
       else {
-
       }
-    //}
-    //if ((touchX) && (prevTouchX)) {
       if (mouseX > pmouseX) {
         hero.velocity.x = 1;
       }
@@ -810,9 +810,7 @@ function heroMove() {
         hero.velocity.x =-1;
       }
       else {
-
       }
-    //}
   }
   //ZingTouch
   /*if (ZingTouch) {
@@ -1227,9 +1225,6 @@ function gameOverText() {
   text("Press Enter to try again", width / 2, (height / 2) + 110);
   //text("Press Enter or touch the screen to try again", width / 2, (height / 2) + 110);
   if (keyWentDown(13)) {
-    location.reload();
-  }
-  if ((gameOver) && (touchActive === 1)) {
     location.reload();
   }
   /*if (touchStarted(event)) {
