@@ -795,22 +795,18 @@ function heroMove() {
     hero.velocity.x = 1;
   }
   /*if (moveActive === 1) {
-      if (mouseY > pmouseY) {
+    if (mouseY > pmouseY) {
         hero.velocity.x = 1;
-      }
-      else if (mouseY < pmouseY) {
+    }
+    else if (mouseY < pmouseY) {
         hero.velocity.x = -1;
-      }
-      else {
-      }
-      if (mouseX > pmouseX) {
-        hero.velocity.x = 1;
-      }
-      else if (mouse > pmouseX) {
-        hero.velocity.x =-1;
-      }
-      else {
-      }
+    }
+    if (mouseX > pmouseX) {
+      hero.velocity.x = 1;
+    }
+    else if (mouse > pmouseX) {
+      hero.velocity.x =-1;
+    }
   }*/
 }
   //ZingTouch
