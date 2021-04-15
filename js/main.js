@@ -293,11 +293,13 @@ function draw() {
     if (keyWentDown(13)) {
       clear();
       startGame = true;
+      gameStart()
     }
-    /*if (touchActive === 1) {
+    if (touchActive === 1) {
       clear();
       startGame = true;
-    }*/
+      gameStart()
+    }
     /*if (ZingTouch) {
       if (activeRegion) {
         activeRegion.bind(cnv, 'singleTap', function(e) {
@@ -312,11 +314,10 @@ function draw() {
   if (gameOver) {
     gameOverText();
     updateSprites(false);
-    /*if (touchActive === 1) {
+    if (touchActive === 1) {
       location.reload();
-    }*/
+    }
   }
-
 }
 
 function gameStart() {
@@ -358,7 +359,7 @@ function bgTiling() {
   }
 }
 
-/*function touchStarted() {
+function touchStarted() {
     if (touchActive === 0) {
       touchActive = 1;
     }
@@ -374,7 +375,7 @@ function touchMoved() {
   else {
     moveActive = 0;
   }
-}*/
+}
 
 // Disable Scrolling
 // left: 37, up: 38, right: 39, down: 40,
@@ -580,10 +581,9 @@ function timing() {
     createNewHeart();
     nextHeart = Math.ceil(Math.random() * heartInterval + heartMinWait) + nextGem;
   }
-
   time++;
-
 }
+
 /*function touchControls() {
   // patch CustomEvent to allow constructor creation (IE/Chrome)
   if (typeof window.CustomEvent !== 'function') {
@@ -794,7 +794,7 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  /*if (moveActive === 1) {
+  if (moveActive === 1) {
     if (mouseY > pmouseY) {
         hero.velocity.x = 1;
     }
@@ -807,7 +807,7 @@ function heroMove() {
     else if (mouse > pmouseX) {
       hero.velocity.x =-1;
     }
-  }*/
+  }
 }
   //ZingTouch
   /*if (ZingTouch) {
