@@ -1051,7 +1051,7 @@ function gameOverText() {
   if (keyWentDown(13)) {
     location.reload();
   }
-  /*if (touchStarted(event)) {
+  if (touchActive === 0) {
     location.reload();
-  }*/
+  }
 }
