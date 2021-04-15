@@ -293,7 +293,7 @@ function draw() {
       clear();
       startGame = true;
     }
-    if ((!gameOver) && (!startGame) && (touchActive === 1)) {
+    if (/*(!gameOver) && (!startGame) && */(touchActive === 1)) {
       clear();
       startGame = true;
     }
