@@ -200,7 +200,7 @@ function draw() {
       strokeWeight(1);
       textSize(70);
       strokeWeight(10);
-      text("Infinite Swimmer", (width / 2), (height / 2 - 50));
+      text("Infinite Swimmer", (width / 2), (height / 2 - 40));
       textSize(14);
       strokeWeight(1);
       text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) + 20);
