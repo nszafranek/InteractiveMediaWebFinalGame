@@ -69,6 +69,7 @@ let doubtouchActive = 0;
 //let prevTouchX;
 //let prevTouchY;
 let moveActive = 0;
+let dualClick = 0;
 
 
 //let tch = null;
@@ -397,6 +398,15 @@ function mouseMoved() {
   }
 }
 
+function doubleClicked() {
+  if (dualClick === 0) {
+    dualClick = 1;
+  }
+  else {
+    dualClick = 0;
+  }
+}
+
 // Disable Scrolling
 // left: 37, up: 38, right: 39, down: 40,
 // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
@@ -676,6 +686,9 @@ function heroMove() {
 // End Game by pressing Esc key
 function gameEnd() {
   if (keyWentDown(27) && (startGame)) {
+    gameOver = true;
+  }
+  if ((dualClick === 1) && (startGame)) {
     gameOver = true;
   }
   //ZingTouch
