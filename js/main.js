@@ -358,6 +358,8 @@ function bgTiling() {
 function touchStarted() {
     if (touchActive === 0) {
       touchActive = 1;
+      prevTouchX = mouseX;
+      prevTouchY = mouseY;
     }
     else {
       touchActive = 0;
