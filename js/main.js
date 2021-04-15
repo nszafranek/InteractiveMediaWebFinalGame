@@ -81,13 +81,13 @@ function setup() {
   //if mobile
   if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
     cnv = createCanvas(400, 175);
-//    cnv.id('gameCanvas');
-//    cnv.parent('gameContainer');
+    cnv.id('gameCanvas');
+    cnv.parent('gameContainer');
   }
   else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
     cnv = createCanvas(400, 175);
-//    cnv.id('gameCanvas');
-//    cnv.parent('gameContainer');
+    cnv.id('gameCanvas');
+    cnv.parent('gameContainer');
   }
   //otherwise
   else {
