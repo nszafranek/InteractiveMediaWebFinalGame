@@ -630,7 +630,7 @@ function heroMove() {
       hero.velocity.x = 1;
     }
     if (mouseX > pmouseX) {
-      hero.velocity.x =-1;
+      hero.velocity.x = -1;
     }
   }
   //ZingTouch
