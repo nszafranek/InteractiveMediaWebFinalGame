@@ -785,7 +785,7 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  if ((startGame) && (touchStarted === 1))
+  if ((startGame) && (touchActive === 1))
     prevTouchX = mouseX;
     prevTouchY = mouseY;
     if ((touchY) && (prevTouchY)) {
@@ -1218,7 +1218,7 @@ function gameOverText() {
   if (keyWentDown(13)) {
     location.reload();
   }
-  if ((gameOver) && (touchStarted === 1)) {
+  if ((gameOver) && (touchActive === 1)) {
     location.reload();
   }
   /*if (touchStarted(event)) {
