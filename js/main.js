@@ -80,12 +80,12 @@ What's broken
 function setup() {
   //if mobile
   if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
-    cnv = createCanvas(400, 175);
+    cnv = createCanvas(350, 175);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
   else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
-    cnv = createCanvas(400, 175);
+    cnv = createCanvas(350, 175);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
@@ -275,10 +275,13 @@ function gameStart() {
 
 // scrolling background from https://editor.p5js.org/chjno/sketches/ByZlypKWM
 function bgTiling() {
+  //  initialize image
   image(gameBackground, x1, 0, width, height);
   image(gameBackground, x2, 0, width, height);
+  // scroll speed
   x1 -= scrollSpeed;
   x2 -= scrollSpeed;
+  // check if background has scrolled all the way
   if (x1 < -width){
     x1 = (width - 2);
   }
@@ -561,16 +564,16 @@ function heroMove() {
   }
   if (moveActive === 1) {
     if (mouseY > pmouseY) {
-        hero.velocity.y = 1;
+        hero.velocity.y = 3;
     }
     if (mouseY < pmouseY) {
-        hero.velocity.y = -1;
+        hero.velocity.y = -3;
     }
     if (mouseX > pmouseX) {
-      hero.velocity.x = 1;
+      hero.velocity.x = 3;
     }
     if (mouseX > pmouseX) {
-      hero.velocity.x = -1;
+      hero.velocity.x = -3;
     }
   }
   //ZingTouch
