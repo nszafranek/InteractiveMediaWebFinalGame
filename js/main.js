@@ -81,7 +81,7 @@ What's broken
 function setup() {
   //if mobile
   if (screen.width <= 800) {
-    cnv = createCanvas(600, 315);
+    cnv = createCanvas(620, 315);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
@@ -200,7 +200,7 @@ function draw() {
       strokeWeight(1);
       textSize(60);
       strokeWeight(10);
-      text("Infinite Swimmer", (width / 2), (height / 2));
+      text("Infinite Swimmer", (width / 2), (height / 2 - 50));
       textSize(14);
       strokeWeight(1);
       text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) + 40);
