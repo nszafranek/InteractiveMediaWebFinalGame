@@ -294,7 +294,7 @@ function draw() {
       clear();
       startGame = true;
     }
-    if (touchActive === 1) {
+    if ((!gameOver) && (!startGame) && (touchActive === 1)) {
       clear();
       startGame = true;
     }
@@ -369,7 +369,26 @@ function touchStarted() {
     }
 }
 
+function mousePressed() {
+    if (touchActive === 0) {
+      touchActive = 1;
+    }
+    else {
+      touchActive = 0;
+    }
+}
+
+
 function touchMoved() {
+  if (moveActive === 0) {
+    moveActive = 1;
+  }
+  else {
+    moveActive = 0;
+  }
+}
+
+function mouseMoved() {
   if (moveActive === 0) {
     moveActive = 1;
   }
