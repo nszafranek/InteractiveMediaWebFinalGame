@@ -811,15 +811,15 @@ function removeOldCoin() {
  for (let i = 0; i < coinGroup; i++) {
    if ((coinGroup[i].position.x) < 0) {
      coinGroup[i].remove();
-   }
-   if (currentCoin) {
-     currentCoin -= 1;
-   }
-   if (lastCoin) {
-     lastCoin -= 1;
-   }
-   if (penCoin) {
-     penCoin -= 1;
+     if (i === currentCoin) {
+      currentCoin -= 1;
+     }
+     if (i === lastCoin) {
+      lastCoin -= 1;
+     }
+     if (i === penCoin) {
+      penCoin -= 1;
+      }
    }
  }
 }
