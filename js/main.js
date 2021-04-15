@@ -803,7 +803,7 @@ function heroMove() {
       }
     //}
     //if ((touchX) && (prevTouchX)) {
-      if (mouseX > pmouseX)) {
+      if (mouseX > pmouseX) {
         hero.velocity.x = 1;
       }
       else if (mouse > pmouseX) {
