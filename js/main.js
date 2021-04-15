@@ -621,10 +621,10 @@ function heroMove() {
   }
   if (moveActive === 1) {
     if (mouseY > pmouseY) {
-        hero.velocity.x = 1;
+        hero.velocity.y = 1;
     }
     if (mouseY < pmouseY) {
-        hero.velocity.x = -1;
+        hero.velocity.y = -1;
     }
     if (mouseX > pmouseX) {
       hero.velocity.x = 1;
