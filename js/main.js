@@ -59,26 +59,10 @@ let currentBar = 4;
 let gameCanvas;
 let ctx;
 let cnv;
-//let activeRegion;
-//let childElement;
-//let mc;
 let touchActive = 0;
 let doubtouchActive = 0;
-//let touchX;
-//let touchY;
-//let prevTouchX;
-//let prevTouchY;
 let moveActive = 0;
 let dualClick = 0;
-
-
-//let tch = null;
-
-//document.addEventListener('touchstart', handleTouchStart, false);
-//document.addEventListener('touchmove', handleTouchMove, false);
-
-//let xDown = null;
-//let yDown = null;
 
 /*
 Created using p5.js and p5 play
@@ -87,7 +71,6 @@ Created using the following reference materials/tutorials:
   https://la-wit.github.io/build-an-infinite-runner/build/docs/it-girls-instructional-booklet.pdf
   https://molleindustria.github.io/p5.play/docs/
   https://p5js.org/reference/
-  https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
 
 What's broken
   using numerical hp as hpbars did not work
@@ -98,13 +81,13 @@ function setup() {
   //if mobile
   if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
     cnv = createCanvas(400, 175);
-    cnv.id('gameCanvas');
-    cnv.parent('gameContainer');
+//    cnv.id('gameCanvas');
+//    cnv.parent('gameContainer');
   }
   else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
-    cnv = createCanvas(450, 200);
-    cnv.id('gameCanvas');
-    cnv.parent('gameContainer');
+    cnv = createCanvas(400, 175);
+//    cnv.id('gameCanvas');
+//    cnv.parent('gameContainer');
   }
   //otherwise
   else {
@@ -112,67 +95,6 @@ function setup() {
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
-  //ZingTouch Code
-  /*if (ZingTouch) {
-    activeRegion = ZingTouch.Region(document.getElementById('gameContainer'));
-    childElement = cnv;
-    let moveUp = new ZingTouch.Swipe({
-      currentDirection : 90
-    });
-    let moveDown = new ZingTouch.Swipe({
-      currentDirection : 270
-    });
-    let moveLeft = new ZingTouch.Swipe({
-      currentDirection : 180
-    })
-    let moveRight = new ZingTouch.Swipe({
-      currentDirection : 0
-    });
-    let doubleTap = new ZingTouch.Tap({
-      numInputs: 2,
-      maxDelay: 100
-    });
-    let singleTap = new ZingTouch.Tap({
-      numInputs: 1,
-      maxDelay: 300
-    });
-  }*/
-  //Hammer.js code
-  /*mc = new Hammer.Manager(cnv);
-  if (mc) {
-
-  hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-
-  mc.add ( new Hammer.Swipe ({
-    event: 'moveUp',
-    direction: swipeup
-  }) );
-  mc.add ( new Hammer.Swipe ({
-    event: 'moveDown',
-    direction: swipedown
-  }) );
-  mc.add ( new Hammer.Swipe ({
-    event: 'moveLeft',
-    direction: swipeleft
-  }) );
-  mc.add ( new Hammer.Swipe ({
-    event: 'moveRight',
-    direction: swiperight
-  }) );
-  mc.add( new Hammer.Tap ({
-    event: 'doubletap',
-    taps: 2
-  }) );
-  mc.add( new Hammer.Tap ({
-    event: 'singletap'
-  }) );
-
-  mc.get('doubletap').recognizeWith('singletap');
-  mc.get('singletap').requireFailure('doubletap');
-
-}*/
-
-  //angleMode(degrees);
   x2 = width;
   scoreOutput();
   sharkGroup = new Group;
@@ -270,9 +192,8 @@ function preload() {
 }
 
 function draw() {
-  //regular gameplay
+  // Start Screen
   if ((!gameOver) && (!startGame)) {
-    //touchControls();
     background('DodgerBlue');
     bgTiling();
     fill('white');
@@ -291,6 +212,7 @@ function draw() {
     textSize(17);
     strokeWeight(10);
     text("Press Enter to start!", width / 2, (height / 2) + 140);
+    // Press Enter or tap to start game
     if (keyWentDown(13)) {
       clear();
       startGame = true;
@@ -299,17 +221,8 @@ function draw() {
       clear();
       startGame = true;
     }
-    /*if (ZingTouch) {
-      if (activeRegion) {
-        activeRegion.bind(cnv, 'singleTap', function(e) {
-          if ((!gameOver) && (!startGame)) {
-            gameStart();
-          }
-        });
-      }
-    }*/
   }
-  //game over
+  // Game over
   if (gameOver) {
     gameOverText();
     updateSprites(false);
@@ -317,6 +230,7 @@ function draw() {
       location.reload();
     }
   }
+  // start game
   if (startGame) {
     gameStart();
   }
@@ -326,22 +240,34 @@ function gameStart() {
   gameCanvas = document.getElementById('gameCanvas');
   ctx = gameCanvas.getContext('2d');
   background('DodgerBlue');
+  //Tiling background call
   bgTiling();
+  // Movement call
   heroMove();
+  // Time call
   timing();
+  // Overlap Calls
   hero.overlap(sharkGroup);
   hero.overlap(gemGroup);
   hero.overlap(coinGroup);
   hero.overlap(heartGroup);
+  // Initialize Life bar and score output
   lifeBar();
   scoreOutput();
+  // Check for collisions
   collisionChecks();
+  // Keep hero in bounds
   containHero();
+  // Option to end game on desktop
   gameEnd();
+  // Draw sprites
   drawSprites();
+
+  // Disable scrolling on mobile (Not enabled)
   if (screen.width <= 800) {
     //disableScroll();
   }
+  // code to turn canvas that doesn't work
   /*if ((screen.width <= 800) && (screen.orientation === 'portrait-secondary')) {
     ctx.rotate(90);
   }*/
@@ -361,6 +287,7 @@ function bgTiling() {
   }
 }
 
+// Checks for touches
 function touchStarted() {
     if (touchActive === 0) {
       touchActive = 1;
@@ -370,6 +297,7 @@ function touchStarted() {
     }
 }
 
+// Checks for clicks
 function mousePressed() {
     if (touchActive === 0) {
       touchActive = 1;
@@ -379,7 +307,7 @@ function mousePressed() {
     }
 }
 
-
+// Checks for swipes
 function touchMoved() {
   if (moveActive === 0) {
     moveActive = 1;
@@ -389,6 +317,7 @@ function touchMoved() {
   }
 }
 
+//Checks if mouse dragged
 function mouseMoved() {
   if (moveActive === 0) {
     moveActive = 1;
@@ -398,6 +327,7 @@ function mouseMoved() {
   }
 }
 
+// Checks double click
 function doubleClicked() {
   if (dualClick === 0) {
     dualClick = 1;
@@ -1062,9 +992,11 @@ function gameOverText() {
   text("Press Enter or tap to try again", width / 2, (height / 2) + 110);
   //text("Press Enter or touch the screen to try again", width / 2, (height / 2) + 110);
   if (keyWentDown(13)) {
-    location.reload();
+    clear();
+    startGame = true;
   }
   if ((touchActive === 0) && (gameOver)) {
-    location.reload();
+    clear();
+    startGame = true;
   }
 }
