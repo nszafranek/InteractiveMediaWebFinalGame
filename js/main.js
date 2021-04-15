@@ -294,10 +294,10 @@ function draw() {
       clear();
       startGame = true;
     }
-    if (touchActive === 1) {
+    /*if (touchActive === 1) {
       clear();
       startGame = true;
-    }
+    }*/
     /*if (ZingTouch) {
       if (activeRegion) {
         activeRegion.bind(cnv, 'singleTap', function(e) {
@@ -312,9 +312,9 @@ function draw() {
   if (gameOver) {
     gameOverText();
     updateSprites(false);
-    if (touchActive === 1) {
+    /*if (touchActive === 1) {
       location.reload();
-    }
+    }*/
   }
 
 }
@@ -812,6 +812,7 @@ function heroMove() {
       else {
       }
   }
+}
   //ZingTouch
   /*if (ZingTouch) {
     if (activeRegion) {
