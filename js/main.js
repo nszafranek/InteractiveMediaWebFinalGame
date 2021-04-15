@@ -583,7 +583,7 @@ function timing() {
 
   time++;
 
-};
+}
 /*function touchControls() {
   // patch CustomEvent to allow constructor creation (IE/Chrome)
   if (typeof window.CustomEvent !== 'function') {
