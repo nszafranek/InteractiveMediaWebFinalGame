@@ -629,7 +629,7 @@ function heroMove() {
     else if (mouseX > pmouseX) {
       hero.velocity.x = 1;
     }
-    else if (mouse > pmouseX) {
+    else if (mouseX > pmouseX) {
       hero.velocity.x =-1;
     }
   }
