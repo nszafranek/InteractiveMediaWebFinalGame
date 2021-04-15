@@ -588,16 +588,16 @@ function timing() {
 function heroMove() {
 
   // Hero movement
-  if (keyWentDown(UP)) {
+  if (keyWentDown(38)) {
     hero.velocity.y = -1;
   }
-  else if (keyWentDown(DOWN)) {
+  else if (keyWentDown(40)) {
     hero.velocity.y = 1;
   }
-  else if (keyWentDown(LEFT)) {
+  else if (keyWentDown(37)) {
     hero.velocity.x = -1;
   }
-  else if (keyWentDown(RIGHT)) {
+  else if (keyWentDown(39)) {
     hero.velocity.x = 1;
   }
   if (moveActive === 1) {
