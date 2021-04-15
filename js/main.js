@@ -286,7 +286,7 @@ function draw() {
     textSize(15);
     strokeWeight(5);
     text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) + 50);
-    text("Press Esc or double tap to end", (width / 2), (height / 2) + 80 );
+    text("Press Esc to end", (width / 2), (height / 2) + 80 );
     text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 110);
     textSize(17);
     strokeWeight(10);
@@ -686,9 +686,6 @@ function heroMove() {
 // End Game by pressing Esc key
 function gameEnd() {
   if (keyWentDown(27) && (startGame)) {
-    gameOver = true;
-  }
-  if ((dualClick === 1) && (startGame)) {
     gameOver = true;
   }
   //ZingTouch
