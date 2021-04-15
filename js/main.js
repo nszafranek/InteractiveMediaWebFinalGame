@@ -71,6 +71,7 @@ Created using the following reference materials/tutorials:
   https://la-wit.github.io/build-an-infinite-runner/build/docs/it-girls-instructional-booklet.pdf
   https://molleindustria.github.io/p5.play/docs/
   https://p5js.org/reference/
+  https://www.geeksforgeeks.org/p5-js-touch-touchmoved/
 
 What's broken
   using numerical hp as hpbars did not work
@@ -80,7 +81,7 @@ What's broken
 function setup() {
   //if mobile
   if (screen.width <= 800) {
-    cnv = createCanvas(350, 175);
+    cnv = createCanvas(500, 300);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
