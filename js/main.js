@@ -79,12 +79,7 @@ What's broken
 
 function setup() {
   //if mobile
-  if ((screen.width <= 800) && (screen.orientation === 'portrait-primary')) {
-    cnv = createCanvas(350, 175);
-    cnv.id('gameCanvas');
-    cnv.parent('gameContainer');
-  }
-  else if ((screen.height <= 800) && (screen.orientation === 'landscape-primary')) {
+  if ((screen.width <= 800)) {
     cnv = createCanvas(350, 175);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
