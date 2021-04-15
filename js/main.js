@@ -81,7 +81,7 @@ What's broken
 function setup() {
   //if mobile
   if (screen.width <= 800) {
-    cnv = createCanvas(700, 350);
+    cnv = createCanvas(600, 325);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
@@ -196,18 +196,34 @@ function draw() {
     stroke('DodgerBlue');
     textAlign(CENTER);
     textFont(gameFont);
-    strokeWeight(2);
-    textSize(90);
-    strokeWeight(10);
-    text("Infinite Swimmer", (width / 2), (height / 2));
-    textSize(15);
-    strokeWeight(5);
-    text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) + 50);
-    text("Press Esc to end", (width / 2), (height / 2) + 80 );
-    text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 110);
-    textSize(17);
-    strokeWeight(10);
-    text("Press Enter or tap the screen to start!", width / 2, (height / 2) + 140);
+    if (screen.width <= 800) {
+      strokeWeight(1);
+      textSize(60);
+      strokeWeight(10);
+      text("Infinite Swimmer", (width / 2), (height / 2));
+      textSize(10);
+      strokeWeight(1);
+      text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) + 40);
+      text("Press Esc to end", (width / 2), (height / 2) + 60 );
+      text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 90);
+      textSize(17);
+      strokeWeight(1);
+      text("Press Enter or tap the screen to start!", width / 2, (height / 2) + 110);
+    }
+    if (screen.width > 800) {
+      strokeWeight(2);
+      textSize(90);
+      strokeWeight(10);
+      text("Infinite Swimmer", (width / 2), (height / 2));
+      textSize(15);
+      strokeWeight(5);
+      text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) + 50);
+      text("Press Esc to end", (width / 2), (height / 2) + 80 );
+      text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 110);
+      textSize(1);
+      strokeWeight(10);
+      text("Press Enter or tap the screen to start!", width / 2, (height / 2) + 140);
+    }
     // Press Enter or tap to start game
     if (keyWentDown(13)) {
       clear();
