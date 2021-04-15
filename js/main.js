@@ -294,7 +294,7 @@ function draw() {
       clear();
       startGame = true;
     }
-    if ((!gameOver) && (!startGame) && (touchActive === 1)) {
+    if (touchActive === 1) {
       clear();
       startGame = true;
     }
@@ -1164,6 +1164,7 @@ function hpLoss() {
   }*/
   // If HP is 0, Game Over
   if (hitPoints == 0) {
+    startGame = false;
     gameOver = true;
   }
   //despawn sprites
