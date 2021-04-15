@@ -130,7 +130,7 @@ function setup() {
     });
   }*/
   //Hammer.js code
-  mc = new Hammer.Manager(cnv);
+  /*mc = new Hammer.Manager(cnv);
   if (mc) {
 
   hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
@@ -162,7 +162,7 @@ function setup() {
   mc.get('doubletap').recognizeWith('singletap');
   mc.get('singletap').requireFailure('doubletap');
 
-}
+}*/
 
   //angleMode(degrees);
   x2 = width;
@@ -787,7 +787,7 @@ function heroMove() {
     }
   }*/
   //hammer.js touch controls
-  mc.on("swipeUp", function(ev) {
+  /*mc.on("swipeUp", function(ev) {
     hero.velocity.y = -1;
   });
   mc.on("swipeDown", function(ev) {
@@ -798,7 +798,7 @@ function heroMove() {
   });
   mc.on("swipeRight", function(ev) {
     hero.velocity.x = 1;
-  });
+  });*/
 }
 
 // End Game by pressing Esc key
