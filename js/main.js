@@ -293,12 +293,10 @@ function draw() {
     if (keyWentDown(13)) {
       clear();
       startGame = true;
-      gameStart()
     }
     if (touchActive === 1) {
       clear();
       startGame = true;
-      gameStart()
     }
     /*if (ZingTouch) {
       if (activeRegion) {
@@ -317,6 +315,9 @@ function draw() {
     if (touchActive === 1) {
       location.reload();
     }
+  }
+  if (startGame) {
+    gameStart()
   }
 }
 
