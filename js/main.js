@@ -358,7 +358,7 @@ function bgTiling() {
   }
 }
 
-function touchStarted() {
+/*function touchStarted() {
     if (touchActive === 0) {
       touchActive = 1;
     }
@@ -374,7 +374,7 @@ function touchMoved() {
   else {
     moveActive = 0;
   }
-}
+}*/
 
 // Disable Scrolling
 // left: 37, up: 38, right: 39, down: 40,
@@ -794,7 +794,7 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  if (moveActive === 1) {
+  /*if (moveActive === 1) {
       if (mouseY > pmouseY) {
         hero.velocity.x = 1;
       }
@@ -811,7 +811,7 @@ function heroMove() {
       }
       else {
       }
-  }
+  }*/
 }
   //ZingTouch
   /*if (ZingTouch) {
