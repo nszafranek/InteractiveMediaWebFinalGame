@@ -688,6 +688,9 @@ function gameEnd() {
   if (keyWentDown(27) && (startGame)) {
     gameOver = true;
   }
+  if ((dualClick) && (startGame)) {
+    gameOver = true;
+  }
   //ZingTouch
   /*if (ZingTouch) {
     if (activeRegion) {
@@ -1061,7 +1064,7 @@ function gameOverText() {
   if (keyWentDown(13)) {
     location.reload();
   }
-  if (touchActive === 0) {
+  if ((touchActive === 0) && (gameOver)) {
     location.reload();
   }
 }
