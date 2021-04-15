@@ -64,10 +64,11 @@ let cnv;
 //let mc;
 let touchActive = 0;
 let doubtouchActive = 0;
-let touchX;
-let touchY;
-let prevTouchX;
-let prevTouchY;
+//let touchX;
+//let touchY;
+//let prevTouchX;
+//let prevTouchY;
+let moveActive = 0;
 
 
 //let tch = null;
@@ -293,7 +294,7 @@ function draw() {
       clear();
       startGame = true;
     }
-    if (/*(!gameOver) && (!startGame) && */(touchActive === 1)) {
+    if ((!gameOver) && (!startGame) && (touchActive === 1)) {
       clear();
       startGame = true;
     }
@@ -329,8 +330,6 @@ function gameStart() {
   scoreOutput();
   collisionChecks();
   containHero();
-  touchStarted();
-  touchMoved();
   gameEnd();
   drawSprites();
   if (screen.width <= 800) {
@@ -358,8 +357,6 @@ function bgTiling() {
 function touchStarted() {
     if (touchActive === 0) {
       touchActive = 1;
-      prevTouchX = mouseX;
-      prevTouchY = mouseY;
     }
     else {
       touchActive = 0;
@@ -367,8 +364,12 @@ function touchStarted() {
 }
 
 function touchMoved() {
-  touchX = mouseX;
-  touchY = mouseY;
+  if (moveActive === 0) {
+    moveActive = 1;
+  }
+  else = {
+    moveActive = 0;
+  }
 }
 
 // Disable Scrolling
@@ -789,29 +790,29 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
-  if ((startGame) && (touchActive === 1)) {
-    if ((touchY) && (prevTouchY)) {
-      if (touchY > prevTouchY) {
+  if ((startGame) && (moveActive === 1)) {
+    //if ((touchY) && (prevTouchY)) {
+      if (mouseY > pmouseY) {
         hero.velocity.x = 1;
       }
-      else if ((touchY) < (prevTouchY)) {
+      else if (mouseY < pmouseY) {
         hero.velocity.x = -1;
       }
       else {
 
       }
-    }
-    if ((touchX) && (prevTouchX)) {
-      if ((touchX) > (prevTouchX)) {
+    //}
+    //if ((touchX) && (prevTouchX)) {
+      if (mouseX > pmouseX)) {
         hero.velocity.x = 1;
       }
-      else if ((touchX) > (prevTouch)) {
+      else if (mouse > pmouseX) {
         hero.velocity.x =-1;
       }
       else {
 
       }
-    }
+    //}
   }
   //ZingTouch
   /*if (ZingTouch) {
