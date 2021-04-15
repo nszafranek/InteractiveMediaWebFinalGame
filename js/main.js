@@ -61,7 +61,13 @@ let ctx;
 let cnv;
 //let activeRegion;
 //let childElement;
-let mc;
+//let mc;
+let touchActive = 0;
+let doubtouchActive = 0;
+let touchX;
+let touchY;
+let prevTouchX;
+let prevTouchY;
 
 
 //let tch = null;
@@ -287,6 +293,10 @@ function draw() {
       clear();
       startGame = true;
     }
+    if ((!gameOver) && (!startGame) && (touchActive === 1)) {
+      clear();
+      startGame = true;
+    }
     /*if (ZingTouch) {
       if (activeRegion) {
         activeRegion.bind(cnv, 'singleTap', function(e) {
@@ -341,6 +351,20 @@ function bgTiling() {
   if (x2 < -width){
    x2 = (width - 2);
   }
+}
+
+function touchStarted() {
+    if (touchActive === 0) {
+      touchActive = 1;
+    }
+    else {
+      touchActive = 0;
+      }
+}
+
+function touchMoved() {
+  touchX = mouseX;
+  touchY = mouseY;
 }
 
 // Disable Scrolling
@@ -761,6 +785,25 @@ function heroMove() {
   if (keyWentDown(RIGHT)) {
     hero.velocity.x = 1;
   }
+  if ((startGame) && (touchStarted === 1))
+    prevTouchX = mouseX;
+    prevTouchY = mouseY;
+    if ((touchY) && (prevTouchY)) {
+      if (touchY > prevTouchY) {
+        hero.velocity.x = 1;
+      }
+      else if ((touchY) < (prevTouchY)) {
+        hero.velocity.x = -1;
+      }
+    }
+    if ((touchX) && (prevTouchX)) {
+      if ((touchX) > (prevTouchX)) {
+        hero.velocity.x = 1;
+      }
+      if ((touchX) > (prevTouch)) {
+        hero.velocity.x =-1;
+      }
+  }
   //ZingTouch
   /*if (ZingTouch) {
     if (activeRegion) {
@@ -1173,6 +1216,9 @@ function gameOverText() {
   text("Press Enter to try again", width / 2, (height / 2) + 110);
   //text("Press Enter or touch the screen to try again", width / 2, (height / 2) + 110);
   if (keyWentDown(13)) {
+    location.reload();
+  }
+  if ((gameOver) && (touchStarted === 1)) {
     location.reload();
   }
   /*if (touchStarted(event)) {
