@@ -944,7 +944,6 @@ function hpLoss() {
   }*/
   // If HP is 0, Game Over
   if (hitPoints == 0) {
-    startGame = false;
     gameOver = true;
   }
   //despawn sprites
@@ -992,6 +991,7 @@ function collisionChecks() {
 }
 // Game over text
 function gameOverText() {
+  startGame = false;
   background(0,0,0,10);
   fill('white');
   stroke('black');
