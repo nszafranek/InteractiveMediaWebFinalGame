@@ -198,7 +198,7 @@ function draw() {
     textFont(gameFont);
     if (screen.width <= 800) {
       strokeWeight(1);
-      textSize(75);
+      textSize(85);
       strokeWeight(10);
       text("Infinite Swimmer", (width / 2), (height / 2 - 50));
       textSize(14);
