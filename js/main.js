@@ -367,7 +367,7 @@ function touchMoved() {
   if (moveActive === 0) {
     moveActive = 1;
   }
-  else = {
+  else {
     moveActive = 0;
   }
 }
