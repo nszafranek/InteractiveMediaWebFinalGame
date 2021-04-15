@@ -365,7 +365,7 @@ function touchStarted() {
     }
     else {
       touchActive = 0;
-      }
+    }
 }
 
 function touchMoved() {
