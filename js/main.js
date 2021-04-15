@@ -285,8 +285,8 @@ function draw() {
     text("Infinite Swimmer", (width / 2), (height / 2));
     textSize(15);
     strokeWeight(5);
-    text("Use the Arrow Keys to move the hero!", (width / 2), (height / 2) + 50);
-    text("Press Esc to end", (width / 2), (height / 2) + 80 );
+    text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) + 50);
+    text("Press Esc or double tap to end", (width / 2), (height / 2) + 80 );
     text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 110);
     textSize(17);
     strokeWeight(10);
@@ -1059,7 +1059,7 @@ function gameOverText() {
   textSize(15);
   text("Coins: " + coinCount, width / 2, (height / 2) + 50);
   text("Gems: " + gemCount, width / 2, (height / 2) + 80);
-  text("Press Enter to try again", width / 2, (height / 2) + 110);
+  text("Press Enter or tap to try again", width / 2, (height / 2) + 110);
   //text("Press Enter or touch the screen to try again", width / 2, (height / 2) + 110);
   if (keyWentDown(13)) {
     location.reload();
