@@ -329,6 +329,8 @@ function gameStart() {
   scoreOutput();
   collisionChecks();
   containHero();
+  touchStarted();
+  touchMoved();
   gameEnd();
   drawSprites();
   if (screen.width <= 800) {
