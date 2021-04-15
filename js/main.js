@@ -1007,11 +1007,9 @@ function gameOverText() {
   text("Press Enter or tap to try again", width / 2, (height / 2) + 110);
   //text("Press Enter or touch the screen to try again", width / 2, (height / 2) + 110);
   if (keyWentDown(13)) {
-    clear();
-    startGame = true;
+    location.reload();
   }
   if ((touchActive === 0) && (gameOver)) {
-    clear();
-    startGame = true;
+    location.reload();
   }
 }
