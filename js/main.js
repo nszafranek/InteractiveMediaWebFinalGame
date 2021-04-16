@@ -213,7 +213,7 @@ function draw() {
       }
     }
     // Check if screen is mobile/landscape
-    if (screen.width <= 768 && screen.orientation === "landscape-primary") {
+    if ((screen.width <= 768) || (screen.width <= 768 && screen.orientation === "landscape-primary")) {
       strokeWeight(1);
       textSize(60);
       strokeWeight(10);
