@@ -259,8 +259,8 @@ function draw() {
         startGame = true;
       }
     }
-
   }
+}
   // Game over
   if (gameOver) {
     gameOverText();
@@ -303,9 +303,9 @@ function gameStart() {
   drawSprites();
 
   // Disable scrolling on mobile (Not enabled)
-  if (screen.width <= 800) {
+  //if (screen.width <= 800) {
     //disableScroll();
-  }
+  //}
   // code to turn canvas that doesn't work
   /*if ((screen.width <= 800) && (screen.orientation === 'portrait-secondary')) {
     ctx.rotate(90);
