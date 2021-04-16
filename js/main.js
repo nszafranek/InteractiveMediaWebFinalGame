@@ -81,7 +81,7 @@ What's broken
 function setup() {
   //if mobile
   if (screen.width <= 800) {
-    cnv = createCanvas(screen.width - 50, screen.height - 75);
+    cnv = createCanvas(screen.width - 50, screen.height - 60);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
@@ -205,10 +205,10 @@ function draw() {
       strokeWeight(1);
       text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), ((height / 2) + 10));
       text("Press Esc to end", (width / 2), ((height / 2) + 30));
-      text("Avoid the Sharks and collect Gems and Coins!", (width / 2), ((height / 2) + 80));
+      text("Avoid the Sharks and collect Gems and Coins!", (width / 2), ((height / 2) + 60));
       textSize(30);
       strokeWeight(8);
-      text("Press Enter or tap the screen to start!", (width / 2), ((height / 2) + 60));
+      text("Press Enter or tap the screen to start!", (width / 2), ((height / 2) + 90));
     }
     if (screen.width > 800) {
       strokeWeight(2);
