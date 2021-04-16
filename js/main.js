@@ -196,12 +196,6 @@ function preload() {
 function draw() {
   // Start Screen
   if ((!gameOver) && (!startGame)) {
-    background('DodgerBlue');
-    bgTiling();
-    fill('white');
-    stroke('DodgerBlue');
-    textAlign(CENTER);
-    textFont(gameFont);
     // Check if screen is portrait
     if (screen.width <= 800 && screen.width < screen.height) {
       clear();
@@ -253,6 +247,13 @@ function draw() {
       }
     }
     if (screen.width > 800) {
+      clear();
+      background('DodgerBlue');
+      bgTiling();
+      fill('white');
+      stroke('DodgerBlue');
+      textAlign(CENTER);
+      textFont(gameFont);
       strokeWeight(2);
       textSize(110);
       strokeWeight(10);
