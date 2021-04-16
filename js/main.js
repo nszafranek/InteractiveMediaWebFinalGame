@@ -86,7 +86,7 @@ What's broken
 function setup() {
   //if mobile
   if (screen.width <= 800) {
-    cnv = createCanvas(screen.width - 75, screen.height - 100);
+    cnv = createCanvas(screen.width - 100, screen.height - 125);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
