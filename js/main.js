@@ -829,7 +829,7 @@ function removeOldHeart() {
  for (let i = 0; i<heartGroup; i++) {
    if ((heartGroup[i].position.x) < 0) {
      heartGroup[i].remove();
-     if (i == currentHeart) || (i == lastHeart) || (i == penHeart) {
+     if ((i == currentHeart) || (i == lastHeart) || (i == penHeart)) {
        currentHeart -= 1;
        lastHeart -= 1;
        penHeart -= 1;
