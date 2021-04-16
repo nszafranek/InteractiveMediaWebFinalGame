@@ -202,16 +202,6 @@ function draw() {
     stroke('DodgerBlue');
     textAlign(CENTER);
     textFont(gameFont);
-    // Check if screen is portrait
-    if (screen.width <= 768 && screen.orientation === "portrait-primary") {
-      strokeWeight(1);
-      textSize(50);
-      strokeWeight(10);
-      text("Please turn screen to landscape and reload", (width / 2), (height / 2));
-      if ((!gameOver) && (!startGame) && (touchActive === 1)) {
-        location.reload()
-      }
-    }
     // Check if screen is mobile/landscape
     if ((screen.width <= 768) || (screen.width <= 768 && screen.orientation === "landscape-primary")) {
       strokeWeight(1);
@@ -234,6 +224,16 @@ function draw() {
       if ((!gameOver) && (!startGame) && (touchActive === 1)) {
         clear();
         startGame = true;
+      }
+    }
+    // Check if screen is portrait
+    if (screen.width <= 768 && screen.orientation === "portrait-primary") {
+      strokeWeight(1);
+      textSize(50);
+      strokeWeight(10);
+      text("Please turn screen to landscape and reload", (width / 2), (height / 2));
+      if ((!gameOver) && (!startGame) && (touchActive === 1)) {
+        location.reload()
       }
     }
     if (screen.width > 768) {
