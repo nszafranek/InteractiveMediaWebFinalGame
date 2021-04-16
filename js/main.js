@@ -541,22 +541,22 @@ function lifeBar() {
 // Counter for item spawn
 function timing() {
   // When next Shark will spawn
-  if (time == nextShark) {
+  if (time === nextShark) {
     createNewShark();
     nextShark = Math.ceil(Math.random() * sharkInterval + sharkMinWait) + nextShark;
   }
   // When next Gem will spawn
-  if (time == nextGem) {
+  if (time === nextGem) {
     createNewGem();
     nextGem = Math.ceil(Math.random() * gemInterval + gemMinWait) + nextGem;
   }
   // When next Coin will spawn
-  if (time == nextCoin) {
+  if (time === nextCoin) {
     createNewCoin();
     nextGem = Math.ceil(Math.random() * coinInterval + coinMinWait) + nextCoin;
   }
   // When next heart will spawn
-  if (time == nextHeart) {
+  if (time === nextHeart) {
     createNewHeart();
     nextHeart = Math.ceil(Math.random() * heartInterval + heartMinWait) + nextGem;
   }
@@ -704,7 +704,7 @@ function removeOldShark() {
    if ((sharkGroup[i].position.x) < 0) {
      sharkGroup[i].remove();
      // If identified modify order
-     if ((i == currentShark) || (i == lastShark) || (i == penShark) || (i == finalShark)) {
+     if ((i === currentShark) || (i === lastShark) || (i === penShark) || (i === finalShark)) {
        currentShark -= 1;
       if (lastShark) {
        lastShark -= 1;
@@ -763,7 +763,7 @@ function removeOldGem() {
  for (let i = 0; i < gemGroup; i++) {
    if ((gemGroup[i].position.x) < 0) {
      gemGroup[i].remove();
-     if ((i == currentGem) || (i == lastGem) || (i == penGem) || (i =finalGem)) {
+     if ((i === currentGem) || (i === lastGem) || (i === penGem) || (i === finalGem)) {
       currentGem -= 1;
       if (lastGem) {
         lastGem -= 1;
@@ -860,7 +860,7 @@ function removeOldHeart() {
  for (let i = 0; i<heartGroup; i++) {
    if ((heartGroup[i].position.x) < 0) {
      heartGroup[i].remove();
-     if ((i == currentHeart) || (i == lastHeart) || (i == penHeart) (i == finalHeart)) {
+     if ((i === currentHeart) || (i === lastHeart) || (i === penHeart) (i === finalHeart)) {
        currentHeart -= 1;
        if (lastHeart) {
          lastHeart -= 1;
@@ -901,7 +901,7 @@ function gemGet() {
       finalGem -= 1;
     }
   }
-  if (hero.position == gemGroup[currentGem].position) {
+  if (hero.position === gemGroup[(currentGem)].position) {
     gemGroup[currentGem].remove();
     currentGem -= 1;
     if (lastGem) {
@@ -914,7 +914,7 @@ function gemGet() {
       lastGem -= 1;
     }
   }
-  if (hero.position == gemGroup[lastGem].position) {
+  if (hero.position === gemGroup[(lastGem)].position) {
     gemGroup[lastGem].remove();
     currentGem -= 1;
     lastGem -= 1;
@@ -925,8 +925,8 @@ function gemGet() {
       finalGem -=1;
     }
   }
-  if (hero.position == gemGroup[penGem].position) {
-    gemGroup[penGem].remove();
+  if (hero.position === gemGroup[(penGem)].position) {
+    gemGroup[(penGem)].remove();
     currentGem -= 1;
     lastGem -= 1;
     penGem -= 1;
@@ -934,8 +934,8 @@ function gemGet() {
       finalGem -= 1;
     }
   }
-  if (hero.position == gemGroup[finalGem]) {
-    gemGroup[finalGem].remove();
+  if (hero.position === gemGroup[(finalGem)]) {
+    gemGroup[(finalGem)].remove();
     currentGem -= 1;
     lastGem -= 1;
     penGem -= 1;
@@ -952,7 +952,7 @@ function coinGet() {
   // Despawn sprites
   if (!currentCoin) {
     currentCoin = coinGroup.length - 1;
-    coinGroup[currentCoin].remove();
+    coinGroup[(currentCoin)].remove();
     currentCoin -= 1;
     if (lastCoin) {
       lastCoin -= 1;
@@ -964,8 +964,8 @@ function coinGet() {
       finalCoin -= 1;
     }
   }
-  if (hero.position == coinGroup[currentCoin].position) {
-    coinGroup[currentCoin].remove();
+  if (hero.position === coinGroup[(currentCoin)].position) {
+    coinGroup[(currentCoin)].remove();
     currentCoin -= 1;
     if (lastCoin) {
       lastCoin -= 1;
@@ -977,7 +977,7 @@ function coinGet() {
       finalCoin -= 1;
     }
   }
-  if (hero.position == coinGroup[lastCoin].position) {
+  if (hero.position === coinGroup[(lastCoin)].position) {
     coinGroup[lastCoin].remove();
     currentCoin -= 1;
     lastCoin -= 1;
@@ -988,8 +988,8 @@ function coinGet() {
       finalCoin -= 1;
     }
   }
-  if (hero.position == coinGroup[penCoin].position) {
-    coinGroup[penCoin].remove();
+  if (hero.position === coinGroup[(penCoin)].position) {
+    coinGroup[(penCoin)].remove();
     currentCoin -= 1;
     lastCoin -= 1;
     penCoin -= 1;
@@ -997,8 +997,8 @@ function coinGet() {
       finalCoin -= 1;
     }
   }
-  if (hero.position == coinGroup[finalCoin].position) {
-    coinGroup[finalCoin].remove();
+  if (hero.position === coinGroup[finalCoin].position) {
+    coinGroup[(finalCoin)].remove();
     currentCoin -= 1;
     lastCoin -= 1;
     penCoin -= 1;
@@ -1015,7 +1015,7 @@ function heartGet() {
 
 function lifeGain() {
   // If HP is full
-  if (hitPoints == 4) {
+  if (hitPoints === 4) {
   }
   // Otherwise
   else {
@@ -1023,7 +1023,7 @@ function lifeGain() {
   }
   if (!currentHeart) {
     currentHeart = heartGroup.length - 1;
-    heartGroup[currentHeart].remove();
+    heartGroup[(currentHeart)].remove();
     currentHeart -= 1;
     if (lastHeart) {
       lastHeart -= 1;
@@ -1035,7 +1035,7 @@ function lifeGain() {
       finalHeart -= 1;
     }
   }
-  if (hero.position == heartGroup[currentHeart].position) {
+  if (hero.position === heartGroup[(currentHeart)].position) {
   heartGroup[currentHeart].remove();
   currentHeart -= 1;
   if (lastHeart) {
@@ -1048,7 +1048,7 @@ function lifeGain() {
     finalHeart -= 1;
   }
   }
-  if (hero.position == heartGroup[lastHeart].position) {
+  if (hero.position === heartGroup[(lastHeart)].position) {
     heartGroup[lastHeart].remove();
     currentHeart -= 1;
     lastHeart -= 1;
@@ -1059,8 +1059,8 @@ function lifeGain() {
       finalHeart -= 1;
     }
   }
-  if (hero.position == heartGroup[penHeart].position) {
-    heartGroup[penHeart].remove();
+  if (hero.position === heartGroup[(penHeart)].position) {
+    heartGroup[(penHeart)].remove();
     currentHeart -= 1;
     lastHeart -= 1;
     penHeart -= 1;
@@ -1068,8 +1068,8 @@ function lifeGain() {
       finalHeart -= 1;
     }
   }
-  if (hero.position == heartGroup[finalHeart].position) {
-    heartGroup[finalHeart].remove();
+  if (hero.position === heartGroup[(finalHeart)].position) {
+    heartGroup[(finalHeart)].remove();
     currentHeart -= 1;
     lastHeart -= 1;
     penHeart -= 1;
@@ -1098,7 +1098,7 @@ function hpLoss() {
    gameOver = true;
   }*/
   // If HP is 0, Game Over
-  if (hitPoints == 0) {
+  if (hitPoints === 0) {
     gameOver = true;
   }
   //despawn sprites
@@ -1116,7 +1116,7 @@ function hpLoss() {
       finalShark -= 1;
     }
   }
-  if (hero.position == sharkGroup[currentShark].position) {
+  if (hero.position === sharkGroup[(currentShark)].position) {
     sharkGroup[currentShark].remove();
     currentShark -= 1;
     if (lastShark) {
@@ -1129,7 +1129,7 @@ function hpLoss() {
       finalShark -= 1;
     }
   }
-  if (hero.position == sharkGroup[lastShark].position) {
+  if (hero.position === sharkGroup[(lastShark)].position) {
     sharkGroup[lastShark].remove();
     currentShark -= 1;
     lastShark -= 1;
@@ -1140,7 +1140,7 @@ function hpLoss() {
       finalShark -= 1;
     }
   }
-  if (hero.position == sharkGroup[penShark].position) {
+  if (hero.position === sharkGroup[(penShark)].position) {
     sharkGroup[penShark].remove();
     currentShark -= 1;
     lastShark -= 1;
@@ -1149,7 +1149,7 @@ function hpLoss() {
       finalShark -= 1;
     }
   }
-  if (hero.position == sharkGroup[finalShark].position) {
+  if (hero.position === sharkGroup[(finalShark)].position) {
     sharkGroup[finalShark].remove();
     currentShark -= 1;
     lastShark -= 1;
