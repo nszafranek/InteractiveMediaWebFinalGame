@@ -203,7 +203,7 @@ function draw() {
     textAlign(CENTER);
     textFont(gameFont);
     // Check if screen is mobile/landscape
-    if ((screen.width <= 800) || (screen.width <= 800 && screen.orientation === "landscape")) {
+    if (screen.width <= 800 && screen.width > screen.height) {
       strokeWeight(1);
       textSize(30);
       strokeWeight(7);
