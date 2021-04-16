@@ -86,7 +86,7 @@ What's broken
 function setup() {
   //if mobile
   if (screen.width <= 800) {
-    screen.orientation.lock("landscape");
+    //screen.orientation.lock("landscape");
     cnv = createCanvas(screen.width * 0.55, screen.height * 0.55);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
