@@ -87,7 +87,7 @@ function setup() {
   //if mobile
   if (screen.width <= 768) {
     screen.orientation.lock(portrait);
-    cnv = createCanvas(screen.width * 0.6, screen.height * 0.45);
+    cnv = createCanvas(screen.width * 0.45, screen.height * 0.45);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
@@ -202,7 +202,7 @@ function draw() {
     stroke('DodgerBlue');
     textAlign(CENTER);
     textFont(gameFont);
-    /*if (screen.width <= 768 && screen.orientation === "portrait-primary") {
+    /*if (screen.width <= 768 && screen.orientation === "portrait") {
       strokeWeight(1);
       textSize(50);
       strokeWeight(10);
@@ -211,7 +211,7 @@ function draw() {
         location.reload()
       }
     }*/
-    if (screen.width <= 768 /*&& screen.orientation === "landscape-primary"*/) {
+    if (screen.width <= 768 /*&& screen.orientation === "landscape"*/) {
       strokeWeight(1);
       textSize(60);
       strokeWeight(10);
