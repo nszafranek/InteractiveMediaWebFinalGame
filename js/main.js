@@ -203,7 +203,7 @@ function draw() {
     textFont(gameFont);
     if (screen.width <= 768 && screen.orientation == ("portrait-primary" || "portrait-secondary")) {
       strokeWeight(1);
-      textSize(70);
+      textSize(50);
       strokeWeight(10);
       text("Please turn screen to landscape and reload", (width / 2), (height / 2));
       if ((!gameOver) && (!startGame) && (touchActive === 1)) {
