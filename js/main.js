@@ -901,45 +901,47 @@ function gemGet() {
       finalGem -= 1;
     }
   }
-  if (hero.position === gemGroup[(currentGem)].position) {
-    gemGroup[currentGem].remove();
-    currentGem -= 1;
-    if (lastGem) {
+  if (currentGem) {
+    if (hero.position === gemGroup[(currentGem)].position) {
+      gemGroup[currentGem].remove();
+      currentGem -= 1;
+      if (lastGem) {
+        lastGem -= 1;
+      }
+      if (penGem) {
+        penGem -= 1;
+      }
+      if (lastGem) {
+        lastGem -= 1;
+      }
+    }
+    if (hero.position === gemGroup[(lastGem)].position) {
+      gemGroup[lastGem].remove();
+      currentGem -= 1;
       lastGem -= 1;
+      if (penGem) {
+        penGem -= 1;
+      }
+      if (finalGem) {
+        finalGem -=1;
+      }
     }
-    if (penGem) {
-      penGem -= 1;
-    }
-    if (lastGem) {
+    if (hero.position === gemGroup[(penGem)].position) {
+      gemGroup[(penGem)].remove();
+      currentGem -= 1;
       lastGem -= 1;
-    }
-  }
-  if (hero.position === gemGroup[(lastGem)].position) {
-    gemGroup[lastGem].remove();
-    currentGem -= 1;
-    lastGem -= 1;
-    if (penGem) {
       penGem -= 1;
+      if (finalGem) {
+        finalGem -= 1;
+      }
     }
-    if (finalGem) {
-      finalGem -=1;
-    }
-  }
-  if (hero.position === gemGroup[(penGem)].position) {
-    gemGroup[(penGem)].remove();
-    currentGem -= 1;
-    lastGem -= 1;
-    penGem -= 1;
-    if (finalGem) {
+    if (hero.position === gemGroup[(finalGem)]) {
+      gemGroup[(finalGem)].remove();
+      currentGem -= 1;
+      lastGem -= 1;
+      penGem -= 1;
       finalGem -= 1;
     }
-  }
-  if (hero.position === gemGroup[(finalGem)]) {
-    gemGroup[(finalGem)].remove();
-    currentGem -= 1;
-    lastGem -= 1;
-    penGem -= 1;
-    finalGem -= 1;
   }
 }
 
