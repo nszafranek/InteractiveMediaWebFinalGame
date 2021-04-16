@@ -901,7 +901,7 @@ function gemGet() {
       finalGem -= 1;
     }
   }
-  if (currentGem) {
+  else {
     if (hero.position === gemGroup[(currentGem)].position) {
       gemGroup[currentGem].remove();
       currentGem -= 1;
@@ -966,7 +966,7 @@ function coinGet() {
       finalCoin -= 1;
     }
   }
-  if (currentCoin) {
+  else {
     if (hero.position === coinGroup[(currentCoin)].position) {
       coinGroup[(currentCoin)].remove();
       currentCoin -= 1;
@@ -1039,7 +1039,7 @@ function lifeGain() {
       finalHeart -= 1;
     }
   }
-  if (currentHeart) {
+  else {
     if (hero.position === heartGroup[(currentHeart)].position) {
     heartGroup[currentHeart].remove();
     currentHeart -= 1;
@@ -1122,7 +1122,7 @@ function hpLoss() {
       finalShark -= 1;
     }
   }
-  if (currentShark) {
+  else {
     if (hero.position === sharkGroup[(currentShark)].position) {
       sharkGroup[currentShark].remove();
       currentShark -= 1;
