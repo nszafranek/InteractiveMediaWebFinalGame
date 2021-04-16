@@ -20,7 +20,7 @@ let gemMinWait = 200;
 let gemInterval = 300;
 let nextHeart;
 let heartMinWait = 600;
-let heartInterval = 900;
+let heartInterval = 600;
 let nextCoin = 200;
 let coinMinWait = 200;
 let coinInterval = 200;
@@ -78,8 +78,9 @@ Created using the following reference materials/tutorials:
   https://www.geeksforgeeks.org/p5-js-touch-touchmoved/
 
 What's broken
-  using numerical hp as hpbars did not work
+  using numerical hp as graphic hpbars did not work
   collisions stop being checked after you miss a few objects
+  touch movement is clunky but I did my best
 */
 
 function setup() {
@@ -759,7 +760,7 @@ function createNewGem() {
 }
 
 function removeOldGem() {
-  // Despawn gem that has left the canvas
+  // Despawn gem that has left the canvas; modify current, last, penultimate and final items if necessary
  for (let i = 0; i < gemGroup; i++) {
    if ((gemGroup[i].position.x) < 0) {
      gemGroup[i].remove();
@@ -817,7 +818,7 @@ function createNewCoin() {
     console.log('Coin' + currentCoin);
 }
 function removeOldCoin() {
-  // Despawn coin that has left the canvas
+  // Despawn gem that has left the canvas; modify current, last, penultimate and final items if necessary
  for (let i = 0; i < coinGroup; i++) {
    if ((coinGroup[i].position.x) < 0) {
     coinGroup[i].remove();
@@ -856,7 +857,7 @@ function createNewHeart() {
 }
 
 function removeOldHeart() {
-  // Despawn heart that has left the canvas
+  // Despawn gem that has left the canvas; modify current, last, penultimate and final items if necessary
  for (let i = 0; i<heartGroup; i++) {
    if ((heartGroup[i].position.x) < 0) {
      heartGroup[i].remove();
@@ -885,8 +886,8 @@ function gemGet() {
   score += 50;
   // Add 1 gem to count
   gemCount = gemCount + 1;
-  // Deswpan sprites
-  // If current Gem is undefined
+  // Despawn sprites
+  // Failsafe if current Gem is undefined
   if (!currentGem || !gemGroup[currentGem]) {
     currentGem = gemGroup.length - 1;
     gemGroup[0].remove();
@@ -901,7 +902,9 @@ function gemGet() {
       finalGem -= 1;
     }
   }
+  // How it should work
   else {
+    // Compare hero position with item position, update variables and necessary
     if (hero.position === gemGroup[(currentGem)].position) {
       gemGroup[currentGem].remove();
       currentGem -= 1;
@@ -952,6 +955,7 @@ function coinGet() {
   // Add 1 coin to count
   coinCount = coinCount + 1;
   // Despawn sprites
+  // Failsafe code
   if (!currentCoin || !coinGroup[currentCoin]) {
     currentCoin = coinGroup.length - 1;
     coinGroup[0].remove();
@@ -966,7 +970,9 @@ function coinGet() {
       finalCoin -= 1;
     }
   }
+  // How it should work
   else {
+    // Compare hero position with item position, update variables and necessary
     if (hero.position === coinGroup[(currentCoin)].position) {
       coinGroup[(currentCoin)].remove();
       currentCoin -= 1;
@@ -1025,6 +1031,7 @@ function lifeGain() {
   else {
     hitPoints += 1;
   }
+  // Failsafe code
   if (!currentHeart || !coinGroup[currentHeart]) {
     currentHeart = heartGroup.length - 1;
     heartGroup[0].remove();
@@ -1039,7 +1046,9 @@ function lifeGain() {
       finalHeart -= 1;
     }
   }
+  // How it should work
   else {
+    // Compare hero position with item position, update variables and necessary
     if (hero.position === heartGroup[(currentHeart)].position) {
     heartGroup[currentHeart].remove();
     currentHeart -= 1;
@@ -1107,7 +1116,8 @@ function hpLoss() {
   if (hitPoints === 0) {
     gameOver = true;
   }
-  //despawn sprites
+  // Despawn sprites
+  // Failsafe code
   if (!currentShark || !sharkGroup[currentShark]) {
     currentShark = sharkGroup.length - 1;
     sharkGroup[0].remove();
@@ -1122,7 +1132,9 @@ function hpLoss() {
       finalShark -= 1;
     }
   }
+  // How it should work
   else {
+    // Compare hero position with item position, update variables and necessary
     if (hero.position === sharkGroup[(currentShark)].position) {
       sharkGroup[currentShark].remove();
       currentShark -= 1;
