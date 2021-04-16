@@ -217,8 +217,8 @@ function draw() {
       text("Infinite Swimmer", (width / 2), (height / 2) - 50);
       textSize(15);
       strokeWeight(5);
-      text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) - 50);
-      text("Press Esc to end", (width / 2), (height / 2) + 30 );
+      text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) - 30);
+      text("Press Esc to end", (width / 2), (height / 2) + 50 );
       text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 90);
       textSize(30);
       strokeWeight(1);
