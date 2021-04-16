@@ -205,6 +205,12 @@ function draw() {
     // Check if screen is portrait
     if (screen.width <= 800 && screen.width < screen.height) {
       clear();
+      background('DodgerBlue');
+      bgTiling();
+      fill('white');
+      stroke('DodgerBlue');
+      textAlign(CENTER);
+      textFont(gameFont);
       strokeWeight(1);
       textSize(20);
       strokeWeight(10);
