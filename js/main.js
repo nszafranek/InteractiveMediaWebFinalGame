@@ -219,7 +219,7 @@ function draw() {
       strokeWeight(5);
       text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), (height / 2) - 30);
       text("Press Esc to end", (width / 2), (height / 2) + 50 );
-      text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 90);
+      text("Avoid the Sharks and collect Gems and Coins!", (width / 2), (height / 2) + 70);
       textSize(30);
       strokeWeight(1);
       text("Press Enter or tap the screen to start!", width / 2, (height / 2) + 125);
