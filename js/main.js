@@ -93,7 +93,7 @@ function setup() {
   }
   //otherwise
   if (screen.width > 768) {
-    cnv = createCanvas(1000, 500);
+    cnv = createCanvas(screen.width * 0.75, screen.height * 0.75);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
