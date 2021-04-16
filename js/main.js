@@ -208,7 +208,7 @@ function draw() {
       text("Avoid the Sharks and collect Gems and Coins!", (width / 2), ((height / 2) + 35));
       textSize(30);
       strokeWeight(8);
-      text("Press Enter or tap the screen to start!", (width / 2), ((height / 2) + 100));
+      text("Press Enter or tap the screen to start!", (width / 2), ((height / 2) + 85));
     }
     if (screen.width > 800) {
       strokeWeight(2);
