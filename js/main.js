@@ -260,7 +260,6 @@ function draw() {
       }
     }
   }
-}
   // Game over
   if (gameOver) {
     gameOverText();
