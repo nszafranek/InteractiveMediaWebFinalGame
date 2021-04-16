@@ -223,6 +223,13 @@ function draw() {
     }
     // Check if screen is mobile/landscape
     if (screen.width <= 800 && screen.width > screen.height) {
+      clear();
+      background('DodgerBlue');
+      bgTiling();
+      fill('white');
+      stroke('DodgerBlue');
+      textAlign(CENTER);
+      textFont(gameFont);
       strokeWeight(1);
       textSize(30);
       strokeWeight(7);
