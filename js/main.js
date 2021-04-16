@@ -203,7 +203,7 @@ function draw() {
     textAlign(CENTER);
     textFont(gameFont);
     // Check if screen is mobile/landscape
-    if ((screen.width <= 768) || (screen.width <= 768 && screen.orientation === "landscape-primary")) {
+    if ((screen.width <= 768) || (screen.width <= 768 && screen.orientation === "landscape")) {
       strokeWeight(1);
       textSize(60);
       strokeWeight(10);
@@ -227,7 +227,7 @@ function draw() {
       }
     }
     // Check if screen is portrait
-    if (screen.width <= 768 && screen.orientation === "portrait-primary") {
+    if (screen.width <= 768 && screen.orientation === "portrait") {
       strokeWeight(1);
       textSize(50);
       strokeWeight(10);
