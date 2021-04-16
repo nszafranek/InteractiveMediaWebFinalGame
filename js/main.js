@@ -87,7 +87,7 @@ function setup() {
   //if mobile
   if (screen.width <= 768) {
     screen.orientation.lock("landscape");
-    cnv = createCanvas(screen.width * 0.45, screen.height * 0.45);
+    cnv = createCanvas(screen.width * 0.55, screen.height * 0.55);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
