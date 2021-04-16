@@ -887,9 +887,9 @@ function gemGet() {
   gemCount = gemCount + 1;
   // Deswpan sprites
   // If current Gem is undefined
-  if (!currentGem) {
+  if (!currentGem || !gemGroup[currentGem]) {
     currentGem = gemGroup.length - 1;
-    gemGroup[currentGem].remove();
+    gemGroup[0].remove();
     currentGem -= 1;
     if (lastGem) {
       lastGem -= 1;
@@ -952,9 +952,9 @@ function coinGet() {
   // Add 1 coin to count
   coinCount = coinCount + 1;
   // Despawn sprites
-  if (!currentCoin) {
+  if (!currentCoin || !coinGroup[currentCoin]) {
     currentCoin = coinGroup.length - 1;
-    coinGroup[(currentCoin)].remove();
+    coinGroup[0].remove();
     currentCoin -= 1;
     if (lastCoin) {
       lastCoin -= 1;
@@ -1025,9 +1025,9 @@ function lifeGain() {
   else {
     hitPoints += 1;
   }
-  if (!currentHeart) {
+  if (!currentHeart || !coinGroup[currentHeart]) {
     currentHeart = heartGroup.length - 1;
-    heartGroup[(currentHeart)].remove();
+    heartGroup[0].remove();
     currentHeart -= 1;
     if (lastHeart) {
       lastHeart -= 1;
@@ -1108,9 +1108,9 @@ function hpLoss() {
     gameOver = true;
   }
   //despawn sprites
-  if (!currentShark) {
+  if (!currentShark || !sharkGroup[currentShark]) {
     currentShark = sharkGroup.length - 1;
-    sharkGroup[currentShark].remove();
+    sharkGroup[0].remove();
     currentShark -= 1;
     if (lastShark) {
       lastShark -= 1;
