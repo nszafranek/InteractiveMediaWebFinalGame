@@ -227,7 +227,7 @@ function draw() {
       }
     }
     // Check if screen is portrait
-    if (screen.width <= 800 && screen.orientation === "portrait") {
+    if (screen.width <= 800 && screen.width < screen.height) {
       strokeWeight(1);
       textSize(50);
       strokeWeight(10);
