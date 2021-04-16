@@ -46,15 +46,19 @@ let scoreElem;
 let currentShark;
 let lastShark;
 let penShark;
+let finalShark;
 let currentGem;
 let lastGem;
 let penGem;
+let finalGem;
 let currentCoin;
 let lastCoin;
 let penCoin;
+let finalCoin;
 let currentHeart;
 let lastHeart;
 let penHeart;
+let finalHeart;
 let currentBar = 4;
 let gameCanvas;
 let ctx;
@@ -699,17 +703,13 @@ function removeOldShark() {
  for (let i = 0; i<sharkGroup; i++) {
    if ((sharkGroup[i].position.x) < 0) {
      sharkGroup[i].remove();
-     if (i == currentShark) {
+     if ((i == currentShark) || (i == lastShark) || (i == penShark)) {
        currentShark -= 1;
        lastShark -= 1;
        penShark -= 1;
      }
-     if (i == lastShark) {
-       lastShark -= 1;
-       penShark -= 1;
-     }
-     if (i == penShark) {
-       penShark -= 1;
+     else {
+       finalShark = i;
      }
    }
  }
@@ -747,18 +747,13 @@ function removeOldGem() {
  for (let i = 0; i < gemGroup; i++) {
    if ((gemGroup[i].position.x) < 0) {
      gemGroup[i].remove();
-     if (i == currentGem) {
+     if ((i == currentGem) || (i == lastGem) || (i == penGem)) {
        currentGem -= 1;
        lastGem -= 1;
        penGem -= 1;
      }
-     if (i == lastGem) {
-       lastGem -= 1;
-       pemGem - 1;
-
-     }
-     if (i == penGem) {
-       penGem -= 1;
+     else  {
+       finalGem = i;
      }
    }
  }
@@ -795,19 +790,11 @@ function removeOldCoin() {
  for (let i = 0; i < coinGroup; i++) {
    if ((coinGroup[i].position.x) < 0) {
     coinGroup[i].remove();
-    if (i === currentCoin) {
-      currentCoin -= 1;
-      lastCoin -= 1;
-      penCoin -= 1;
+    if ((i === currentCoin) || (i === lastCoin) || (i === penCoin)) {
     }
-    if (i === lastCoin) {
-       lastCoin -= 1;
-       penCoin -= 1;
+    else {
+      finalCoin = i;
     }
-    if (i === penCoin) {
-      penCoin -= 1;
-    }
-   }
  }
 }
 
@@ -842,14 +829,14 @@ function removeOldHeart() {
  for (let i = 0; i<heartGroup; i++) {
    if ((heartGroup[i].position.x) < 0) {
      heartGroup[i].remove();
-     if (i == currentHeart) {
+     if ((i == currentHeart) || (i == lastHeart)) || (i == penHeart) {
        currentHeart -= 1;
-     }
-     if (i == lastHeart) {
        lastHeart -= 1;
-     }
-     if (i == penHeart) {
        penHeart -= 1;
+     }
+     else {
+       finalCoin = i;
+     }
      }
    }
  }
@@ -865,15 +852,56 @@ function gemGet() {
   if (!currentGem) {
     currentGem = gemGroup.length - 1;
     gemGroup[currentGem].remove();
+    currentGem -= 1;
+    if (lastGem) {
+      lastGem -= 1;
+    }
+    if (penGem) {
+    penGem -= 1;
+    }
+    if (finalGem) {
+      finalGem -= 1;
+    }
   }
-  if (currentGem) {
-  gemGroup[currentGem].remove();
+  if (hero.position == gemGroup[currentGem].position) {
+    gemGroup[currentGem].remove();
+    currentGem -= 1;
+    if (lastGem) {
+      lastGem -= 1;
+    }
+    if (penGem) {
+      penGem -= 1;
+    }
+    if (lastGem) {
+      lastGem -= 1;
+    }
   }
-  if (lastGem) {
+  if (hero.position == gemGroup[lastGem].position) {
     gemGroup[lastGem].remove();
+    currentGem -= 1;
+    lastGem -= 1;
+    if (penGem) {
+      penGem -= 1;
+    }
+    if (finalGem) {
+      finalGem -=1;
+    }
   }
-  if (penGem) {
+  if (hero.position == gemGroup[penGem].position) {
     gemGroup[penGem].remove();
+    currentGem -= 1;
+    lastGem -= 1;
+    penGem -= 1;
+    if (finalGem) {
+      finalGem -= 1;
+    }
+  }
+  if (hero.position == gemGroup[finalGem]) {
+    gemGroup[finalGem].remove();
+    currentGem -= 1;
+    lastGem -= 1;
+    penGem -= 1;
+    finalGem -= 1;
   }
 }
 
@@ -887,15 +915,56 @@ function coinGet() {
   if (!currentCoin) {
     currentCoin = coinGroup.length - 1;
     coinGroup[currentCoin].remove();
+    currentCoin -= 1;
+    if (lastCoin) {
+      lastCoin -= 1;
+    }
+    if (penCoin) {
+      penCoin -= 1;
+    }
+    if (finalCoin) {
+      finalCoin -= 1;
+    }
   }
-  if (currentCoin) {
-  coinGroup[currentCoin].remove();
+  if (hero.position == coinGroup[currentCoin].position) {
+    coinGroup[currentCoin].remove();
+    currentCoin -= 1;
+    if (lastCoin) {
+      lastCoin -= 1;
+    }
+    if (penCoin) {
+      penCoin -= 1;
+    }
+    if (finalCoin) {
+      finalCoin -= 1;
+    }
   }
-  if (lastCoin) {
+  if (hero.position == coinGroup[lastCoin].position) {
     coinGroup[lastCoin].remove();
+    currentCoin -= 1;
+    lastCoin -= 1;
+    if (penCoin) {
+      penCoin -= 1;
+    }
+    if (finalCoin) {
+      finalCoin -= 1;
+    }
   }
-  if (penCoin) {
+  if (hero.position == coinGroup[penCoin].position) {
     coinGroup[penCoin].remove();
+    currentCoin -= 1;
+    lastCoin -= 1;
+    penCoin -= 1;
+    if (finalCoin) {
+      finalCoin -= 1;
+    }
+  }
+  if (hero.position == coinGroup[finalCoin].position) {
+    coinGroup[finalCoin].remove();
+    currentCoin -= 1;
+    lastCoin -= 1;
+    penCoin -= 1;
+    finalCoin -= 1;
   }
 }
 
@@ -915,17 +984,58 @@ function lifeGain() {
     hitPoints += 1;
   }
   if (!currentHeart) {
-  currentHeart = heartGroup.length - 1;
+    currentHeart = heartGroup.length - 1;
     heartGroup[currentHeart].remove();
+    currentHeart -= 1;
+    if (lastHeart) {
+      lastHeart -= 1;
+    }
+    if (penHeart) {
+      penHeart -= 1;
+    }
+    if (finalHeart) {
+      finalHeart -= 1;
+    }
   }
-  if (currentHeart) {
+  if (hero.position == heartGroup[currentHeart].position) {
   heartGroup[currentHeart].remove();
-  }
+  currentHeart -= 1;
   if (lastHeart) {
-    heartGroup[lastHeart].remove();
+    lastHeart -= 1;
   }
   if (penHeart) {
+    penHeart -= 1;
+  }
+  if (finalHeart) {
+    finalHeart -= 1;
+  }
+  }
+  if (hero.position == heartGroup[lastHeart].position) {
+    heartGroup[lastHeart].remove();
+    currentHeart -= 1;
+    lastHeart -= 1;
+    if (penHeart) {
+      penHeart -= 1;
+    }
+    if (finalHeart) {
+      finalHeart -= 1;
+    }
+  }
+  if (hero.position == heartGroup[penHeart].position) {
     heartGroup[penHeart].remove();
+    currentHeart -= 1;
+    lastHeart -= 1;
+    penHeart -= 1;
+    if (finalHeart) {
+      finalHeart -= 1;
+    }
+  }
+  if (hero.position == heartGroup[finalHeart].position) {
+    heartGroup[finalHeart].remove();
+    currentHeart -= 1;
+    lastHeart -= 1;
+    penHeart -= 1;
+    finalHeart -= 1;
   }
 }
 
@@ -957,15 +1067,57 @@ function hpLoss() {
   if (!currentShark) {
     currentShark = sharkGroup.length - 1;
     sharkGroup[currentShark].remove();
+    currentShark -= 1;
+    if (lastShark) {
+      lastShark -= 1;
+    }
+    if (penShark) {
+      penShark -= 1;
+    }
+    if (finalShark) {
+      finalShark -= 1;
+    }
   }
-  if (currentShark) {
-  sharkGroup[currentShark].remove();
+  if (hero.position == sharkGroup[currentShark].position) {
+    sharkGroup[currentShark].remove();
+    currentShark -= 1;
+    if (lastShark) {
+      lastShark -= 1;
+    }
+    if (penShark) {
+      penShark -= 1;
+    }
+    if (finalShark) {
+      finalShark -= 1;
+    }
   }
-  if (lastShark) {
+  if (hero.position == sharkGroup[lastShark].position) {
     sharkGroup[lastShark].remove();
+    currentShark -= 1;
+    lastShark -= 1;
+    if (penShark) {
+      penShark -= 1;
+    }
+    if (finalShark) {
+      finalShark -= 1;
+    }
   }
-  if (penShark) {
+  if (hero.position == sharkGroup[penShark].position) {
     sharkGroup[penShark].remove();
+    currentShark -= 1;
+    lastShark -= 1;
+    penShark -= 1;
+    if (finalShark) {
+      finalShark -= 1;
+    }
+  }
+  if (hero.position == sharkGroup[finalShark].position) {
+    sharkGroup[finalShark].remove();
+    currentShark -= 1;
+    lastShark -= 1;
+    penShark -= 1;
+    finalShark -= 1;
+    }
   }
 }
 
