@@ -231,7 +231,9 @@ function draw() {
       strokeWeight(1);
       textSize(50);
       strokeWeight(10);
-      text("Please turn screen to landscape and reload", (width / 2), (height / 2));
+      text("Please turn", (width / 2), (height / 2) + 10);
+      text("screen to landscape", (width / 2), (height / 2);
+      text("and reload", (width / 2), (height / 2) - 10);
       if ((!gameOver) && (!startGame) && (touchActive === 1)) {
         location.reload()
       }
