@@ -225,15 +225,15 @@ function draw() {
       textAlign(CENTER);
       textFont(gameFont);
       strokeWeight(1);
-      textSize((screen.width * 0.035 * 0.75));
+      textSize((screen.width * 0.04 * 0.75));
       strokeWeight(7);
       text("Infinite Swimmer", (width / 2), ((height / 2) - 25));
-      textSize((screen.width * 0.01 * 0.75));
+      textSize((screen.width * 0.02 * 0.75));
       strokeWeight(2);
       text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), ((height / 2) + 3));
       text("Press Esc to end", (width / 2), ((height / 2) + 22));
       text("Avoid the Sharks and collect Gems and Coins!", (width / 2), ((height / 2) + 41));
-      textSize((screen.width * 0.02 * 0.75));
+      textSize((screen.width * 0.03 * 0.75));
       strokeWeight(8);
       text("Press Enter or tap the screen to start!", (width / 2), ((height / 2) + 70));
       // Press Enter or tap to start game
