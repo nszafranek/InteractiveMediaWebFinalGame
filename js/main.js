@@ -205,15 +205,15 @@ function draw() {
     // Check if screen is mobile/landscape
     if ((screen.width <= 768) || (screen.width <= 768 && screen.orientation === "landscape")) {
       strokeWeight(1);
-      textSize(60);
+      textSize(45);
       strokeWeight(10);
       text("Infinite Swimmer", (width / 2), ((height / 2) - 40));
-      textSize(14);
+      textSize(10);
       strokeWeight(1);
       text("Use the Arrow Keys or swipe in one direction to move the hero!", (width / 2), ((height / 2) + 3));
       text("Press Esc to end", (width / 2), ((height / 2) + 22));
       text("Avoid the Sharks and collect Gems and Coins!", (width / 2), ((height / 2) + 41));
-      textSize(30);
+      textSize(20);
       strokeWeight(8);
       text("Press Enter or tap the screen to start!", (width / 2), ((height / 2) + 85));
       // Press Enter or tap to start game
