@@ -205,7 +205,7 @@ function draw() {
     // Check if screen is portrait
     if (screen.width <= 800 && screen.width < screen.height) {
       strokeWeight(1);
-      textSize(40);
+      textSize(20);
       strokeWeight(10);
       text("Please turn screen", (width / 2), (height / 2) - 15);
       text("to landscape", (width / 2), (height / 2));
