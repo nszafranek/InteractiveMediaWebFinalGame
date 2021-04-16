@@ -225,7 +225,7 @@ function draw() {
       textAlign(CENTER);
       textFont(gameFont);
       strokeWeight(1);
-      textSize(12);
+      textSize((screen.width * 0.2 *0.75));
       strokeWeight(7);
       text("Infinite Swimmer", (width / 2), ((height / 2) - 25));
       textSize(8);
