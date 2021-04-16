@@ -43,19 +43,19 @@ let hpBar3;
 let hpBar2;
 let hpBar1;
 let scoreElem;
-let currentShark;
+let currentShark = 0;
 let lastShark;
 let penShark;
 let finalShark;
-let currentGem;
+let currentGem = 0;
 let lastGem;
 let penGem;
 let finalGem;
-let currentCoin;
+let currentCoin = 0;
 let lastCoin;
 let penCoin;
 let finalCoin;
-let currentHeart;
+let currentHeart = 0;
 let lastHeart;
 let penHeart;
 let finalHeart;
@@ -964,45 +964,47 @@ function coinGet() {
       finalCoin -= 1;
     }
   }
-  if (hero.position === coinGroup[(currentCoin)].position) {
-    coinGroup[(currentCoin)].remove();
-    currentCoin -= 1;
-    if (lastCoin) {
+  if (currentCoin) {
+    if (hero.position === coinGroup[(currentCoin)].position) {
+      coinGroup[(currentCoin)].remove();
+      currentCoin -= 1;
+      if (lastCoin) {
+        lastCoin -= 1;
+      }
+      if (penCoin) {
+        penCoin -= 1;
+      }
+      if (finalCoin) {
+        finalCoin -= 1;
+      }
+    }
+    if (hero.position === coinGroup[(lastCoin)].position) {
+      coinGroup[lastCoin].remove();
+      currentCoin -= 1;
       lastCoin -= 1;
+      if (penCoin) {
+        penCoin -= 1;
+      }
+      if (finalCoin) {
+        finalCoin -= 1;
+      }
     }
-    if (penCoin) {
+    if (hero.position === coinGroup[(penCoin)].position) {
+      coinGroup[(penCoin)].remove();
+      currentCoin -= 1;
+      lastCoin -= 1;
       penCoin -= 1;
+      if (finalCoin) {
+        finalCoin -= 1;
+      }
     }
-    if (finalCoin) {
-      finalCoin -= 1;
-    }
-  }
-  if (hero.position === coinGroup[(lastCoin)].position) {
-    coinGroup[lastCoin].remove();
-    currentCoin -= 1;
-    lastCoin -= 1;
-    if (penCoin) {
+    if (hero.position === coinGroup[finalCoin].position) {
+      coinGroup[(finalCoin)].remove();
+      currentCoin -= 1;
+      lastCoin -= 1;
       penCoin -= 1;
-    }
-    if (finalCoin) {
       finalCoin -= 1;
     }
-  }
-  if (hero.position === coinGroup[(penCoin)].position) {
-    coinGroup[(penCoin)].remove();
-    currentCoin -= 1;
-    lastCoin -= 1;
-    penCoin -= 1;
-    if (finalCoin) {
-      finalCoin -= 1;
-    }
-  }
-  if (hero.position === coinGroup[finalCoin].position) {
-    coinGroup[(finalCoin)].remove();
-    currentCoin -= 1;
-    lastCoin -= 1;
-    penCoin -= 1;
-    finalCoin -= 1;
   }
 }
 
@@ -1035,45 +1037,47 @@ function lifeGain() {
       finalHeart -= 1;
     }
   }
-  if (hero.position === heartGroup[(currentHeart)].position) {
-  heartGroup[currentHeart].remove();
-  currentHeart -= 1;
-  if (lastHeart) {
-    lastHeart -= 1;
-  }
-  if (penHeart) {
-    penHeart -= 1;
-  }
-  if (finalHeart) {
-    finalHeart -= 1;
-  }
-  }
-  if (hero.position === heartGroup[(lastHeart)].position) {
-    heartGroup[lastHeart].remove();
+  if (currentHeart) {
+    if (hero.position === heartGroup[(currentHeart)].position) {
+    heartGroup[currentHeart].remove();
     currentHeart -= 1;
-    lastHeart -= 1;
+    if (lastHeart) {
+      lastHeart -= 1;
+    }
     if (penHeart) {
       penHeart -= 1;
     }
     if (finalHeart) {
       finalHeart -= 1;
     }
-  }
-  if (hero.position === heartGroup[(penHeart)].position) {
-    heartGroup[(penHeart)].remove();
-    currentHeart -= 1;
-    lastHeart -= 1;
-    penHeart -= 1;
-    if (finalHeart) {
+    }
+    if (hero.position === heartGroup[(lastHeart)].position) {
+      heartGroup[lastHeart].remove();
+      currentHeart -= 1;
+      lastHeart -= 1;
+      if (penHeart) {
+        penHeart -= 1;
+      }
+      if (finalHeart) {
+        finalHeart -= 1;
+      }
+    }
+    if (hero.position === heartGroup[(penHeart)].position) {
+      heartGroup[(penHeart)].remove();
+      currentHeart -= 1;
+      lastHeart -= 1;
+      penHeart -= 1;
+      if (finalHeart) {
+        finalHeart -= 1;
+      }
+    }
+    if (hero.position === heartGroup[(finalHeart)].position) {
+      heartGroup[(finalHeart)].remove();
+      currentHeart -= 1;
+      lastHeart -= 1;
+      penHeart -= 1;
       finalHeart -= 1;
     }
-  }
-  if (hero.position === heartGroup[(finalHeart)].position) {
-    heartGroup[(finalHeart)].remove();
-    currentHeart -= 1;
-    lastHeart -= 1;
-    penHeart -= 1;
-    finalHeart -= 1;
   }
 }
 
@@ -1116,45 +1120,47 @@ function hpLoss() {
       finalShark -= 1;
     }
   }
-  if (hero.position === sharkGroup[(currentShark)].position) {
-    sharkGroup[currentShark].remove();
-    currentShark -= 1;
-    if (lastShark) {
+  if (currentShark) {
+    if (hero.position === sharkGroup[(currentShark)].position) {
+      sharkGroup[currentShark].remove();
+      currentShark -= 1;
+      if (lastShark) {
+        lastShark -= 1;
+      }
+      if (penShark) {
+        penShark -= 1;
+      }
+      if (finalShark) {
+        finalShark -= 1;
+      }
+    }
+    if (hero.position === sharkGroup[(lastShark)].position) {
+      sharkGroup[lastShark].remove();
+      currentShark -= 1;
       lastShark -= 1;
+      if (penShark) {
+        penShark -= 1;
+      }
+      if (finalShark) {
+        finalShark -= 1;
+      }
     }
-    if (penShark) {
+    if (hero.position === sharkGroup[(penShark)].position) {
+      sharkGroup[penShark].remove();
+      currentShark -= 1;
+      lastShark -= 1;
       penShark -= 1;
+      if (finalShark) {
+        finalShark -= 1;
+      }
     }
-    if (finalShark) {
-      finalShark -= 1;
-    }
-  }
-  if (hero.position === sharkGroup[(lastShark)].position) {
-    sharkGroup[lastShark].remove();
-    currentShark -= 1;
-    lastShark -= 1;
-    if (penShark) {
+    if (hero.position === sharkGroup[(finalShark)].position) {
+      sharkGroup[finalShark].remove();
+      currentShark -= 1;
+      lastShark -= 1;
       penShark -= 1;
-    }
-    if (finalShark) {
       finalShark -= 1;
     }
-  }
-  if (hero.position === sharkGroup[(penShark)].position) {
-    sharkGroup[penShark].remove();
-    currentShark -= 1;
-    lastShark -= 1;
-    penShark -= 1;
-    if (finalShark) {
-      finalShark -= 1;
-    }
-  }
-  if (hero.position === sharkGroup[(finalShark)].position) {
-    sharkGroup[finalShark].remove();
-    currentShark -= 1;
-    lastShark -= 1;
-    penShark -= 1;
-    finalShark -= 1;
   }
 }
 
