@@ -227,7 +227,7 @@ function draw() {
       text("Avoid the Sharks and collect Gems and Coins!", (width / 2), ((height / 2) + 41));
       textSize(12);
       strokeWeight(8);
-      text("Press Enter or tap the screen to start!", (width / 2), ((height / 2) + 85));
+      text("Press Enter or tap the screen to start!", (width / 2), ((height / 2) + 70));
       // Press Enter or tap to start game
       if (keyWentDown(13)) {
         clear();
