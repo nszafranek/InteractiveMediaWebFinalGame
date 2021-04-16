@@ -699,17 +699,33 @@ function createNewShark() {
 }
 
 function removeOldShark() {
-    //despawn shark that has left the canvas
+    //  Despawn shark that has left the canvas
  for (let i = 0; i<sharkGroup; i++) {
    if ((sharkGroup[i].position.x) < 0) {
      sharkGroup[i].remove();
-     if ((i == currentShark) || (i == lastShark) || (i == penShark)) {
+     // If identified modify order
+     if ((i == currentShark) || (i == lastShark) || (i == penShark) || (i == finalShark)) {
        currentShark -= 1;
+      if (lastShark) {
        lastShark -= 1;
+      }
+      if (penShark) {
        penShark -= 1;
-     }
+      }
+        if (finalShark) {
+          finalShark -= 1;
+        }
+      }
      else {
-       finalShark = i;
+       if (!lastShark) {
+         lastShark = i;
+       }
+       else if ((lastShark) && (!penShark)) {
+         penShark = i;
+       }
+       else if ((lastShark) && (penShark) && (!finalShark)) {
+         finalShark = i;
+       }
      }
    }
  }
@@ -747,13 +763,28 @@ function removeOldGem() {
  for (let i = 0; i < gemGroup; i++) {
    if ((gemGroup[i].position.x) < 0) {
      gemGroup[i].remove();
-     if ((i == currentGem) || (i == lastGem) || (i == penGem)) {
-       currentGem -= 1;
-       lastGem -= 1;
-       penGem -= 1;
+     if ((i == currentGem) || (i == lastGem) || (i == penGem) || (i =finalGem)) {
+      currentGem -= 1;
+      if (lastGem) {
+        lastGem -= 1;
+      }
+      if (penGem) {
+        penGem -= 1;
+      }
+      if (finalGem) {
+        finalGem -= 1;
+      }
      }
      else  {
-       finalGem = i;
+       if (!lastGem) {
+         lastGem = i;
+       }
+       else if ((lastGem) && (!penGem)) {
+         penGem = i;
+       }
+       else if ((lastGem) && (penGem) && (!finalGem)) {
+         finalGem = i;
+       }
      }
    }
  }
@@ -829,10 +860,17 @@ function removeOldHeart() {
  for (let i = 0; i<heartGroup; i++) {
    if ((heartGroup[i].position.x) < 0) {
      heartGroup[i].remove();
-     if ((i == currentHeart) || (i == lastHeart) || (i == penHeart)) {
+     if ((i == currentHeart) || (i == lastHeart) || (i == penHeart) (i == finalHeart)) {
        currentHeart -= 1;
-       lastHeart -= 1;
-       penHeart -= 1;
+       if (lastHeart) {
+         lastHeart -= 1;
+       }
+       if (penHeart) {
+         penHeart -= 1;
+       }
+       if (finalHeart) {
+         finalHeart -= 1;
+       }
      }
      else {
        finalCoin = i;
