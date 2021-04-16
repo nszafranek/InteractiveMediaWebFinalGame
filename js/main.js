@@ -201,11 +201,14 @@ function draw() {
     stroke('DodgerBlue');
     textAlign(CENTER);
     textFont(gameFont);
-    if (screen.width <= 768 && screen.orientation == ("portrait-primary" || "portrait-secondary") {
+    if (screen.width <= 768 && screen.orientation == ("portrait-primary" || "portrait-secondary")) {
       strokeWeight(1);
       textSize(70);
       strokeWeight(10);
       text("Please turn screen to landscape and reload", (width / 2), (height / 2);
+      if ((!gameOver) && (!startGame) && (touchActive === 1)) {
+        location.reload()
+      }
     }
     if (screen.width <= 768 && screen.orientation == ("landscape-primary" || "landscape-secondary") {
       strokeWeight(1);
