@@ -210,7 +210,7 @@ function draw() {
         location.reload()
       }
     }
-    if (screen.width <= 768 && (screen.orientation === "landscape-primary" ||| -moz-screen.orientation === "landscape-primary") {
+    if (screen.width <= 768 && (screen.orientation === "landscape-primary" || -moz-screen.orientation === "landscape-primary") {
       strokeWeight(1);
       textSize(60);
       strokeWeight(10);
