@@ -201,7 +201,7 @@ function draw() {
     stroke('DodgerBlue');
     textAlign(CENTER);
     textFont(gameFont);
-    if (screen.width <= 768 && screen.orientation === "portrait-primary") {
+    if (screen.width <= 768 && (screen.orientation === "portrait-primary" || -moz-screen.orientation === "portrait-primary")) {
       strokeWeight(1);
       textSize(50);
       strokeWeight(10);
@@ -210,7 +210,7 @@ function draw() {
         location.reload()
       }
     }
-    if (screen.width <= 768 && screen.orientation === "landscape-primary") {
+    if (screen.width <= 768 && (screen.orientation === "landscape-primary" ||| -moz-screen.orientation === "landscape-primary") {
       strokeWeight(1);
       textSize(60);
       strokeWeight(10);
