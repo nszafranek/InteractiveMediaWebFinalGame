@@ -1117,7 +1117,6 @@ function hpLoss() {
     lastShark -= 1;
     penShark -= 1;
     finalShark -= 1;
-    }
   }
 }
 
