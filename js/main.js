@@ -85,13 +85,13 @@ What's broken
 
 function setup() {
   //if mobile
-  if (screen.width <= 800) {
-    cnv = createCanvas(screen.width - 200, screen.height - 200);
+  if (screen.width <= 768) {
+    cnv = createCanvas(screen.width * 0.6, screen.height * 0.45);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
   }
   //otherwise
-  if (screen.width > 800) {
+  if (screen.width > 768) {
     cnv = createCanvas(1000, 500);
     cnv.id('gameCanvas');
     cnv.parent('gameContainer');
@@ -201,9 +201,15 @@ function draw() {
     stroke('DodgerBlue');
     textAlign(CENTER);
     textFont(gameFont);
-    if (screen.width <= 800) {
+    if (screen.width <= 768 && screen.orientation == ("portrait-primary" || "portrait-secondary") {
       strokeWeight(1);
       textSize(70);
+      strokeWeight(10);
+      text("Please turn screen to landscape and reload", (width / 2), (height / 2);
+    }
+    if (screen.width <= 768 && screen.orientation == ("landscape-primary" || "landscape-secondary") {
+      strokeWeight(1);
+      textSize(60);
       strokeWeight(10);
       text("Infinite Swimmer", (width / 2), ((height / 2) - 40));
       textSize(14);
@@ -214,8 +220,17 @@ function draw() {
       textSize(30);
       strokeWeight(8);
       text("Press Enter or tap the screen to start!", (width / 2), ((height / 2) + 85));
+      // Press Enter or tap to start game
+      if (keyWentDown(13)) {
+        clear();
+        startGame = true;
+      }
+      if ((!gameOver) && (!startGame) && (touchActive === 1)) {
+        clear();
+        startGame = true;
+      }
     }
-    if (screen.width > 800) {
+    if (screen.width > 768) {
       strokeWeight(2);
       textSize(110);
       strokeWeight(10);
@@ -228,16 +243,17 @@ function draw() {
       textSize(30);
       strokeWeight(3);
       text("Press Enter or tap the screen to start!", width / 2, ((height / 2) + 125));
+      // Press Enter or tap to start game
+      if (keyWentDown(13)) {
+        clear();
+        startGame = true;
+      }
+      if ((!gameOver) && (!startGame) && (touchActive === 1)) {
+        clear();
+        startGame = true;
+      }
     }
-    // Press Enter or tap to start game
-    if (keyWentDown(13)) {
-      clear();
-      startGame = true;
-    }
-    if ((!gameOver) && (!startGame) && (touchActive === 1)) {
-      clear();
-      startGame = true;
-    }
+
   }
   // Game over
   if (gameOver) {
